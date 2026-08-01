@@ -1,7 +1,7 @@
 {
-  "android": {
-    "version": "0.1.0",
-    "url": "https://github.com/sericson0/inform-releases/releases/download/v0.1.0/InForm-0.1.0-arm64.apk",
-    "notes": "First beta."
-  }
+    "android":  {
+                    "version":  "0.2.0",
+                    "url":  "https://github.com/sericson0/inform-releases/releases/download/v0.2.0/InForm-0.2.0-arm64.apk",
+                    "notes":  "Smaller download and less space used on your phone: frame captures and side-by-side photos are now JPEG (about a tenth the size), voice notes are ~8x smaller, and the app itself is ~2MB lighter.\n\nSaving a clip cut from a camera recording now offers to delete the raw take, with its size named - nothing else pruned Recordings before, and the take is the biggest file the app makes.\n\nPlus startup cleanup of stale temporary files, and assorted fixes."
+                }
 }
