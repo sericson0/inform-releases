@@ -1,4 +1,9 @@
 {
+  "windows": {
+    "version": "0.2.0",
+    "url": "https://github.com/sericson0/inform-releases/releases",
+    "notes": "Update-button smoke test (windows)."
+  },
   "android": {
     "version": "0.2.0",
     "url": "https://github.com/sericson0/inform-releases/releases",
