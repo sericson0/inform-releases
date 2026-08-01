@@ -1,7 +1,7 @@
 {
   "android": {
-    "version": "0.1.0",
-    "url": "https://github.com/sericson0/inform-releases/releases/download/v0.1.0/InForm-0.1.0-arm64.apk",
-    "notes": "First beta."
+    "version": "0.2.0",
+    "url": "https://github.com/sericson0/inform-releases/releases",
+    "notes": "Update-button smoke test."
   }
 }
