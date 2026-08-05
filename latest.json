@@ -1,7 +1,7 @@
 {
-    "android":  {
-                    "version":  "0.3.0",
-                    "url":  "https://github.com/sericson0/inform-releases/releases/download/v0.3.0/InForm-0.3.0-arm64.apk",
-                    "notes":  "Filming yourself: the camera now opens on the lens you used last, so recording no longer starts by switching to the front camera every single time.\n\nSaving: clips and frame captures can go straight to your Photos library now, as well as into a project.\n\nLoop cues: hold either loop handle to play the loop from its start, and dragging a handle now moves the video with it, so you can see the exact frame you are setting.\n\nNotes: the notes panel is resizable - drag its edge to give a note more room, or hand the space back to the video.\n\nYouTube: a photo view that clears the screen so you can take your own still of a YouTube clip, or of a comparison against one.\n\nPlus a pass over the phone interface - steadier app-bar actions, a tidier tool palette and opening screen - and assorted fixes."
-                }
+    "android": {
+        "version": "0.3.1",
+        "url": "https://github.com/sericson0/inform-releases/releases/download/v0.3.1/InForm-0.3.1-arm64.apk",
+        "notes": "Updates now install inside the app instead of handing you off to a browser. When an install fails it names the cause - a different signing key, a build that is not newer, or a download that is not an APK - and still offers \"Download in browser\".\n\nGroundwork for the iPhone build."
+    }
 }
