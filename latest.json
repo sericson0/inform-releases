@@ -2,6 +2,6 @@
     "android":  {
                     "version":  "0.4.0",
                     "url":  "https://github.com/sericson0/inform-releases/releases/download/v0.4.0/InForm-0.4.0-arm64.apk",
-                    "notes":  "Measure and log an angle. With the angle tool\u0027s shape selected, the timing lane offers a fourth button that appends the measurement and its timecode to the clip\u0027s notes, so a session leaves a readable trail."
+                    "notes":  "Measure and log an angle. With the angle tool\u0027s shape selected, the timing lane offers a fourth button that appends the measurement and its timecode to the clip\u0027s notes, so a session leaves a readable trail.\n\nShare a clip straight out. The + menu\u0027s Share row sends the loop region with your drawings burned in to the phone\u0027s own share sheet, with no save dialog on the way.\n\nManage what the app is holding. The cold-open screen now shows what is on the device and offers Free Space to clear it out by age or by kind, plus an optional Auto-clean rule for raw videos. Auto-clean is off unless you turn it on, and every dialog says exactly what it will remove.\n\nThe landscape top bar works again. Its buttons sit at the very top of the frame, and taps on them land - the status bar used to sit over that strip and swallow them.\n\nSupport InForm. The app is donation-based, and there is now one place that says so and how.\n\nFinding a YouTube video is YouTube\u0027s job now: share a link from the YouTube app and InForm opens it."
                 }
 }
