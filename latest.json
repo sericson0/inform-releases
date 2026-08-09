@@ -1,7 +1,7 @@
 {
-    "android": {
-        "version": "0.3.1",
-        "url": "https://github.com/sericson0/inform-releases/releases/download/v0.3.1/InForm-0.3.1-arm64.apk",
-        "notes": "Updates now install inside the app instead of handing you off to a browser. When an install fails it names the cause - a different signing key, a build that is not newer, or a download that is not an APK - and still offers \"Download in browser\".\n\nGroundwork for the iPhone build."
-    }
+    "android":  {
+                    "version":  "0.4.0",
+                    "url":  "https://github.com/sericson0/inform-releases/releases/download/v0.4.0/InForm-0.4.0-arm64.apk",
+                    "notes":  "Measure and log an angle. With the angle tool\u0027s shape selected, the timing lane offers a fourth button that appends the measurement and its timecode to the clip\u0027s notes, so a session leaves a readable trail."
+                }
 }
