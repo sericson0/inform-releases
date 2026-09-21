@@ -106,6 +106,19 @@ started by something you do.</p>
       <a href="https://myaccount.google.com/">Google My Account</a>.</td>
     </tr>
     <tr>
+      <td><strong>You use body tracking</strong>
+      <br><em>(optional, and only if you agree to the download)</em></td>
+      <td>Body tracking needs a pose-detection model that is too large to ship
+      inside the app. The first time you use the feature InForm asks; only if
+      you agree does it fetch that file — about 9 MB — from Google's model
+      store at <code>storage.googleapis.com</code>. <strong>Nothing of yours is
+      sent</strong>: no video, no frames, no account, nothing about you — only
+      the request for the file, which necessarily includes your IP address, as
+      any web request does. The model then runs on your device, and tracking
+      needs no signal afterwards. Declining leaves the rest of the app exactly
+      as it was.</td>
+    </tr>
+    <tr>
       <td><strong>You tap a support or donation link</strong></td>
       <td>InForm opens your browser at that page — for example Stripe or Venmo.
       InForm sends nothing with you; anything you do there is between you and
@@ -138,8 +151,10 @@ started by something you do.</p>
     <tr><td>Camera</td><td>Filming a session in the app. Video is written to your device. InForm never streams or uploads camera footage.</td></tr>
     <tr><td>Microphone</td><td>Sound on videos you film, voice notes, and dictation. See the dictation row above — it is the only case where audio leaves the device.</td></tr>
     <tr><td>Internet</td><td>YouTube playback, opening support links, and the update check described above.</td></tr>
+    <tr><td>Record the screen</td><td>"Record feedback", which captures the screen and your voice into a video on your device. Your phone asks its own separate question every time a recording starts, and nothing is captured until you accept it. The result is a file on your device like any other; InForm does not upload it.</td></tr>
     <tr><td>Vibration</td><td>Small haptic taps when stepping a frame or setting a loop marker.</td></tr>
     <tr><td>Keep screen on</td><td>Stops the screen sleeping while a video is playing or while the camera is recording.</td></tr>
+    <tr><td>Install apps<br><em>(direct-download copies only)</em></td><td>Installing InForm's own update when you tap the Update button on the opening screen. Copies installed from Google Play or the App Store do not carry this permission — the store updates them.</td></tr>
   </tbody>
 </table>
 
