@@ -19,207 +19,18 @@
 <link rel="icon" href="img/icon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="img/icon-180.png">
 <meta name="theme-color" content="#030915">
-
-<style>
-  :root {
-    --bg:        #030915;
-    --bg-soft:   #0a1322;
-    --bg-card:   #0d1828;
-    --line:      #1c2b41;
-    --line-soft: #152238;
-    --text:      #e8eef5;
-    --muted:     #94a6bd;
-    --accent:    #00bce4;
-    --accent-lo: #0a2b38;
-    --radius:    14px;
-    color-scheme: dark;
-  }
-
-  * { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-  img { max-width: 100%; height: auto; display: block; }
-
-  .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
-
-  .skip {
-    position: absolute; left: -9999px; top: 0;
-    background: var(--accent); color: #00222c; padding: .6rem 1rem; z-index: 100;
-  }
-  .skip:focus { left: 0; }
-
-  /* ---------- header ---------- */
-  header {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(3, 9, 21, .88);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line-soft);
-  }
-  .bar { display: flex; align-items: center; gap: 1rem; height: 62px; }
-  .brand { display: flex; align-items: center; gap: .55rem; font-size: 1.15rem; }
-  .brand:hover { text-decoration: none; }
-  .brand img { width: 28px; height: 28px; }
-  .brand b { font-style: italic; font-weight: 800; letter-spacing: -.015em; color: var(--text); }
-  .brand b i { color: var(--accent); font-style: italic; }
-  .bar nav { margin-left: auto; display: flex; align-items: center; gap: 1.4rem; }
-  .bar nav a { color: var(--muted); font-size: .95rem; }
-  .bar nav a:hover { color: var(--text); text-decoration: none; }
-  .bar nav a.btn { color: #00222c; }
-  @media (max-width: 560px) { .bar nav .hide-xs { display: none; } }
-
-  /* ---------- buttons ---------- */
-  .btn {
-    display: inline-flex; align-items: center; gap: .6rem;
-    background: var(--accent); color: #00222c;
-    font-weight: 700; font-size: 1rem;
-    padding: .85rem 1.4rem; border-radius: 999px;
-    border: 1px solid var(--accent);
-    transition: transform .12s ease, box-shadow .12s ease;
-  }
-  .btn:hover {
-    text-decoration: none; transform: translateY(-1px);
-    box-shadow: 0 8px 26px rgba(0, 188, 228, .28);
-  }
-  .btn svg { flex: none; }
-  .btn-sm { padding: .5rem 1rem; font-size: .9rem; }
-  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
-  .btn-ghost:hover { border-color: var(--accent); box-shadow: none; }
-
-  /* ---------- hero ---------- */
-  .hero { padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(2rem, 5vw, 3.5rem); }
-  .hero-grid {
-    display: grid; gap: clamp(2rem, 5vw, 3.5rem);
-    grid-template-columns: 1fr; align-items: center;
-  }
-  @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.05fr .95fr; } }
-  .hero img.logo { width: 200px; margin-bottom: 1.6rem; }
-  h1 {
-    font-size: clamp(2.1rem, 5.6vw, 3.4rem);
-    line-height: 1.08; letter-spacing: -.025em;
-    margin: 0 0 1rem; font-weight: 800;
-  }
-  h1 em { font-style: normal; color: var(--accent); }
-  .lede { font-size: clamp(1.05rem, 2.1vw, 1.22rem); color: var(--muted); margin: 0 0 1.9rem; max-width: 34em; }
-  .cta { display: flex; flex-wrap: wrap; gap: .8rem; margin-bottom: 1.5rem; }
-  .trust {
-    display: flex; flex-wrap: wrap; gap: .5rem .9rem;
-    font-size: .92rem; color: var(--muted); margin: 0; padding: 0; list-style: none;
-  }
-  .trust li { display: flex; align-items: center; gap: .4rem; }
-  .trust svg { flex: none; color: var(--accent); }
-
-  /* ---------- phone frame ---------- */
-  .phone {
-    position: relative; margin: 0 auto; width: 100%; max-width: 300px;
-    border-radius: 26px; overflow: hidden;
-    border: 1px solid var(--line);
-    box-shadow: 0 24px 70px rgba(0,0,0,.6), 0 0 0 1px rgba(0,188,228,.09);
-    background: #000;
-  }
-  .phone img { width: 100%; }
-  .hero .phone { max-width: 320px; }
-  /* Feature shots sit beside a short paragraph, so they are kept smaller than
-     the hero's — a full-height phone leaves the text floating in whitespace. */
-  .feature .phone { max-width: 244px; }
-
-  /* ---------- sections ---------- */
-  section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
-  .band { background: var(--bg-soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
-  h2 {
-    font-size: clamp(1.6rem, 3.6vw, 2.25rem); line-height: 1.18;
-    letter-spacing: -.02em; margin: 0 0 .7rem; font-weight: 800;
-  }
-  .sec-lede { color: var(--muted); max-width: 44em; margin: 0 0 2.5rem; font-size: 1.05rem; }
-  .eyebrow {
-    text-transform: uppercase; letter-spacing: .14em; font-size: .76rem;
-    font-weight: 700; color: var(--accent); margin: 0 0 .7rem;
-  }
-
-  .feature {
-    display: grid; gap: clamp(1.8rem, 4vw, 3.5rem);
-    grid-template-columns: 1fr; align-items: center;
-    padding: clamp(2rem, 4vw, 3rem) 0;
-    border-top: 1px solid var(--line-soft);
-  }
-  .feature:first-of-type { border-top: 0; padding-top: 0; }
-  @media (min-width: 860px) {
-    .feature { grid-template-columns: 1fr 1fr; }
-    .feature.flip .feature-text { order: 2; }
-  }
-  .feature h3 { font-size: clamp(1.3rem, 2.6vw, 1.7rem); margin: 0 0 .6rem; letter-spacing: -.015em; }
-  .feature p { color: var(--muted); margin: 0 0 1rem; }
-  .feature p:last-child { margin-bottom: 0; }
-  .feature strong { color: var(--text); font-weight: 600; }
-
-  /* ---------- cards ---------- */
-  .cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-  @media (min-width: 640px) { .cards { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 960px) { .cards { grid-template-columns: repeat(3, 1fr); } }
-  .card {
-    background: var(--bg-card); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: 1.3rem 1.4rem;
-  }
-  .card h4 { margin: 0 0 .4rem; font-size: 1.02rem; letter-spacing: -.01em; }
-  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
-  .card .ic {
-    width: 34px; height: 34px; border-radius: 9px; margin-bottom: .85rem;
-    background: var(--accent-lo); color: var(--accent);
-    display: grid; place-items: center;
-  }
-
-  /* ---------- plain lists ---------- */
-  .plain { list-style: none; padding: 0; margin: 0; display: grid; gap: .85rem; }
-  .plain li { display: flex; gap: .75rem; align-items: flex-start; color: var(--muted); }
-  .plain svg { flex: none; margin-top: .35rem; color: var(--muted); }
-  .plain b { color: var(--text); font-weight: 600; }
-
-  .two { display: grid; gap: clamp(2rem, 5vw, 3.5rem); grid-template-columns: 1fr; }
-  @media (min-width: 860px) { .two { grid-template-columns: 1fr 1fr; } }
-
-  /* ---------- price ---------- */
-  .price-card {
-    background: var(--bg-card); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: clamp(1.6rem, 4vw, 2.4rem);
-  }
-  .price-card .big { font-size: 2.1rem; font-weight: 800; letter-spacing: -.02em; margin: 0 0 .3rem; }
-  .price-card .big span { color: var(--accent); }
-  .price-copy { color: var(--muted); font-size: 1.05rem; }
-
-  /* ---------- final ---------- */
-  .final { text-align: center; }
-  .final h2 { margin-bottom: 1rem; }
-  .final .sec-lede { margin-left: auto; margin-right: auto; }
-  .final .cta { justify-content: center; }
-  .req { color: var(--muted); font-size: .9rem; margin-top: 1.4rem; }
-
-  /* ---------- footer ---------- */
-  footer {
-    border-top: 1px solid var(--line-soft); padding: 2.5rem 0 3.5rem;
-    color: var(--muted); font-size: .93rem;
-  }
-  .foot { display: flex; flex-wrap: wrap; gap: 1rem 1.6rem; align-items: center; }
-  .foot nav { display: flex; flex-wrap: wrap; gap: 1rem 1.4rem; margin-left: auto; }
-  .foot a { color: var(--muted); }
-  .foot a:hover { color: var(--accent); }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-check" viewBox="0 0 16 16"><path d="M6.2 11.6 2.8 8.2l1.1-1.1 2.3 2.3 5.9-5.9 1.1 1.1z"/></symbol>
+  <symbol id="i-dash" viewBox="0 0 16 16"><path d="M3.5 7.2h9v1.6h-9z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 18 20"><path d="M1 1.3v17.4c0 .5.5.8.9.6l14.4-8.7c.4-.3.4-.9 0-1.2L1.9.7C1.5.5 1 .8 1 1.3z"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24"><path d="M16.1 12.6c0-2.6 2.1-3.9 2.2-4-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.5 1.3-.05 1.8-.8 3.3-.8 1.5 0 2 .8 3.3.8 1.4 0 2.2-1.2 3.1-2.5.7-1 1-1.9 1.2-2.4-2.5-1-2.5-3.9-2.5-4.3zM13.7 4.9c.7-.9 1.2-2.1 1.1-3.3-1 0-2.3.7-3.1 1.6-.7.8-1.2 2-1.1 3.2 1.2.1 2.4-.6 3.1-1.5z"/></symbol>
+</svg>
 
 <header>
   <div class="wrap bar">
@@ -231,7 +42,7 @@
       <a class="hide-xs" href="#features">Features</a>
       <a class="hide-xs" href="#price">Price</a>
       <a href="support.html">Support</a>
-      <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=dev.sericson.inform&amp;utm_source=informmotion.net&amp;utm_medium=site&amp;utm_campaign=header">Get it free</a>
+      <a class="btn btn-sm" href="#get">Get it free</a>
     </nav>
   </div>
 </header>
@@ -249,18 +60,21 @@
           and put today's attempt beside the one from six weeks ago. Video analysis
           for dancers, lifters, coaches and anyone who moves on purpose.
         </p>
-        <div class="cta">
-          <a class="btn" href="https://play.google.com/store/apps/details?id=dev.sericson.inform&amp;utm_source=informmotion.net&amp;utm_medium=site&amp;utm_campaign=hero">
-            <svg width="18" height="20" viewBox="0 0 18 20" fill="currentColor" aria-hidden="true"><path d="M1 1.3v17.4c0 .5.5.8.9.6l14.4-8.7c.4-.3.4-.9 0-1.2L1.9.7C1.5.5 1 .8 1 1.3z"/></svg>
-            Get it free on Google Play
+        <div class="cta stores">
+          <a class="btn btn-store" href="https://play.google.com/store/apps/details?id=dev.sericson.inform&amp;utm_source=informmotion.net&amp;utm_medium=site&amp;utm_campaign=hero">
+            <svg width="18" height="20" aria-hidden="true"><use href="#i-play"/></svg>
+            <span><small>Get it free on</small>Google Play</span>
           </a>
-          <a class="btn btn-ghost" href="#features">See how it works</a>
+          <a class="btn btn-store" href="https://apps.apple.com/app/id6797707923?ct=site-hero">
+            <svg width="20" height="20" aria-hidden="true"><use href="#i-apple"/></svg>
+            <span><small>Get it free on the</small>App Store</span>
+          </a>
         </div>
         <ul class="trust">
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 11.6 2.8 8.2l1.1-1.1 2.3 2.3 5.9-5.9 1.1 1.1z"/></svg> No ads</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 11.6 2.8 8.2l1.1-1.1 2.3 2.3 5.9-5.9 1.1 1.1z"/></svg> No account</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 11.6 2.8 8.2l1.1-1.1 2.3 2.3 5.9-5.9 1.1 1.1z"/></svg> Nothing leaves your phone</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 11.6 2.8 8.2l1.1-1.1 2.3 2.3 5.9-5.9 1.1 1.1z"/></svg> Nothing locked away</li>
+          <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg> No ads</li>
+          <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg> No account</li>
+          <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg> Nothing leaves your phone</li>
+          <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg> Nothing locked away</li>
         </ul>
       </div>
       <div class="phone">
@@ -344,7 +158,7 @@
     <div class="wrap">
       <p class="eyebrow">And</p>
       <h2>The rest of it</h2>
-      <p class="sec-lede">Everything below is in the same free app. There is no second tier.</p>
+      <p class="sec-lede">All of it is in the same free app, and what is still coming will arrive the same way. There is no second tier.</p>
 
       <div class="cards">
         <div class="card">
@@ -354,8 +168,8 @@
         </div>
         <div class="card">
           <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h7v7H4zm9 0h7v7h-7zM4 13h7v7H4zm9 0h7v7h-7z"/></svg></div>
-          <h4>Motion tracking</h4>
-          <p>Follow a hand, a barbell or a whole skeleton across the clip, with a trail behind it and live angles at the joints.</p>
+          <h4>Motion tracking <span class="soon">Coming soon</span></h4>
+          <p>Follow a hand, a barbell or a whole skeleton across the clip, with a trail behind it and live angles at the joints. In testing now, and free like the rest when it lands.</p>
         </div>
         <div class="card">
           <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h5l2 2h9a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/></svg></div>
@@ -387,28 +201,28 @@
       <div>
         <p class="eyebrow">Your videos</p>
         <h2>Nothing leaves your phone</h2>
-        <p class="sec-lede" style="margin-bottom:1.6rem">
+        <p class="sec-lede tight">
           InForm has no server. There is nothing to sign into, nothing is uploaded and
           no analytics are collected. Your practice videos stay yours — which matters
           rather a lot if you teach, and more again if you teach children.
         </p>
         <ul class="plain">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 11.6 2.8 8.2l1.1-1.1 2.3 2.3 5.9-5.9 1.1 1.1z"/></svg><span><b>No account, ever.</b> Open the app and it works.</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 11.6 2.8 8.2l1.1-1.1 2.3 2.3 5.9-5.9 1.1 1.1z"/></svg><span><b>Works with no signal.</b> Everything runs on the device, the motion tracking included.</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 11.6 2.8 8.2l1.1-1.1 2.3 2.3 5.9-5.9 1.1 1.1z"/></svg><span><b>You choose what goes out.</b> Sharing uses your phone&rsquo;s own share sheet, when you ask it to.</span></li>
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span><b>No account, ever.</b> Open the app and it works.</span></li>
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span><b>Works with no signal.</b> Everything runs on the device.</span></li>
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span><b>You choose what goes out.</b> Sharing uses your phone&rsquo;s own share sheet, when you ask it to.</span></li>
         </ul>
       </div>
       <div>
         <p class="eyebrow">Being straight with you</p>
         <h2>What it doesn&rsquo;t do</h2>
-        <p class="sec-lede" style="margin-bottom:1.6rem">
+        <p class="sec-lede tight">
           Worth knowing before you install it rather than after.
         </p>
         <ul class="plain">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.5 7.2h9v1.6h-9z"/></svg><span><b>No cloud library or team accounts.</b> It is a tool on your phone, not a platform.</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.5 7.2h9v1.6h-9z"/></svg><span><b>Android and Windows today.</b> An iPhone version is being built — <a href="mailto:tangotoolkit@gmail.com?subject=Tell%20me%20when%20the%20iPhone%20version%20is%20ready">say the word</a> and I will tell you when it lands.</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.5 7.2h9v1.6h-9z"/></svg><span><b>It will not tell you what is wrong.</b> It shows the movement clearly. The judgement stays yours, or your teacher&rsquo;s.</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.5 7.2h9v1.6h-9z"/></svg><span><b>Uninstalling deletes your work.</b> Android takes the whole folder with it, so back a project up first.</span></li>
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-dash"/></svg><span><b>No cloud library or team accounts.</b> It is a tool on your phone, not a platform.</span></li>
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-dash"/></svg><span><b>Built for phones.</b> Android and iPhone. There is no tablet layout yet, and nothing runs in a browser.</span></li>
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-dash"/></svg><span><b>It will not tell you what is wrong.</b> It shows the movement clearly. The judgement stays yours, or your teacher&rsquo;s.</span></li>
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-dash"/></svg><span><b>Uninstalling deletes your work.</b> Your phone takes the whole folder with it, so back a project up first.</span></li>
         </ul>
       </div>
     </div>
@@ -421,9 +235,9 @@
         <p class="eyebrow">What it costs</p>
         <h2>Nothing. Really.</h2>
         <p class="price-copy">
-          InForm is donation-based. Every feature on this page is in the free app —
-          there is no pro tier, no trial that runs out, no watermark on your export and
-          no advert anywhere in it.
+          InForm is donation-based. Every feature on this page is free, and the ones
+          still being built will be too — there is no pro tier, no trial that runs out,
+          no watermark on your export and no advert anywhere in it.
         </p>
         <p class="price-copy">
           It is built by one person who needed it for his own dancing. If it turns out
@@ -433,33 +247,36 @@
       </div>
       <div class="price-card">
         <p class="big"><span>Free</span>, donation-based</p>
-        <ul class="plain" style="margin-top:1.4rem">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 11.6 2.8 8.2l1.1-1.1 2.3 2.3 5.9-5.9 1.1 1.1z"/></svg><span>Every feature, every user</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 11.6 2.8 8.2l1.1-1.1 2.3 2.3 5.9-5.9 1.1 1.1z"/></svg><span>No subscription, no trial clock</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 11.6 2.8 8.2l1.1-1.1 2.3 2.3 5.9-5.9 1.1 1.1z"/></svg><span>No ads, no tracking, no watermark</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.2 11.6 2.8 8.2l1.1-1.1 2.3 2.3 5.9-5.9 1.1 1.1z"/></svg><span>Updates are free too</span></li>
+        <ul class="plain">
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span>Every feature, every user</span></li>
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span>No subscription, no trial clock</span></li>
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span>No ads, no tracking, no watermark</span></li>
+          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span>Updates are free too</span></li>
         </ul>
       </div>
     </div>
   </section>
 
   <!-- ===================== FINAL ===================== -->
-  <section class="final">
+  <section class="final" id="get">
     <div class="wrap">
       <h2>Go and look at your last run-through.</h2>
       <p class="sec-lede">
         It is already in your camera roll. This takes a minute to install, and you will
         see something in the first thirty seconds.
       </p>
-      <div class="cta">
-        <a class="btn" href="https://play.google.com/store/apps/details?id=dev.sericson.inform&amp;utm_source=informmotion.net&amp;utm_medium=site&amp;utm_campaign=footer">
-          <svg width="18" height="20" viewBox="0 0 18 20" fill="currentColor" aria-hidden="true"><path d="M1 1.3v17.4c0 .5.5.8.9.6l14.4-8.7c.4-.3.4-.9 0-1.2L1.9.7C1.5.5 1 .8 1 1.3z"/></svg>
-          Get it free on Google Play
+      <div class="cta stores">
+        <a class="btn btn-store" href="https://play.google.com/store/apps/details?id=dev.sericson.inform&amp;utm_source=informmotion.net&amp;utm_medium=site&amp;utm_campaign=footer">
+          <svg width="18" height="20" aria-hidden="true"><use href="#i-play"/></svg>
+          <span><small>Get it free on</small>Google Play</span>
+        </a>
+        <a class="btn btn-store" href="https://apps.apple.com/app/id6797707923?ct=site-footer">
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-apple"/></svg>
+          <span><small>Get it free on the</small>App Store</span>
         </a>
       </div>
       <p class="req">
-        Android 7.0 or newer. A Windows desktop build is available
-        <a href="https://github.com/sericson0/inform-releases/releases/latest">from the releases page</a>.
+        Android 7.0 or newer &middot; iPhone on iOS 15 or newer.
       </p>
     </div>
   </section>
@@ -472,7 +289,6 @@
     <nav>
       <a href="support.html">Support &amp; FAQ</a>
       <a href="privacy.html">Privacy</a>
-      <a href="https://github.com/sericson0/inform-releases/releases/latest">Releases</a>
       <a href="mailto:tangotoolkit@gmail.com">tangotoolkit@gmail.com</a>
     </nav>
   </div>
@@ -481,13 +297,16 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
+  "@type": "MobileApplication",
   "name": "InForm Motion Analysis",
-  "operatingSystem": "Android 7.0+, Windows",
+  "operatingSystem": "Android 7.0+, iOS 15.0+",
   "applicationCategory": "SportsApplication",
   "url": "https://informmotion.net/",
-  "downloadUrl": "https://play.google.com/store/apps/details?id=dev.sericson.inform",
-  "description": "Frame-by-frame video analysis for dance and sport. Slow motion, drawing and angle tools, side-by-side comparison, motion tracking and voice notes. Works entirely offline.",
+  "downloadUrl": [
+    "https://play.google.com/store/apps/details?id=dev.sericson.inform",
+    "https://apps.apple.com/app/id6797707923"
+  ],
+  "description": "Frame-by-frame video analysis for dance and sport. Slow motion, drawing and angle tools, side-by-side comparison and voice notes. Works entirely offline.",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
 }
 </script>

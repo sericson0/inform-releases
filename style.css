@@ -1,0 +1,269 @@
+/* InForm — informmotion.net
+   One stylesheet for all pages. The landing page and the two document pages
+   (support, privacy) used to carry two different designs in two inline
+   <style> blocks, so the pages linked from inside the app looked like a
+   different product from the page that sells it. They share this one now.
+
+   Sections: tokens · base · chrome · buttons · landing · documents */
+
+/* ---------- tokens ---------- */
+:root {
+  --bg:        #030915;
+  --bg-soft:   #0a1322;
+  --bg-card:   #0d1828;
+  --line:      #1c2b41;
+  --line-soft: #152238;
+  --text:      #e8eef5;
+  --muted:     #94a6bd;
+  --accent:    #00bce4;
+  --accent-lo: #0a2b38;
+  --radius:    14px;
+  color-scheme: dark;
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* Every icon takes the colour of the text around it. Said here because a
+   <use> of a sprite symbol has no fill attribute of its own to inherit from,
+   and an unfilled icon on this background is a black mark nobody can see. */
+svg { fill: currentColor; }
+
+.wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* The icon sprite each page inlines once and draws with <use>. Not an
+   external file: Chrome and Safari still refuse a cross-file <use href>. */
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--accent); color: #00222c; padding: .6rem 1rem; z-index: 100;
+}
+.skip:focus { left: 0; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- chrome: the same header and footer on every page ---------- */
+header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(3, 9, 21, .88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line-soft);
+}
+.bar { display: flex; align-items: center; gap: 1rem; height: 62px; }
+.brand { display: flex; align-items: center; gap: .55rem; font-size: 1.15rem; }
+.brand:hover { text-decoration: none; }
+.brand img { width: 28px; height: 28px; }
+.brand b { font-style: italic; font-weight: 800; letter-spacing: -.015em; color: var(--text); }
+.brand b i { color: var(--accent); font-style: italic; }
+.bar nav { margin-left: auto; display: flex; align-items: center; gap: 1.4rem; }
+.bar nav a { color: var(--muted); font-size: .95rem; }
+.bar nav a:hover { color: var(--text); text-decoration: none; }
+.bar nav a.btn { color: #00222c; }
+@media (max-width: 560px) { .bar nav .hide-xs { display: none; } }
+
+footer {
+  border-top: 1px solid var(--line-soft); padding: 2.5rem 0 3.5rem;
+  color: var(--muted); font-size: .93rem;
+}
+.foot { display: flex; flex-wrap: wrap; gap: 1rem 1.6rem; align-items: center; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 1rem 1.4rem; margin-left: auto; }
+.foot a { color: var(--muted); }
+.foot a:hover { color: var(--accent); }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: var(--accent); color: #00222c;
+  font-weight: 700; font-size: 1rem;
+  padding: .85rem 1.4rem; border-radius: 999px;
+  border: 1px solid var(--accent);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover {
+  text-decoration: none; transform: translateY(-1px);
+  box-shadow: 0 8px 26px rgba(0, 188, 228, .28);
+}
+@media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
+.btn svg { flex: none; }
+.btn-sm { padding: .5rem 1rem; font-size: .9rem; }
+.btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+.btn-ghost:hover { border-color: var(--accent); box-shadow: none; }
+
+/* The two stores are one action on two phones, so they carry the same weight
+   — neither of them is the "other" one. */
+.stores { display: flex; flex-wrap: wrap; gap: .8rem; }
+.btn-store { padding: .7rem 1.3rem; }
+.btn-store span { display: flex; flex-direction: column; line-height: 1.2; text-align: left; }
+.btn-store small { font-size: .72rem; font-weight: 600; opacity: .7; }
+
+/* ---------- landing: hero ---------- */
+.hero { padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(2rem, 5vw, 3.5rem); }
+.hero-grid {
+  display: grid; gap: clamp(2rem, 5vw, 3.5rem);
+  grid-template-columns: 1fr; align-items: center;
+}
+@media (min-width: 900px) { .hero-grid { grid-template-columns: 1.05fr .95fr; } }
+.hero img.logo { width: 200px; margin-bottom: 1.6rem; }
+h1 {
+  font-size: clamp(2.1rem, 5.6vw, 3.4rem);
+  line-height: 1.08; letter-spacing: -.025em;
+  margin: 0 0 1rem; font-weight: 800;
+}
+h1 em { font-style: normal; color: var(--accent); }
+.lede { font-size: clamp(1.05rem, 2.1vw, 1.22rem); color: var(--muted); margin: 0 0 1.9rem; max-width: 34em; }
+.cta { display: flex; flex-wrap: wrap; gap: .8rem; margin-bottom: 1.5rem; }
+.trust {
+  display: flex; flex-wrap: wrap; gap: .5rem .9rem;
+  font-size: .92rem; color: var(--muted); margin: 0; padding: 0; list-style: none;
+}
+.trust li { display: flex; align-items: center; gap: .4rem; }
+.trust svg { flex: none; color: var(--accent); }
+
+/* ---------- landing: phone frame ---------- */
+.phone {
+  position: relative; margin: 0 auto; width: 100%; max-width: 300px;
+  border-radius: 26px; overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 70px rgba(0,0,0,.6), 0 0 0 1px rgba(0,188,228,.09);
+  background: #000;
+}
+.phone img { width: 100%; }
+.hero .phone { max-width: 320px; }
+/* Feature shots sit beside a short paragraph, so they are kept smaller than
+   the hero's — a full-height phone leaves the text floating in whitespace. */
+.feature .phone { max-width: 244px; }
+
+/* ---------- landing: sections ---------- */
+section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+.band { background: var(--bg-soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+h2 {
+  font-size: clamp(1.6rem, 3.6vw, 2.25rem); line-height: 1.18;
+  letter-spacing: -.02em; margin: 0 0 .7rem; font-weight: 800;
+}
+.sec-lede { color: var(--muted); max-width: 44em; margin: 0 0 2.5rem; font-size: 1.05rem; }
+.sec-lede.tight { margin-bottom: 1.6rem; }
+.eyebrow {
+  text-transform: uppercase; letter-spacing: .14em; font-size: .76rem;
+  font-weight: 700; color: var(--accent); margin: 0 0 .7rem;
+}
+
+.feature {
+  display: grid; gap: clamp(1.8rem, 4vw, 3.5rem);
+  grid-template-columns: 1fr; align-items: center;
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  border-top: 1px solid var(--line-soft);
+}
+.feature:first-of-type { border-top: 0; padding-top: 0; }
+@media (min-width: 860px) {
+  .feature { grid-template-columns: 1fr 1fr; }
+  .feature.flip .feature-text { order: 2; }
+}
+.feature h3 { font-size: clamp(1.3rem, 2.6vw, 1.7rem); margin: 0 0 .6rem; letter-spacing: -.015em; }
+.feature p { color: var(--muted); margin: 0 0 1rem; }
+.feature p:last-child { margin-bottom: 0; }
+.feature strong { color: var(--text); font-weight: 600; }
+
+/* ---------- landing: cards ---------- */
+.cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+.card {
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.3rem 1.4rem;
+}
+.card h4 { margin: 0 0 .4rem; font-size: 1.02rem; letter-spacing: -.01em; }
+.card p { margin: 0; color: var(--muted); font-size: .95rem; }
+.card .ic {
+  width: 34px; height: 34px; border-radius: 9px; margin-bottom: .85rem;
+  background: var(--accent-lo); color: var(--accent);
+  display: grid; place-items: center;
+}
+/* Said on the card itself: a feature grid is read as "what I get if I install
+   this today", so anything not in the stores yet has to say so there. */
+.soon {
+  display: inline-block; margin-left: .45rem; vertical-align: 2px;
+  background: var(--accent-lo); color: var(--accent);
+  border-radius: 999px; padding: .08rem .48rem;
+  font-size: .66rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+}
+
+/* ---------- landing: plain lists, two-up, price, final ---------- */
+.plain { list-style: none; padding: 0; margin: 0; display: grid; gap: .85rem; }
+.plain li { display: flex; gap: .75rem; align-items: flex-start; color: var(--muted); }
+.plain svg { flex: none; margin-top: .35rem; color: var(--muted); }
+.plain b { color: var(--text); font-weight: 600; }
+
+.two { display: grid; gap: clamp(2rem, 5vw, 3.5rem); grid-template-columns: 1fr; }
+@media (min-width: 860px) { .two { grid-template-columns: 1fr 1fr; } }
+
+.price-card {
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: clamp(1.6rem, 4vw, 2.4rem);
+}
+.price-card .big { font-size: 2.1rem; font-weight: 800; letter-spacing: -.02em; margin: 0 0 .3rem; }
+.price-card .big span { color: var(--accent); }
+.price-card .plain { margin-top: 1.4rem; }
+.price-copy { color: var(--muted); font-size: 1.05rem; }
+
+.final { text-align: center; }
+.final h2 { margin-bottom: 1rem; }
+.final .sec-lede { margin-left: auto; margin-right: auto; }
+.final .stores { justify-content: center; }
+.req { color: var(--muted); font-size: .9rem; margin-top: 1.4rem; }
+
+/* ---------- documents: support, privacy, 404 ---------- */
+.doc { max-width: 44rem; margin: 0 auto; padding: 2.5rem 0 4rem; font-size: 16px; }
+.doc h1 { font-size: clamp(1.8rem, 4vw, 2.2rem); margin: 0 0 .25rem; }
+.doc h2 {
+  font-size: 1.2rem; font-weight: 700; margin: 2.4rem 0 .5rem;
+  padding-top: 1.4rem; border-top: 1px solid var(--line-soft);
+}
+.doc h2:first-of-type { border-top: 0; padding-top: 0; }
+.doc h3 { font-size: 1.02rem; margin: 1.8rem 0 .3rem; color: var(--text); }
+.doc p, .doc ul { color: var(--muted); }
+.doc strong { color: var(--text); font-weight: 600; }
+.doc .sub { opacity: .8; margin-top: 0; font-size: .92rem; }
+.doc ul { padding-left: 1.25rem; }
+.doc li { margin: .35rem 0; }
+.doc table {
+  border-collapse: collapse; width: 100%; margin: 1rem 0;
+  display: block; overflow-x: auto;
+}
+.doc th, .doc td {
+  border: 1px solid var(--line); padding: .55rem .7rem;
+  text-align: left; vertical-align: top; font-size: .95rem; color: var(--muted);
+}
+.doc thead th { background: var(--bg-soft); color: var(--text); }
+.doc code {
+  background: var(--bg-card); border: 1px solid var(--line-soft);
+  padding: .1rem .35rem; border-radius: 4px; font-size: .88em; color: var(--text);
+  overflow-wrap: anywhere;
+}
+.doc .card { margin: 1.4rem 0; }
+.doc .card p:first-child { margin-top: 0; }
+.doc .card p:last-child { margin-bottom: 0; }
+.doc .card strong { color: var(--text); }
+
+/* ---------- 404 ---------- */
+.lost { text-align: center; padding: clamp(3rem, 10vw, 6rem) 0 clamp(4rem, 12vw, 7rem); }
+.lost h1 { margin-bottom: .6rem; }
+.lost p { color: var(--muted); max-width: 32em; margin: 0 auto; }
+.lost .cta { justify-content: center; margin-top: 2rem; }

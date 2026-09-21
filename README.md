@@ -5,6 +5,7 @@ analysis app for dance and sport.
 
 **Website: [informmotion.net](https://informmotion.net)** ·
 **[Get it on Google Play](https://play.google.com/store/apps/details?id=dev.sericson.inform)** ·
+**[Get it on the App Store](https://apps.apple.com/app/id6797707923)** ·
 [Support](https://informmotion.net/support.html) ·
 [Privacy](https://informmotion.net/privacy.html)
 
@@ -13,8 +14,9 @@ updates, and so there is a stable place to download from.
 
 ## Install
 
-Most people should install from **[Google Play](https://play.google.com/store/apps/details?id=dev.sericson.inform)** —
-it updates itself and needs nothing explained.
+Most people should install from a store — **[Google Play](https://play.google.com/store/apps/details?id=dev.sericson.inform)**
+on Android, **[the App Store](https://apps.apple.com/app/id6797707923)** on an
+iPhone. A store build updates itself and needs nothing explained.
 
 The APKs under [Releases](../../releases/latest) are the direct-download
 channel, for a phone without Play services or for testers on a build that has
@@ -25,7 +27,8 @@ asks — that prompt is expected for any app installed outside a store.
 Needs Android 7.0 or newer. Use `-arm32.apk` only if a phone refuses the arm64
 build (very old devices).
 
-A Windows desktop build is attached to releases where one was made.
+The direct-download channel is Android only. There is no iPhone equivalent —
+iOS installs come from the App Store — and no Windows build is published here.
 
 ## Updating
 
@@ -51,6 +54,9 @@ which zips the whole thing to wherever you want to send it.
 | | |
 |---|---|
 | `index.html` | informmotion.net — the app's website |
+| `style.css` | The one stylesheet every page uses. Change a colour here, not in a page |
+| `404.html` | Shown for a bad link, in the site's own dress rather than GitHub's |
+| `robots.txt`, `sitemap.xml` | For search engines. The sitemap lists the three real pages |
 | `support.html` | Support and FAQ, linked from inside the app |
 | `privacy.html` | Privacy policy, linked from inside the app and from the Play listing |
 | `latest.json` | What the app reads to decide whether a newer build exists. Updated by `tool/release_android.ps1` after each release's assets are uploaded. |
