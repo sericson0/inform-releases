@@ -7,6 +7,7 @@ analysis app for dance and sport.
 **[Get it on Google Play](https://play.google.com/store/apps/details?id=dev.sericson.inform)** ·
 **[Get it on the App Store](https://apps.apple.com/app/id6797707923)** ·
 [Support](https://informmotion.net/support.html) ·
+[Feedback](https://informmotion.net/feedback.html) ·
 [Privacy](https://informmotion.net/privacy.html)
 
 This repository holds no source code. It exists so the app can check for
@@ -56,8 +57,9 @@ which zips the whole thing to wherever you want to send it.
 | `index.html` | informmotion.net — the app's website |
 | `style.css` | The one stylesheet every page uses. Change a colour here, not in a page |
 | `404.html` | Shown for a bad link, in the site's own dress rather than GitHub's |
-| `robots.txt`, `sitemap.xml` | For search engines. The sitemap lists the three real pages |
+| `robots.txt`, `sitemap.xml` | For search engines. The sitemap lists the four real pages |
 | `support.html` | Support and FAQ, linked from inside the app |
+| `feedback.html` | Contact and feedback page, linked from the app and website |
 | `privacy.html` | Privacy policy, linked from inside the app and from the Play listing |
 | `latest.json` | What the app reads to decide whether a newer build exists. Updated by `tool/release_android.ps1` after each release's assets are uploaded. |
 | `img/` | Images for the website |
