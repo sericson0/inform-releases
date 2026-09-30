@@ -1,4 +1,4 @@
-/* InForm — informmotion.net
+/* InForm — informmotion.com
    One stylesheet for all pages. The landing page and the two document pages
    (support, privacy) used to carry two different designs in two inline
    <style> blocks, so the pages linked from inside the app looked like a
@@ -40,6 +40,7 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 img { max-width: 100%; height: auto; display: block; }
+button { font: inherit; }
 
 /* Every icon takes the colour of the text around it. Said here because a
    <use> of a sprite symbol has no fill attribute of its own to inherit from,
@@ -180,6 +181,79 @@ h2 {
 .feature p { color: var(--muted); margin: 0 0 1rem; }
 .feature p:last-child { margin-bottom: 0; }
 .feature strong { color: var(--text); font-weight: 600; }
+
+/* Keep the developer's note at a comfortable reading width. */
+.story .wrap { max-width: 760px; }
+.story .sec-lede { margin-bottom: 0; }
+
+/* ---------- landing: video demos ---------- */
+.demo-grid {
+  display: grid; gap: 1rem; grid-template-columns: 1fr;
+}
+@media (min-width: 700px) { .demo-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1020px) { .demo-grid { grid-template-columns: repeat(3, 1fr); } }
+.demo-card {
+  overflow: hidden; background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.demo-preview {
+  position: relative; display: block; width: 100%; padding: 0; border: 0;
+  aspect-ratio: 16 / 9; overflow: hidden; cursor: pointer;
+  color: var(--text); background: #000;
+}
+.demo-preview img { width: 100%; height: 100%; object-fit: cover; }
+.demo-preview::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, .7));
+}
+.demo-play {
+  position: absolute; z-index: 1; inset: 50% auto auto 50%;
+  display: grid; place-items: center; width: 58px; height: 58px;
+  border-radius: 50%; color: #00222c; background: var(--accent);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.demo-preview:hover .demo-play {
+  transform: translate(-50%, -50%) scale(1.06);
+  box-shadow: 0 10px 34px rgba(0, 188, 228, .35);
+}
+.demo-duration {
+  position: absolute; z-index: 1; right: .7rem; bottom: .6rem;
+  padding: .12rem .45rem; border-radius: 5px;
+  color: #fff; background: rgba(0, 0, 0, .78);
+  font-size: .78rem; font-weight: 700;
+}
+.demo-copy { padding: 1.15rem 1.25rem 1.3rem; }
+.demo-copy h3 { margin: 0 0 .35rem; font-size: 1.08rem; }
+.demo-copy p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+.demo-dialog {
+  width: min(920px, calc(100% - 2rem)); max-height: calc(100% - 2rem);
+  padding: 0; overflow: auto; color: var(--text); background: var(--bg-card);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, .75);
+}
+.demo-dialog::backdrop { background: rgba(0, 0, 0, .78); backdrop-filter: blur(4px); }
+.demo-dialog-inner { position: relative; }
+.demo-close {
+  position: absolute; z-index: 2; top: .7rem; right: .7rem;
+  display: grid; place-items: center; width: 38px; height: 38px;
+  padding: 0; border: 1px solid rgba(255, 255, 255, .3); border-radius: 50%;
+  color: #fff; background: rgba(0, 0, 0, .72); cursor: pointer;
+  font-size: 1.55rem; line-height: 1;
+}
+.demo-player { aspect-ratio: 16 / 9; background: #000; }
+.demo-player video, .demo-player iframe {
+  display: block; width: 100%; height: 100%; border: 0;
+}
+.demo-dialog-copy { padding: 1.2rem 1.4rem 1.5rem; }
+.demo-dialog-copy .eyebrow { margin-bottom: .35rem; }
+.demo-dialog-copy h2 { font-size: 1.35rem; margin-bottom: .35rem; }
+.demo-dialog-copy > p:last-child { margin: 0; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) {
+  .demo-play, .demo-preview:hover .demo-play { transition: none; transform: translate(-50%, -50%); }
+}
 
 /* ---------- landing: cards ---------- */
 .cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
