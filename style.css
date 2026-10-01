@@ -109,11 +109,17 @@ footer {
 .btn-ghost:hover { border-color: var(--accent); box-shadow: none; }
 
 /* The two stores are one action on two phones, so they carry the same weight
-   — neither of them is the "other" one. */
-.stores { display: flex; flex-wrap: wrap; gap: .8rem; }
-.btn-store { padding: .7rem 1.3rem; }
-.btn-store span { display: flex; flex-direction: column; line-height: 1.2; text-align: left; }
-.btn-store small { font-size: .72rem; font-weight: 600; opacity: .7; }
+   — neither of them is the "other" one. The badges are the stores' own
+   artwork, unmodified, as their guidelines require; Google's PNG carries a
+   transparent margin inside it, so it is drawn taller to match Apple's. */
+.stores { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; }
+.badge { display: inline-block; line-height: 0; border-radius: 8px; transition: transform .12s ease, opacity .12s ease; }
+.badge:hover { transform: translateY(-1px); opacity: .92; }
+.badge img { display: block; width: auto; }
+.badge-apple img { height: 54px; }
+.badge-google img { height: 80px; margin: -13px; }
+@media (prefers-reduced-motion: reduce) { .badge:hover { transform: none; } }
+.store-legal { color: var(--muted); opacity: .7; font-size: .72rem; margin: .4rem 0 0; }
 
 /* ---------- landing: hero ---------- */
 .hero { padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(2rem, 5vw, 3.5rem); }
@@ -303,7 +309,7 @@ h2 {
 /* ---------- landing: cards ---------- */
 .cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
 @media (min-width: 640px) { .cards { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 960px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 960px) { .cards { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); } }
 .card {
   background: var(--bg-card); border: 1px solid var(--line);
   border-radius: var(--radius); padding: 1.3rem 1.4rem;
@@ -323,6 +329,19 @@ h2 {
   border-radius: 999px; padding: .08rem .48rem;
   font-size: .66rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
 }
+
+/* ---------- landing: testimonials ---------- */
+.quotes { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 700px) { .quotes { grid-template-columns: repeat(3, 1fr); } }
+.quote {
+  margin: 0; padding: 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 1rem;
+  background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+}
+.quote p { margin: 0; flex: 1; font-size: 1.02rem; line-height: 1.55; }
+.quote p::before { content: "\201C"; color: var(--accent); font-weight: 800; margin-right: .1em; }
+.quote p::after { content: "\201D"; color: var(--accent); font-weight: 800; margin-left: .1em; }
+.quote footer { border: 0; padding: 0; font-size: .9rem; color: var(--muted); }
+.quote footer b { display: block; color: var(--text); font-weight: 600; }
 
 /* ---------- landing: plain lists, two-up, price, final ---------- */
 .plain { list-style: none; padding: 0; margin: 0; display: grid; gap: .85rem; }
@@ -383,6 +402,34 @@ h2 {
 .doc .card p:first-child { margin-top: 0; }
 .doc .card p:last-child { margin-bottom: 0; }
 .doc .card strong { color: var(--text); }
+
+/* ---------- documents: tutorials ---------- */
+.doc-wide { max-width: 56rem; }
+.tut-index { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.4rem 0 .5rem; }
+.tut-index a {
+  padding: .4rem .85rem; border-radius: 999px; font-size: .88rem;
+  color: var(--text); background: var(--bg-card); border: 1px solid var(--line);
+}
+.tut-index a:hover { border-color: var(--accent); text-decoration: none; }
+.tut {
+  display: grid; gap: 1.4rem; grid-template-columns: 1fr; align-items: start;
+  padding: 2rem 0; border-top: 1px solid var(--line-soft);
+}
+.tut:first-of-type { border-top: 0; }
+@media (min-width: 640px) { .tut { grid-template-columns: 240px 1fr; gap: 2rem; } }
+.tut-media {
+  aspect-ratio: 3 / 5; border-radius: 18px; overflow: hidden; background: #000;
+  border: 1px solid var(--line); display: grid; place-items: center;
+}
+.tut-media video, .tut-media iframe { display: block; width: 100%; height: 100%; border: 0; }
+.tut-soon {
+  margin: 0; padding: .4rem .9rem; border-radius: 999px; font-size: .8rem;
+  font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-lo);
+}
+.doc .tut h2 { margin: 0 0 .5rem; padding-top: 0; border-top: 0; font-size: 1.3rem; }
+.doc .tut ol { color: var(--muted); padding-left: 1.25rem; }
+.doc .tut li { margin: .35rem 0; }
 
 /* ---------- documents: feedback templates ---------- */
 .contact-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; margin: 1.4rem 0; }
