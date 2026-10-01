@@ -202,10 +202,25 @@ h2 {
   color: var(--text); background: #000;
 }
 .demo-preview img { width: 100%; height: 100%; object-fit: cover; }
-/* A portrait clip gets a phone-shaped card, the same 3:5 as the preview
-   clip and the feature screenshots, so nothing is letterboxed. */
-.demo-card.vertical { max-width: 340px; }
+/* A portrait clip gets a phone-shaped 3:5 frame, the same shape as the
+   preview clip and the feature screenshots, so nothing is letterboxed. The
+   card spans the grid and puts its text beside the clip once there is room,
+   like the feature rows above it. */
+.demo-card.vertical { grid-column: 1 / -1; max-width: 880px; display: grid; }
 .demo-card.vertical .demo-preview { aspect-ratio: 3 / 5; }
+@media (min-width: 600px) {
+  .demo-card.vertical { grid-template-columns: minmax(230px, 300px) 1fr; }
+  .demo-card.vertical .demo-copy { align-self: center; padding: 1.6rem 2rem; }
+}
+.demo-details {
+  margin: 1rem 0 0; padding: 0; list-style: none;
+  display: grid; gap: .55rem; color: var(--muted); font-size: .94rem;
+}
+.demo-details li { position: relative; padding-left: 1.1rem; }
+.demo-details li::before {
+  content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--accent);
+}
 /* The silent in-card preview sits over the poster and fades in once it is
    actually playing, so a slow network shows the poster, never a black box. */
 .demo-preview video {

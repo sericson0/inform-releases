@@ -29,6 +29,10 @@
     video: { type: "youtube", id: "YOUR_VIDEO_ID", vertical: false }
   }
 
+  A vertical demo lays its text beside the clip rather than under it, so it
+  can carry an optional `details` list: a few short lines that read as
+  bullets next to the video.
+
   Optional `preview`: a small, silent MP4 served from this site. The card
   plays it muted, on a loop, while it is scrolled into view, and shows the
   poster until it starts. Keep it short and well under a megabyte; nothing is
@@ -40,6 +44,12 @@ const demos = [
   {
     title: "Track the bar path",
     description: "Tap the plate, tap Track, and InForm follows the barbell through the lift with a trail behind it.",
+    details: [
+      "Tap a point, or drag a line along the bar, and InForm follows it frame by frame.",
+      "The path is drawn as it goes, so a forward drift or a stall shows at a glance.",
+      "Angles drawn on a tracked point update live as it moves.",
+      "Tracking runs on your phone. Nothing is uploaded."
+    ],
     duration: "0:19",
     poster: "img/shot-tracking.webp",
     preview: "videos/tracking-preview.mp4",
@@ -192,6 +202,17 @@ const demos = [
     const summary = document.createElement("p");
     summary.textContent = demo.description;
     copy.append(heading, summary);
+    if (Array.isArray(demo.details) && demo.details.length) {
+      const list = document.createElement("ul");
+      list.className = "demo-details";
+      demo.details.forEach((line) => {
+        if (typeof line !== "string" || !line) return;
+        const item = document.createElement("li");
+        item.textContent = line;
+        list.append(item);
+      });
+      if (list.childElementCount) copy.append(list);
+    }
     card.append(preview, copy);
     grid.append(card);
 
