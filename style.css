@@ -1,4 +1,4 @@
-/* InForm — informmotion.com
+/* InForm — informmotion.net
    One stylesheet for all pages. The landing page and the two document pages
    (support, privacy) used to carry two different designs in two inline
    <style> blocks, so the pages linked from inside the app looked like a
@@ -247,6 +247,12 @@ h2 {
 .demo-player video, .demo-player iframe {
   display: block; width: 100%; height: 100%; border: 0;
 }
+/* A Short is a phone screen, so the dialog narrows to one rather than
+   leaving a tall clip between two black fields. */
+.demo-dialog.vertical { width: min(440px, calc(100% - 2rem)); }
+.demo-player.vertical {
+  aspect-ratio: 9 / 16; width: auto; height: min(72vh, 680px); margin: 0 auto;
+}
 .demo-dialog-copy { padding: 1.2rem 1.4rem 1.5rem; }
 .demo-dialog-copy .eyebrow { margin-bottom: .35rem; }
 .demo-dialog-copy h2 { font-size: 1.35rem; margin-bottom: .35rem; }
@@ -305,6 +311,9 @@ h2 {
 
 /* ---------- documents: support, privacy, 404 ---------- */
 .doc { max-width: 44rem; margin: 0 auto; padding: 2.5rem 0 4rem; font-size: 16px; }
+.doc .crumb { margin: 0 0 1.2rem; font-size: .9rem; }
+.doc .crumb a { color: var(--muted); }
+.doc .crumb a:hover { color: var(--accent); }
 .doc h1 { font-size: clamp(1.8rem, 4vw, 2.2rem); margin: 0 0 .25rem; }
 .doc h2 {
   font-size: 1.2rem; font-weight: 700; margin: 2.4rem 0 .5rem;
@@ -335,6 +344,72 @@ h2 {
 .doc .card p:first-child { margin-top: 0; }
 .doc .card p:last-child { margin-bottom: 0; }
 .doc .card strong { color: var(--text); }
+
+/* ---------- documents: feedback templates ---------- */
+.contact-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; margin: 1.4rem 0; }
+@media (min-width: 640px) { .contact-grid { grid-template-columns: repeat(3, 1fr); } }
+.contact-grid .card { display: flex; flex-direction: column; gap: .5rem; margin: 0; }
+.contact-grid h3 { margin: 0; }
+.contact-grid p { flex: 1; margin: 0; font-size: .93rem; }
+.contact-grid .btn { align-self: flex-start; }
+
+/* ---------- footer: the social line ---------- */
+.foot .social { display: inline-flex; align-items: center; gap: .4rem; }
+.foot .social svg { flex: none; }
+
+/* ---------- email updates popup ---------- */
+.updates-dialog {
+  width: min(420px, calc(100% - 2rem)); max-height: calc(100% - 2rem);
+  padding: 1.6rem 1.5rem 1rem; overflow: auto; color: var(--text);
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: 0 28px 90px rgba(0, 0, 0, .75);
+}
+.updates-dialog::backdrop { background: rgba(0, 0, 0, .72); backdrop-filter: blur(4px); }
+.updates-close {
+  position: absolute; top: .7rem; right: .7rem;
+  display: grid; place-items: center; width: 34px; height: 34px;
+  padding: 0; border: 1px solid var(--line); border-radius: 50%;
+  color: var(--muted); background: transparent; cursor: pointer;
+  font-size: 1.4rem; line-height: 1;
+}
+.updates-close:hover { color: var(--text); border-color: var(--accent); }
+/* An outline icon: the global `svg { fill: currentColor }` would paint the
+   envelope solid. */
+.updates-mail { width: 28px; height: 28px; fill: none; color: var(--accent); margin-bottom: .9rem; }
+.updates-dialog h2 { font-size: 1.4rem; margin: 0 0 .4rem; }
+.updates-dialog h2:focus { outline: none; }
+.updates-copy { color: var(--muted); margin: 0 0 1.1rem; font-size: .98rem; }
+.updates-label { display: block; font-size: .86rem; color: var(--text); margin: 0 0 .4rem; }
+.updates-input {
+  display: block; width: 100%; min-height: 48px; padding: .7rem .85rem;
+  font: inherit; color: var(--text); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 8px;
+}
+.updates-input::placeholder { color: var(--muted); opacity: .8; }
+.updates-input:focus { border-color: var(--accent); outline: none; }
+.updates-input[aria-invalid="true"] { border-color: #ff8a80; }
+.updates-error { color: #ffb4ab; font-size: .86rem; line-height: 1.4; margin: .5rem 0 0; }
+.updates-fieldset { border: 0; padding: 0; margin: 1.1rem 0 .9rem; min-width: 0; }
+.updates-fieldset legend { padding: 0; }
+.updates-hint { color: var(--muted); font-size: .8rem; margin: 0 0 .3rem; }
+.updates-choices { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; }
+.updates-choices label {
+  display: inline-flex; align-items: center; gap: .5rem; min-height: 40px;
+  font-size: .95rem; cursor: pointer;
+}
+.updates-choices input { width: 18px; height: 18px; accent-color: var(--accent); margin: 0; }
+.updates-fine { color: var(--muted); font-size: .8rem; margin: .8rem 0 1rem; }
+.updates-primary { width: 100%; justify-content: center; }
+.updates-secondary, .updates-decline {
+  display: block; width: 100%; min-height: 44px; margin-top: .2rem;
+  padding: .5rem; border: 0; background: transparent; cursor: pointer;
+  font: inherit; border-radius: 999px;
+}
+.updates-secondary { color: var(--accent); font-weight: 600; }
+.updates-decline { color: var(--muted); font-size: .86rem; }
+.updates-secondary:hover, .updates-decline:hover { background: var(--accent-lo); }
+.updates-dialog button:disabled, .updates-dialog input:disabled { opacity: .6; cursor: default; }
+.updates-done .updates-primary { margin-top: .6rem; }
 
 /* ---------- 404 ---------- */
 .lost { text-align: center; padding: clamp(3rem, 10vw, 6rem) 0 clamp(4rem, 12vw, 7rem); }

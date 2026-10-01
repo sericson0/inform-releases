@@ -18,16 +18,26 @@
     }
   }
 
-  YouTube example (use the video ID, not the full URL):
+  YouTube example (use the video ID, not the full URL). A Short or any other
+  portrait clip takes `vertical: true`, which gives the player a 9:16 frame;
+  its poster is still a 16:9 image, so letterbox the frame into one.
   {
     title: "Compare two attempts",
     description: "Line up two clips and play them together.",
     duration: "1:05",
     poster: "img/demo-compare.webp",
-    video: { type: "youtube", id: "YOUR_VIDEO_ID" }
+    video: { type: "youtube", id: "YOUR_VIDEO_ID", vertical: false }
   }
 */
-const demos = [];
+const demos = [
+  {
+    title: "Track the bar path",
+    description: "Tap the plate, tap Track, and InForm follows the barbell through the lift with a trail behind it.",
+    duration: "0:19",
+    poster: "img/demo-tracking.webp",
+    video: { type: "youtube", id: "QhHHTg2qL6s", vertical: true }
+  }
+];
 
 (() => {
   "use strict";
@@ -64,6 +74,9 @@ const demos = [];
   };
 
   const buildPlayer = (demo) => {
+    const vertical = demo.video.vertical === true;
+    dialog.classList.toggle("vertical", vertical);
+    player.classList.toggle("vertical", vertical);
     if (demo.video.type === "youtube") {
       const iframe = document.createElement("iframe");
       iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(demo.video.id)}?autoplay=1&rel=0`;
