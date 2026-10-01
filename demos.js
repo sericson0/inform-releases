@@ -19,8 +19,8 @@
   }
 
   YouTube example (use the video ID, not the full URL). A Short or any other
-  portrait clip takes `vertical: true`, which gives the player a 9:16 frame;
-  its poster is still a 16:9 image, so letterbox the frame into one.
+  portrait clip takes `vertical: true`, which makes the card phone-shaped and
+  gives the player a 9:16 frame; give it a portrait poster to match.
   {
     title: "Compare two attempts",
     description: "Line up two clips and play them together.",
@@ -41,7 +41,7 @@ const demos = [
     title: "Track the bar path",
     description: "Tap the plate, tap Track, and InForm follows the barbell through the lift with a trail behind it.",
     duration: "0:19",
-    poster: "img/demo-tracking.webp",
+    poster: "img/shot-tracking.webp",
     preview: "videos/tracking-preview.mp4",
     video: { type: "youtube", id: "QhHHTg2qL6s", vertical: true }
   }
@@ -138,6 +138,7 @@ const demos = [
   validDemos.forEach((demo) => {
     const card = document.createElement("article");
     card.className = "demo-card";
+    card.classList.toggle("vertical", demo.video.vertical === true);
 
     const preview = document.createElement("button");
     preview.className = "demo-preview";
@@ -162,15 +163,19 @@ const demos = [
       clip.tabIndex = -1;
       clip.setAttribute("aria-hidden", "true");
       clip.dataset.src = demo.preview;
-      preview.classList.toggle("vertical", demo.video.vertical === true);
       preview.append(clip);
       previews.push(clip);
     }
 
+    // A centred play button over the poster; once the silent preview is
+    // running it shrinks to a small pill so the clip is what you look at.
     const play = document.createElement("span");
     play.className = "demo-play";
     play.setAttribute("aria-hidden", "true");
-    play.append(playIcon());
+    const playLabel = document.createElement("span");
+    playLabel.className = "demo-play-label";
+    playLabel.textContent = "Play with sound";
+    play.append(playIcon(), playLabel);
     preview.append(play);
 
     if (demo.duration) {
@@ -210,7 +215,7 @@ const demos = [
             target.src = target.dataset.src;
             target.load();
           }
-          target.play().then(() => target.classList.add("playing")).catch(() => {});
+          target.play().then(() => target.parentElement.classList.add("playing")).catch(() => {});
         } else if (!target.paused) {
           target.pause();
         }
