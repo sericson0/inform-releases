@@ -28,6 +28,13 @@
     poster: "img/demo-compare.webp",
     video: { type: "youtube", id: "YOUR_VIDEO_ID", vertical: false }
   }
+
+  Optional `preview`: a small, silent MP4 served from this site. The card
+  plays it muted, on a loop, while it is scrolled into view, and shows the
+  poster until it starts. Keep it short and well under a megabyte; nothing is
+  downloaded until the card is on screen. Clicking the card still opens the
+  full demo (and that is the only time YouTube is contacted). Visitors who
+  ask for reduced motion see the poster only.
 */
 const demos = [
   {
@@ -35,6 +42,7 @@ const demos = [
     description: "Tap the plate, tap Track, and InForm follows the barbell through the lift with a trail behind it.",
     duration: "0:19",
     poster: "img/demo-tracking.webp",
+    preview: "videos/tracking-preview.mp4",
     video: { type: "youtube", id: "QhHHTg2qL6s", vertical: true }
   }
 ];
@@ -79,7 +87,9 @@ const demos = [
     player.classList.toggle("vertical", vertical);
     if (demo.video.type === "youtube") {
       const iframe = document.createElement("iframe");
-      iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(demo.video.id)}?autoplay=1&rel=0`;
+      const id = encodeURIComponent(demo.video.id);
+      // YouTube loops only a playlist, so the playlist is the video itself.
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&loop=1&playlist=${id}&rel=0`;
       iframe.title = demo.title;
       iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share";
       iframe.allowFullscreen = true;
@@ -90,6 +100,7 @@ const demos = [
     const video = document.createElement("video");
     video.controls = true;
     video.autoplay = true;
+    video.loop = true;
     video.playsInline = true;
     video.preload = "metadata";
     video.poster = demo.poster;
@@ -119,6 +130,11 @@ const demos = [
     if (dialog.open) dialog.close();
   };
 
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const canPreview = "IntersectionObserver" in window && !reducedMotion;
+  const previews = [];
+  let pausePreviews = () => {};
+
   validDemos.forEach((demo) => {
     const card = document.createElement("article");
     card.className = "demo-card";
@@ -133,6 +149,23 @@ const demos = [
     image.alt = "";
     image.loading = "lazy";
     preview.append(image);
+
+    if (canPreview && typeof demo.preview === "string" && demo.preview) {
+      const clip = document.createElement("video");
+      clip.muted = true;
+      clip.defaultMuted = true;
+      clip.loop = true;
+      clip.playsInline = true;
+      clip.setAttribute("muted", "");
+      clip.setAttribute("playsinline", "");
+      clip.preload = "none";
+      clip.tabIndex = -1;
+      clip.setAttribute("aria-hidden", "true");
+      clip.dataset.src = demo.preview;
+      preview.classList.toggle("vertical", demo.video.vertical === true);
+      preview.append(clip);
+      previews.push(clip);
+    }
 
     const play = document.createElement("span");
     play.className = "demo-play";
@@ -158,6 +191,7 @@ const demos = [
     grid.append(card);
 
     preview.addEventListener("click", () => {
+      pausePreviews();
       player.replaceChildren();
       title.textContent = demo.title;
       description.textContent = demo.description;
@@ -165,6 +199,31 @@ const demos = [
       dialog.showModal();
     });
   });
+
+  // Card previews run while on screen and stop as they scroll away. The
+  // file is only fetched the first time a card comes into view.
+  if (previews.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting && !dialog.open) {
+          if (!target.src) {
+            target.src = target.dataset.src;
+            target.load();
+          }
+          target.play().then(() => target.classList.add("playing")).catch(() => {});
+        } else if (!target.paused) {
+          target.pause();
+        }
+      });
+    }, { threshold: 0.4 });
+    previews.forEach((clip) => observer.observe(clip));
+
+    dialog.addEventListener("close", () => {
+      // Re-observing replays the callback with the current visibility.
+      previews.forEach((clip) => { observer.unobserve(clip); observer.observe(clip); });
+    });
+    pausePreviews = () => previews.forEach((clip) => { if (!clip.paused) clip.pause(); });
+  }
 
   closeButton.addEventListener("click", closeDialog);
   dialog.addEventListener("click", (event) => {

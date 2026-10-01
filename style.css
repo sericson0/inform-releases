@@ -202,6 +202,14 @@ h2 {
   color: var(--text); background: #000;
 }
 .demo-preview img { width: 100%; height: 100%; object-fit: cover; }
+/* The silent in-card preview sits over the poster and fades in once it is
+   actually playing, so a slow network shows the poster, never a black box. */
+.demo-preview video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  pointer-events: none; opacity: 0; transition: opacity .3s ease;
+}
+.demo-preview video.playing { opacity: 1; }
+.demo-preview.vertical video { object-fit: contain; }
 .demo-preview::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, .7));
@@ -247,12 +255,13 @@ h2 {
 .demo-player video, .demo-player iframe {
   display: block; width: 100%; height: 100%; border: 0;
 }
-/* A Short is a phone screen, so the dialog narrows to one rather than
-   leaving a tall clip between two black fields. */
-.demo-dialog.vertical { width: min(440px, calc(100% - 2rem)); }
-.demo-player.vertical {
-  aspect-ratio: 9 / 16; width: auto; height: min(72vh, 680px); margin: 0 auto;
+/* A Short is a phone screen, so the dialog narrows to one and the video
+   fills its full width. The third term keeps the whole dialog, copy
+   included (about 9.5rem of it), inside the viewport without scrolling. */
+.demo-dialog.vertical {
+  width: min(460px, calc(100% - 2rem), calc((100vh - 2rem - 9.5rem) * 9 / 16));
 }
+.demo-player.vertical { aspect-ratio: 9 / 16; width: 100%; height: auto; }
 .demo-dialog-copy { padding: 1.2rem 1.4rem 1.5rem; }
 .demo-dialog-copy .eyebrow { margin-bottom: .35rem; }
 .demo-dialog-copy h2 { font-size: 1.35rem; margin-bottom: .35rem; }
