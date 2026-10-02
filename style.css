@@ -152,7 +152,7 @@ h1 em { font-style: normal; color: var(--accent); }
   box-shadow: 0 24px 70px rgba(0,0,0,.6), 0 0 0 1px rgba(0,188,228,.09);
   background: #000;
 }
-.phone img { width: 100%; }
+.phone img, .phone video { display: block; width: 100%; }
 .hero .phone { max-width: 320px; }
 /* Feature shots sit beside a short paragraph, so they are kept smaller than
    the hero's — a full-height phone leaves the text floating in whitespace. */
