@@ -825,3 +825,26 @@ h2 {
   margin-top: 14px;
 }
 .home #business .business-link:hover { background: #174841; border-color: #174841; color: #f0f3ed; }
+
+/* Restore solid panels around product videos and tool images. */
+.home .hero-stage { background: #173538; padding: 24px 26px; border-radius: 4px; }
+.home .playback-guide {
+  background: #152b2d;
+  padding: 24px;
+  border: 1px solid #355553;
+  border-radius: 12px;
+  --text: #f0f3ed;
+  --muted: #afbfbc;
+  --accent: #8ee2dd;
+  color: var(--text);
+  color-scheme: dark;
+}
+.home .playback-guide img { border-radius: 7px; }
+.home #demos .demo-card { background: #152e30; border-radius: 4px; padding: 24px; --text: #f0f3ed; --muted: #afbfbc; --accent: #8ee2dd; color: var(--text); color-scheme: dark; }
+.home #demos .demo-preview { border-radius: 16px; }
+.home .coaching-screenshot { background: #c8d8cd; padding: 28px; border-radius: 4px; }
+@media (max-width: 600px) {
+  .home .hero-stage { padding: 18px 24px; }
+  .home .playback-guide { padding: 16px; }
+  .home #demos .demo-card { padding: 20px; }
+}
