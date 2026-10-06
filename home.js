@@ -1,8 +1,25 @@
 /* Respect motion preferences and pause the hero preview when it leaves view.
-   Native video controls remain available, including without JavaScript. */
+   An external play button stays outside the crop; native controls remain without JavaScript. */
 (() => {
   const video = document.querySelector('[data-motion-preview]');
-  if (!video || !('IntersectionObserver' in window)) return;
+  if (!video) return;
+  const toggle = document.querySelector("[data-hero-toggle]");
+  if (toggle) {
+    video.controls = false;
+    toggle.hidden = false;
+    const updateToggle = () => {
+      toggle.textContent = video.paused ? "Play preview" : "Pause preview";
+      toggle.setAttribute("aria-label", video.paused ? "Play InForm video preview" : "Pause InForm video preview");
+    };
+    toggle.addEventListener("click", () => {
+      if (video.paused) video.play().catch(() => {});
+      else video.pause();
+    });
+    video.addEventListener("play", updateToggle);
+    video.addEventListener("pause", updateToggle);
+    updateToggle();
+  }
+  if (!("IntersectionObserver" in window)) return;
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let visible = false;
   let userPaused = false;

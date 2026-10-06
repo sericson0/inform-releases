@@ -205,7 +205,17 @@ const demos = [
       });
       if (list.childElementCount) copy.append(list);
     }
-    card.append(preview, copy);
+    if (demo.video.vertical === true) {
+      const frame = document.createElement("div");
+      frame.className = "device-frame";
+      const screen = document.createElement("div");
+      screen.className = "device-screen";
+      screen.append(preview);
+      frame.append(screen);
+      card.append(frame, copy);
+    } else {
+      card.append(preview, copy);
+    }
     grid.append(card);
 
     preview.addEventListener("click", () => {

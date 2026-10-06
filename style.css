@@ -826,29 +826,6 @@ h2 {
 }
 .home #business .business-link:hover { background: #174841; border-color: #174841; color: #f0f3ed; }
 
-/* Restore solid panels around product videos and tool images. */
-.home .hero-stage { background: #173538; padding: 24px 26px; border-radius: 4px; }
-.home .playback-guide {
-  background: #152b2d;
-  padding: 24px;
-  border: 1px solid #355553;
-  border-radius: 12px;
-  --text: #f0f3ed;
-  --muted: #afbfbc;
-  --accent: #8ee2dd;
-  color: var(--text);
-  color-scheme: dark;
-}
-.home .playback-guide img { border-radius: 7px; }
-.home #demos .demo-card { background: #152e30; border-radius: 4px; padding: 24px; --text: #f0f3ed; --muted: #afbfbc; --accent: #8ee2dd; color: var(--text); color-scheme: dark; }
-.home #demos .demo-preview { border-radius: 16px; }
-.home .coaching-screenshot { background: #c8d8cd; padding: 28px; border-radius: 4px; }
-@media (max-width: 600px) {
-  .home .hero-stage { padding: 18px 24px; }
-  .home .playback-guide { padding: 16px; }
-  .home #demos .demo-card { padding: 20px; }
-}
-
 /* One shared treatment for text action buttons throughout the site. */
 :root { --button-bg: #235f58; --button-hover: #174841; --button-text: #f0f3ed; }
 .btn,
@@ -918,3 +895,66 @@ h2 {
 .demo-play { background: var(--button-bg); color: var(--button-text); box-shadow: none; }
 .demo-preview:hover .demo-play { box-shadow: none; transform: translate(-50%, -50%); }
 .demo-preview.playing:hover .demo-play { transform: none; }
+
+/* Approved iPhone-style media frames; surrounding sections stay unboxed. */
+.home .device-frame {
+  position: relative;
+  width: min(100%, 260px);
+  aspect-ratio: 71.9 / 150;
+  box-sizing: border-box;
+  margin-inline: auto;
+  padding: 8px;
+  background: #080a0b;
+  border: 1px solid #565b5d;
+  border-radius: 36px;
+  box-shadow: 0 12px 25px #00000026;
+}
+.home .device-frame::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26%;
+  height: 15px;
+  border-radius: 999px;
+  background: #080a0b;
+  pointer-events: none;
+}
+.home .device-screen {
+  height: 100%;
+  aspect-ratio: 1206 / 2622;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 27px;
+  background: #080a0b;
+}
+.home .device-screen > img,
+.home .device-screen video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+}
+.home .hero-video-crop { width: 100%; aspect-ratio: 540 / 1104; overflow: hidden; flex-shrink: 0; }
+.home .hero-device.device-frame { width: min(100%, 266px); }
+.home .coaching-screenshot .device-screen img { max-width: none; margin: 0; box-shadow: none; }
+.home .hero-stage,
+.home .playback-guide,
+.home .coaching-screenshot,
+.home #demos .demo-card { background: transparent; padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+.home .playback-guide,
+.home #demos .demo-card { --text: inherit; --muted: inherit; --accent: inherit; --line: inherit; color: inherit; color-scheme: inherit; }
+.home #demos .device-frame { align-self: center; }
+.home #demos .device-screen .demo-preview { width: 100%; margin: 0; aspect-ratio: 540 / 1170; border-radius: 0; }
+.home #demos .device-screen .demo-preview img { height: auto; object-fit: contain; }
+.home #demos .device-screen .demo-preview video { height: 100%; object-fit: contain; }
+.home .hero-play-toggle { display: flex; margin: 18px auto 0; }
+@media (max-width: 600px) {
+  .home .playback-guide .device-frame { padding: 4px; border-radius: 18px; }
+  .home .playback-guide .device-screen { border-radius: 14px; }
+  .home .playback-guide .device-frame::before { top: 8px; height: 7px; }
+}
