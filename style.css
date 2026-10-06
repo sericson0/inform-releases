@@ -958,3 +958,46 @@ h2 {
   .home .playback-guide .device-screen { border-radius: 14px; }
   .home .playback-guide .device-frame::before { top: 8px; height: 7px; }
 }
+
+/* Minimal phone outlines, contrasting with each section background. */
+.home > main > section { --device-surface: #071214; }
+.home > main > section:nth-of-type(3n+2) { --device-surface: #e5eee7; }
+.home > main > section:nth-of-type(3n) { --device-surface: #9ce0d6; }
+.home .device-frame {
+  padding: 6px;
+  border: 2px solid var(--text);
+  background: transparent;
+  border-radius: 34px;
+  box-shadow: none;
+}
+.home .device-screen {
+  border: 1px solid var(--text);
+  border-radius: 27px;
+}
+.home .device-frame::before {
+  top: 5px;
+  width: 38%;
+  height: 19px;
+  border: 1px solid var(--text);
+  border-top: 0;
+  border-radius: 0 0 11px 11px;
+  background: var(--device-surface);
+}
+.home .device-frame::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 24%;
+  width: 3px;
+  height: 7%;
+  border: 1px solid var(--text);
+  border-radius: 1px;
+  background: var(--device-surface);
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .home .playback-guide .device-frame { padding: 3px; border-width: 1px; border-radius: 18px; }
+  .home .playback-guide .device-screen { border-radius: 14px; }
+  .home .playback-guide .device-frame::before { top: 3px; height: 9px; border-radius: 0 0 6px 6px; }
+  .home .playback-guide .device-frame::after { left: -3px; width: 2px; }
+}
