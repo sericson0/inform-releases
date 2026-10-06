@@ -3,14 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>InForm — The Video Analysis App for Movers</title>
-<meta name="description" content="InForm is the donation-based video analysis app for dancers, lifters, climbers, boxers and the coaches who teach them. Slow motion, frame-by-frame, motion tracking, angle measurement and side-by-side comparison on your phone.">
+<title>Seeing is key to success | InForm</title>
+<meta name="description"
+      content="InForm is the donation-based video analysis app for dancers, lifters, climbers, boxers and the coaches who teach them. Slow motion, frame-by-frame, motion tracking, angle measurement and side-by-side comparison on your phone.">
 <link rel="canonical" href="https://informmotion.com/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://informmotion.com/">
-<meta property="og:title" content="InForm — The Video Analysis App for Movers">
-<meta property="og:description" content="Slow motion, frame-by-frame, motion tracking, angle measurement and side-by-side comparison for dancers, lifters, climbers, boxers and their coaches.">
+<meta property="og:title" content="Seeing is the key to success | InForm">
+<meta property="og:description"
+      content="Slow motion, frame-by-frame, motion tracking, angle measurement and side-by-side comparison for dancers, lifters, climbers, boxers and their coaches.">
 <meta property="og:image" content="https://informmotion.com/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -18,10 +20,10 @@
 
 <link rel="icon" href="img/icon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="img/icon-180.png">
-<meta name="theme-color" content="#030915">
+<meta name="theme-color" content="#071214">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home">
 
 <a class="skip" href="#main">Skip to content</a>
 
@@ -36,322 +38,355 @@
       <img src="img/icon-180.png" alt="" width="28" height="28">
       <b>In<i>Form</i></b>
     </a>
-    <nav>
-      <a class="hide-xs" href="#demos" data-demos-link hidden>Demos</a>
-      <a class="hide-xs" href="#features">Features</a>
+    <nav aria-label="Main navigation">
       <a class="hide-xs" href="tutorials.html">Tutorials</a>
-      <a class="hide-xs" href="#business">For business</a>
-      <a class="hide-xs" href="support.html">Support</a>
-      <a href="feedback.html">Feedback</a>
+      <a class="hide-xs" href="#story">Our story</a>
+      <a class="home-support" href="support.html">Support</a>
       <a class="btn btn-sm" href="#get">Get the app</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
-
-  <!-- ===================== HERO ===================== -->
-  <div class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <img class="logo" src="img/logo.webp" alt="InForm Motion Analysis" width="200" height="146">
-        <h1>The video analysis app for <em>movers</em>.</h1>
+  <section class="home-hero" aria-labelledby="hero-title">
+    <div class="wrap home-hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-title">Seeing is the key to success</h1>
+        <p class="hero-subtitle">
+          <span class="hero-wordmark">In<span>Form</span></span> – Video Analysis for Movers
+        </p>
         <p class="lede">
-          Built for dancers, lifters, climbers, boxers and their coaches. Slow motion,
-          motion tracking, angle measurement and side-by-side comparison, on your phone.
+          The InForm Motion Analysis app is designed for dancers, lifters,
+          climbers, boxers, and any sport where technique matters; and for the
+          coaches and teachers who want the most for their students.
         </p>
         <div class="cta stores">
-          <a class="badge badge-google" href="https://play.google.com/store/apps/details?id=dev.sericson.inform&amp;utm_source=informmotion.com&amp;utm_medium=site&amp;utm_campaign=hero">
+          <a class="badge badge-google"
+             href="https://play.google.com/store/apps/details?id=dev.sericson.inform&amp;utm_source=informmotion.com&amp;utm_medium=site&amp;utm_campaign=hero">
             <img src="img/badge-google-play.png" alt="Get it on Google Play" width="646" height="250">
           </a>
           <a class="badge badge-apple" href="https://apps.apple.com/app/id6797707923?ct=site-hero">
             <img src="img/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
           </a>
         </div>
-        <ul class="trust">
-          <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg> No ads</li>
-          <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg> No account</li>
-          <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg> No subscription</li>
-          <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg> Your videos stay yours</li>
+        <p class="hero-free">Supported by donations. Download and use for free.</p>
+      </div>
+      <figure class="hero-stage">
+        <div class="hero-device">
+          <video controls muted loop playsinline preload="none"
+                 poster="img/annotations-poster.webp"
+                 aria-label="InForm dance analysis preview, without audio"
+                 width="540" height="1170" data-motion-preview>
+            <source src="videos/annotations-preview.mp4" type="video/mp4">
+          </video>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="support-section" id="business">
+    <div class="wrap support-grid">
+      <div>
+        <h2>More Features,<br>Fewer Barriers</h2>
+        <p>
+          Everyone deserves access to quality training tools
+          regardless of finances. Therefore we made the InForm App donation
+          based so that it is accessible to all to use for their training and coaching.
+        </p>
+        <p>
+          This is only possible because of users who are able to pay supporting.
+          We ask that users who find InForm valuable and pay what they can so that we
+          can continue making it available to everyone.
+        </p>
+        <a class="text-link" href="support.html">
+          Ways to support InForm <span aria-hidden="true">&#8594;</span>
+        </a>
+      </div>
+      <aside class="business-note">
+        <p class="eyebrow">For businesses and organizations</p>
+        <h3>Need more from InForm?</h3>
+        <p>
+          Reach out about custom versions, integration with your tools, or
+          tailored support. We look forward to helping to add value for your customers.
+        </p>
+        <a class="business-link" href="feedback.html#business">
+          Discuss a project <span aria-hidden="true">&#8594;</span>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="feature-story" id="features">
+    <div class="wrap">
+      <div class="feature-story-copy playback-story-copy">
+       <h2>Spend less time fiddling and more time training.</h2>
+        <p>
+           Record, loop, annotate, take notes, compare, record feedback, and share.
+          InForm allows you to go from filming to understanding in a single app
+        </p>
+        <!-- <a class="text-link" href="tutorials.html#find-the-frame">
+          Explore the playback tools <span aria-hidden="true">&#8594;</span>
+        </a> -->
+      </div>
+      <div class="playback-guide" aria-label="InForm tools">
+        <figure>
+          <img src="img/guide-video.webp" alt="Video playback with speed set to half speed" width="538" height="1100" loading="lazy">
+          <figcaption>Record</figcaption>
+        </figure>
+        <figure>
+          <img src="img/guide-loop.webp" alt="Loop markers around part of a video" width="538" height="1100" loading="lazy">
+          <figcaption>Loop</figcaption>
+        </figure>
+        <figure>
+          <img src="img/guide-draw.webp" alt="Angle drawn over a dance video" width="538" height="1100" loading="lazy">
+          <figcaption>Draw</figcaption>
+        </figure>
+        <figure>
+          <img src="img/guide-notes.webp" alt="A timestamped note on a dance video" width="538" height="1100" loading="lazy">
+          <figcaption>Take Notes</figcaption>
+        </figure>
+        <figure>
+          <img src="img/guide-compare.webp" alt="Two dance clips shown in comparison view" width="538" height="1100" loading="lazy">
+          <figcaption>Compare</figcaption>
+        </figure>
+        <figure>
+          <img src="img/guide-record.webp" alt="Recorded video feedback with a speaker overlay" width="538" height="1100" loading="lazy">
+          <figcaption>Record and Share</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="desktop-section" id="desktop" aria-labelledby="desktop-title">
+    <div class="wrap desktop-grid">
+      <figure class="desktop-banner">
+        <img src="img/Desktop%20Image.png" width="844" height="408" loading="lazy"
+             alt="InForm Desktop Suite banner with a tracked dancer and desktop monitor icon.">
+      </figure>
+      <div class="desktop-content">
+        <div class="desktop-copy">
+          <!-- <p class="eyebrow">Coming to desktop</p> -->
+          <h2 id="desktop-title">A platform for professionals.</h2>
+          <p>
+            We are building an integrated InForm desktop platform with
+            additional features for deeper video analysis and coaching.
+            Get an email when it launches.
+          </p>
+        </div>
+        <form class="desktop-signup" method="post" novalidate data-desktop-signup>
+          <label for="desktop-email">Email me when InForm desktop launches</label>
+          <div class="desktop-signup-row">
+            <input id="desktop-email" name="email" type="email" inputmode="email"
+                   autocomplete="email" placeholder="you@example.com" required
+                   aria-describedby="desktop-signup-fine desktop-signup-error">
+            <button type="submit">Notify me <span aria-hidden="true">&#8594;</span></button>
+          </div>
+          <p class="desktop-signup-error" id="desktop-signup-error" role="alert" hidden></p>
+          <p class="desktop-signup-success" role="status" data-desktop-success hidden></p>
+          <p class="desktop-signup-fine" id="desktop-signup-fine">
+            You'll also receive occasional InForm updates. Unsubscribe anytime.
+            <a href="privacy.html#email-updates">Privacy details</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="tracking-section" id="demos" hidden>
+    <div class="wrap">
+      <p class="eyebrow">Motion tracking in action</p>
+      <div class="demo-grid" data-demo-grid></div>
+      <!-- <p class="demo-footnote">Point, line, angle, and body tracking. Processed on your phone.</p> -->
+    </div>
+  </section>
+
+  <section class="founder-section" id="story">
+    <div class="wrap founder-grid">
+      <div>
+        <p class="eyebrow">Why I built InForm</p>
+        <h2>A tool for the way we train and teach.</h2>
+        <p>
+          As a dancer, weight lifter, rock climber and dance teacher, I was
+          always looking for ways to study movement. I wanted a simple but
+          powerful video analysis tool that worked the way I actually trained
+          and taught, and I could never find the right one. So I built InForm.
+        </p>
+        <p class="founder-signoff">Sean Ericson <span>Creator of InForm</span></p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- <section class="feature-story compare-section" id="compare">
+    <div class="wrap feature-story-grid">
+      <div class="feature-story-copy">
+        <p class="eyebrow">Put it side by side</p>
+        <h2>See the difference<br>for yourself.</h2>
+        <p>
+          Two attempts. One view. Sync your clips and step through them together
+          to understand what changed. Or put a reference beside your own
+          movement while you learn.
+        </p>
+        <ul class="tool-list">
+          <li>Play two videos together</li>
+          <li>Compare your clip with a YouTube reference</li>
+          <li>Draw and measure what you notice</li>
         </ul>
       </div>
-      <div class="phone">
-        <video autoplay muted loop playsinline preload="metadata" poster="img/annotations-poster.webp" aria-label="InForm annotation tools in action" width="1080" height="1920">
-          <source src="videos/Annotations%20Edited.mp4" type="video/mp4">
-        </video>
-      </div>
+      <figure class="feature-canvas canvas-compare">
+        <div class="phone">
+          <img src="img/shot-compare.webp" loading="lazy"
+               alt="Two bridge positions displayed together in InForm, with shoulder angles marked at 15 and 8 degrees."
+               width="620" height="1347">
+        </div>
+      </figure>
     </div>
-  </div>
+  </section> -->
 
-  <!-- Filled from demos.js. The section stays hidden until a demo is configured. -->
-  <section class="band demos" id="demos" hidden>
-    <div class="wrap">
-      <p class="eyebrow">See it in action</p>
-      <h2>From a clip to something you can use</h2>
-      <p class="sec-lede">
-        Short walkthroughs of the tools. More on the <a href="tutorials.html">tutorials page</a>
-        and on <a href="https://www.instagram.com/informmotion/" rel="noopener">Instagram at @InFormMotion</a>.
-      </p>
-      <div class="demo-grid" data-demo-grid></div>
+  <section class="coaching-section" id="coaches">
+    <div class="wrap coaching-grid">
+      <div class="coaching-copy">
+        <p class="eyebrow">For coaches &amp; teachers</p>
+        <h2>Make your feedback<br>easy to see.</h2>
+        <p>
+          Point to the exact moment. Draw on the video, add a note, or record
+          your voice. Give your student something they can return to when they
+          practice.
+        </p>
+        <!-- <a class="text-link" href="tutorials.html#record-feedback">
+          Explore feedback tools <span aria-hidden="true">&#8594;</span>
+        </a> -->
+      </div>
+      <figure class="coaching-screenshot">
+        <img src="img/Recording.jpg" loading="lazy" width="1080" height="2340"
+             alt="InForm recording feedback over a dance clip, with a movement line and a speaker in the corner.">
+      </figure>
     </div>
   </section>
 
-  <!-- ===================== FEATURES ===================== -->
-  <section id="features">
-    <div class="wrap">
-      <p class="eyebrow">What it does</p>
-      <h2>Get the video in. Find the moment.</h2>
-      <p class="sec-lede">
-        Film directly in InForm, open a video already on your phone, or paste a
-        YouTube link. On Android, you can also share straight from the YouTube app.
-        Then take the movement apart, one frame at a time.
-      </p>
-
-      <div class="feature">
-        <div class="feature-text">
-          <h3>Slow it down until you can see it</h3>
-          <p>
-            Step <strong>one frame at a time</strong> with the arrows, or hold them to
-            walk through the moment. Hold a speed anywhere from 0.25&times; to 2&times;.
-            Set two markers and <strong>loop the same two seconds</strong> twenty times
-            while it sinks in.
-          </p>
-          <p>
-            Drag away from the scrub bar to slow it down and land on the exact frame.
-            Pinch to zoom into the part that matters, and mirror the view to see a move
-            the way you would face it.
-          </p>
-        </div>
-        <div class="phone">
-          <img src="img/shot-scrub.webp" loading="lazy" alt="A tango couple mid-step in InForm, the scrub bar showing fine one-fifth speed and frame-step arrows over the video." width="538" height="1100">
-        </div>
-      </div>
-
-      <div class="feature flip">
-        <div class="feature-text">
-          <h3>Track your movement</h3>
-          <p>
-            <strong>Advanced motion tracking</strong> of points, lines, angles and body
-            parts. Tap a hand, a barbell plate or a whole skeleton and InForm follows it
-            across the clip, drawing the path behind it and reading live angles at the
-            joints.
-          </p>
-          <p>
-            A bar path that drifts forward, a knee that caves, an arm that drops before
-            the punch lands: see your movement to perfect your movement.
-          </p>
-        </div>
-        <div class="phone">
-          <img src="img/shot-tracking.webp" loading="lazy" alt="A barbell squat in InForm with a red tracked path drawn up from the plate, showing where the bar travelled through the lift." width="620" height="1033">
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-text">
-          <h3>Compare, side by side</h3>
-          <p>
-            Put two videos next to each other and play them together. A YouTube clip
-            beside your own attempt, to learn a sequence. Today beside six weeks ago, to
-            see whether the training is working. Sync them, loop them and step them both
-            forward a frame at a time. A drift corrector keeps them lined up when the two
-            takes aren&rsquo;t the same length.
-          </p>
-          <p>
-            Students who swear nothing has changed go quiet when today is sitting next
-            to March.
-          </p>
-        </div>
-        <div class="phone">
-          <img src="img/shot-compare.webp" loading="lazy" alt="Two takes of the same bridge stacked in InForm's compare view, one measuring 15 degrees and the other 8." width="620" height="1347">
-        </div>
-      </div>
-
-      <div class="feature flip">
-        <div class="feature-text">
-          <h3>Mark it up. Measure it. Say it out loud.</h3>
-          <p>
-            Pen, line, arrow, ellipse, text and a real <strong>angle tool</strong> that
-            snaps to square and stays accurate whatever shape the video is.
-          </p>
-          <p>
-            Type a note, or <strong>record your voice</strong> against an exact moment.
-            The recording sits inside the sentence you wrote. Tap it to hear it and jump
-            the video there.
-          </p>
-        </div>
-        <div class="phone">
-          <img src="img/shot-notes.webp" loading="lazy" alt="A squat paused in InForm with a red depth line drawn across the frame, a typed note reading Deep breath and brace, and a voice note sitting in the text." width="620" height="1347">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== STORY ===================== -->
-  <section class="story">
-    <div class="wrap">
-      <p class="eyebrow">Why I built it</p>
-      <h2>A tool for the way I train and teach</h2>
-      <p class="sec-lede tight">
-        As a dancer, weight lifter, rock climber and dance teacher, I was always
-        looking for ways to study movement. I wanted a simple but powerful video
-        analysis tool that worked the way I actually trained and taught, and I
-        could never find the right one. So I built InForm.
-      </p>
-    </div>
-  </section>
-
-  <!-- ===================== MORE ===================== -->
-  <section class="band">
-    <div class="wrap">
-      <p class="eyebrow">And</p>
-      <h2>The rest of it</h2>
-      <p class="sec-lede">All of it is in the same app, and what is still coming will arrive the same way.</p>
-
-      <div class="cards">
-        <div class="card">
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11z"/></svg></div>
-          <h4>Record your feedback</h4>
-          <p>Capture the screen while you talk over the video and draw on it, then trim it, crop it, and send the whole review as one clip.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm5 5v8l6-4z"/></svg></div>
-          <h4>Get the video in</h4>
-          <p>Film in the app, open a clip from your phone, or paste a YouTube link and study the performance you are learning from.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h5l2 2h9a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/></svg></div>
-          <h4>Track progress over time</h4>
-          <p>Save clips and stills into dated project folders with a pose tag, so months of work read left to right in a single view.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm-1 18H7v-2h10zm0-4H7v-2h10z"/></svg></div>
-          <h4>Share it</h4>
-          <p>Cut out the part that matters and send it with your drawings burned into the picture, or as a file that re-opens with every mark still editable.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== TESTIMONIALS (draft) ===================== -->
-  <!--
-    DRAFT. Hidden until there are real quotes. To publish: replace the three
-    placeholder quotes below with real ones, keep the person's permission on
-    file, and remove the `hidden` attribute from the <section>. Each quote is
-    a <figure class="quote"> with the words in <p> and the name and role in
-    <footer>. Two or three quotes is plenty; delete the rest.
-  -->
-  <section id="testimonials" hidden>
+  <section id="testimonials">
     <div class="wrap">
       <p class="eyebrow">From coaches and movers</p>
-      <h2>What people say</h2>
+      <h2>What people are saying.</h2>
       <div class="quotes">
-        <figure class="quote">
-          <p>Placeholder quote. One or two sentences in the person&rsquo;s own words about what InForm changed for them.</p>
-          <footer><b>First Last</b>Dance teacher, City</footer>
-        </figure>
-        <figure class="quote">
-          <p>Placeholder quote. The best ones name a specific moment: a lift, a move, a student.</p>
-          <footer><b>First Last</b>Strength coach, Gym name</footer>
-        </figure>
-        <figure class="quote">
-          <p>Placeholder quote. Keep it short enough to read in one breath.</p>
-          <footer><b>First Last</b>Climber</footer>
-        </figure>
+        <blockquote class="quote">
+          <p>
+            Being a choreographer and movement teacher, I had to find in a
+            bunch of other apps the tools that are all conveniently present
+            here. Can't recommend it more!
+          </p>
+          <footer><b>Gianpiero Galdi</b>Internationally acclaimed tango star</footer>
+        </blockquote>
+        <blockquote class="quote">
+          <p>
+            For years I've been looking for a replacement for the defunct
+            Coach's Eye. InForm is a beautiful answer. The controls layout is
+            clean and intuitive.
+          </p>
+          <footer><b>InForm user</b></footer>
+        </blockquote>
       </div>
     </div>
   </section>
 
-  <!-- ===================== TRUST / HONESTY ===================== -->
-  <section>
-    <div class="wrap two">
+  <section class="values-section" id="privacy">
+    <div class="wrap values-grid">
       <div>
-        <p class="eyebrow">Your videos</p>
-        <h2>Your videos stay yours</h2>
-        <p class="sec-lede tight">
-          InForm has no server. There is no account, nothing is uploaded and no
-          analytics are collected. Everything runs on your phone, the motion
-          tracking included. That matters if you teach, and it matters more if you
-          teach children.
-        </p>
-        <ul class="plain">
-          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span><b>No account, ever.</b> Open the app and it works.</span></li>
-          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span><b>Study your own videos offline.</b> YouTube playback needs a connection.</span></li>
-          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span><b>You choose what goes out.</b> Sharing uses your phone&rsquo;s own share sheet, when you ask it to.</span></li>
-        </ul>
+        <p class="eyebrow">Your practice is personal</p>
+        <h2>Your videos.<br>Your device.<br><em>Your choice.</em></h2>
       </div>
-      <div>
-        <p class="eyebrow">Being straight with you</p>
-        <h2>What it doesn&rsquo;t do</h2>
-        <p class="sec-lede tight">
-          Worth knowing before you install it rather than after.
+      <div class="values-copy">
+        <p>
+          Your videos, drawings, and notes stay on your phone. Motion tracking
+          runs there too. InForm has no accounts, advertising, or analytics.
         </p>
-        <ul class="plain">
-          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-dash"/></svg><span><b>No cloud library or team accounts.</b> It is a tool on your phone, not a platform.</span></li>
-          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-dash"/></svg><span><b>Built for phones.</b> Android and iPhone. There is no tablet layout yet, and nothing runs in a browser.</span></li>
-          <li><svg width="16" height="16" aria-hidden="true"><use href="#i-dash"/></svg><span><b>It will not tell you what is wrong.</b> It shows the movement clearly. The judgement stays yours, or your teacher&rsquo;s.</span></li>
-        </ul>
+        <p>
+          Study your own clips offline. YouTube needs an internet connection,
+          and you decide when to share your work.
+        </p>
+        <a class="text-link" href="privacy.html">
+          Read the privacy details <span aria-hidden="true">&#8594;</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ===================== DONATIONS / BUSINESS ===================== -->
-  <section class="band" id="business">
-    <div class="wrap two">
+  <section class="home-faq" id="faq">
+    <div class="wrap faq-grid">
       <div>
-        <p class="eyebrow">For individuals</p>
-        <h2>Donation-based</h2>
-        <p class="price-copy">
-          I believe quality resources should be available to everyone who loves
-          motion, whatever their budget. For individual users InForm is
-          donation-ware: every feature, as much as you want, with no subscription,
-          no ads and nothing hidden behind a paywall.
-        </p>
-        <p class="price-copy">
-          If InForm is of value to you, please donate through the Support screen in
-          the app. A rating, a positive review and a word to friends and teammates
-          help just as much.
-        </p>
+        <p class="eyebrow">A few useful details</p>
+        <h2>Frequently Asked Questions</h2>
+        <a class="text-link" href="support.html">
+          More help &amp; answers <span aria-hidden="true">&#8594;</span>
+        </a>
       </div>
-      <div class="price-card">
-        <p class="eyebrow">For gyms, studios, clubs and teams</p>
-        <h2>Bring InForm to your business</h2>
-        <p class="price-copy">
-          Run a gym, a dance studio, a climbing wall, a boxing club or a coaching
-          practice? InForm can be integrated into how your business coaches and
-          teaches, with licensing and support to match. Reach out and tell me what
-          you need.
-        </p>
-        <a class="btn" href="mailto:InFormMotionAnalysis@gmail.com?subject=InForm%20for%20our%20business&amp;body=Hi%20Sean%2C%0A%0AI%20would%20like%20to%20talk%20about%20using%20InForm%20in%20our%20business.%0A%0AOrganisation%20and%20what%20we%20do%3A%0A%0A%0AHow%20we%20would%20like%20to%20use%20InForm%20(coaching%2C%20classes%2C%20assessments%2C%20something%20else)%3A%0A%0A%0ARoughly%20how%20many%20coaches%20or%20members%3A%0A%0A%0ABest%20way%20to%20reach%20me%3A%0A%0A">Talk about your business</a>
+      <div class="faq-items">
+        <details>
+          <summary>What devices does InForm work on?</summary>
+          <p>
+            InForm is built for Android phones and iPhones. The current
+            requirements are Android 7.0 or newer and iOS 15 or newer. There
+            is no dedicated tablet layout or browser version.
+          </p>
+        </details>
+        <details>
+          <summary>Can I use videos I already have?</summary>
+          <p>
+            Yes. Open a video from your phone, record directly in the app, or
+            paste a YouTube link. On Android you can also share a link straight
+            from the YouTube app.
+          </p>
+        </details>
+        <details>
+          <summary>Does InForm tell me how to fix my technique?</summary>
+          <p>
+            InForm helps you see and measure movement. You or your coach
+            interpret what you see and decide what to work on.
+          </p>
+        </details>
+        <details>
+          <summary>Do I need an account or internet connection?</summary>
+          <p>
+            No account is needed. You can study local videos offline, including
+            motion tracking. YouTube playback and optional online actions need
+            a connection.
+          </p>
+        </details>
+        <details>
+          <summary>How do I send feedback or get help?</summary>
+          <p>
+            Visit <a href="support.html">Support</a> for help, or
+            <a href="feedback.html">send feedback</a> to share a bug,
+            suggestion, or feature idea.
+          </p>
+        </details>
       </div>
     </div>
   </section>
 
-  <!-- ===================== FINAL ===================== -->
-  <section class="final" id="get">
+  <section class="final home-final" id="get">
     <div class="wrap">
-      <h2>See what the movement is telling you.</h2>
+      <p class="eyebrow">Your next attempt starts here</p>
+      <h2>Bring your movement.<br>See it in a new way.</h2>
       <p class="sec-lede">
-        Film a move or open a clip you already have. Find the frame that explains
-        what happened, and take that insight into your next attempt.
+        Open a clip. Find a detail. Take it into your next practice.
       </p>
       <div class="cta stores">
-        <a class="badge badge-google" href="https://play.google.com/store/apps/details?id=dev.sericson.inform&amp;utm_source=informmotion.com&amp;utm_medium=site&amp;utm_campaign=footer">
+        <a class="badge badge-google"
+           href="https://play.google.com/store/apps/details?id=dev.sericson.inform&amp;utm_source=informmotion.com&amp;utm_medium=site&amp;utm_campaign=footer">
           <img src="img/badge-google-play.png" alt="Get it on Google Play" width="646" height="250">
         </a>
         <a class="badge badge-apple" href="https://apps.apple.com/app/id6797707923?ct=site-footer">
           <img src="img/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
         </a>
       </div>
+      <p class="req">Android 7.0+ &middot; iOS 15+ &middot; No account needed</p>
       <p class="req">
-        Android 7.0 or newer &middot; iPhone on iOS 15 or newer.
-      </p>
-      <p class="req">
-        Follow <a href="https://www.instagram.com/informmotion/" rel="noopener">@InFormMotion on Instagram</a>
-        for new examples and tutorials, or <a href="#" data-updates-open>get occasional updates by email</a>.
+        Follow <a href="https://www.instagram.com/informmotion/" rel="noopener">@InFormMotion</a>
+        or <a href="#" data-updates-open>get occasional email updates</a>.
       </p>
     </div>
   </section>
-
 </main>
 
 <dialog class="demo-dialog" data-demo-dialog aria-labelledby="demo-dialog-title">
@@ -376,14 +411,22 @@
       <a href="privacy.html">Privacy</a>
       <a href="#" data-updates-open>Email updates</a>
       <a class="social" href="https://www.instagram.com/informmotion/" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" style="fill:none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" style="fill:currentColor"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" style="fill:none"
+             stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" style="fill:currentColor"/>
+        </svg>
         @InFormMotion
       </a>
       <a href="mailto:InFormMotionAnalysis@gmail.com">InFormMotionAnalysis@gmail.com</a>
     </nav>
   </div>
   <div class="wrap">
-    <p class="store-legal">Google Play and the Google Play logo are trademarks of Google LLC. Apple, the Apple logo and App Store are trademarks of Apple Inc.</p>
+    <p class="store-legal">
+      Google Play and the Google Play logo are trademarks of Google LLC. Apple,
+      the Apple logo and App Store are trademarks of Apple Inc.
+    </p>
   </div>
 </footer>
 
@@ -404,8 +447,9 @@
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
 }
 </script>
+<script src="home.js" defer></script>
 <script src="demos.js" defer></script>
-<script src="updates.js" defer></script>
+<script src="updates.js" data-updates-auto="false" defer></script>
 
 </body>
 </html>

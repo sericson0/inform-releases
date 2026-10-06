@@ -1,6 +1,6 @@
 /*
-  Add video demos here. The Demos navigation item and section are shown only
-  when this list contains at least one valid item.
+  Add video demos here. The demo section is shown only when this list
+  contains at least one valid item.
 
   Self-hosted example:
   {
@@ -13,8 +13,7 @@
       sources: [
         { src: "videos/find-frame.webm", type: "video/webm" },
         { src: "videos/find-frame.mp4", type: "video/mp4" }
-      ],
-      captions: "videos/find-frame.en.vtt"
+      ]
     }
   }
 
@@ -42,18 +41,21 @@
 */
 const demos = [
   {
-    title: "Track the bar path",
-    description: "Tap the plate, tap Track, and InForm follows the barbell through the lift with a trail behind it.",
+    title: "Set your technique on the right track with InForm's advanced motion tracking",
+    description: "InForm lets you can track points, lines, angles, and joints.",
     details: [
-      "Tap a point, or drag a line along the bar, and InForm follows it frame by frame.",
-      "The path is drawn as it goes, so a forward drift or a stall shows at a glance.",
-      "Angles drawn on a tracked point update live as it moves.",
-      "Tracking runs on your phone. Nothing is uploaded."
+      "Variable selection to track the point you want.",
+      "See your technique across the full motion.",
+      "Get the right measurments at the right times.",
     ],
     duration: "0:19",
     poster: "img/shot-tracking.webp",
     preview: "videos/tracking-preview.mp4",
-    video: { type: "youtube", id: "QhHHTg2qL6s", vertical: true }
+    video: {
+      type: "file",
+      sources: [{ src: "videos/tracking-demo-silent.mp4", type: "video/mp4" }],
+      vertical: true
+    }
   }
 ];
 
@@ -123,16 +125,6 @@ const demos = [
       video.append(source);
     });
 
-    if (demo.video.captions) {
-      const track = document.createElement("track");
-      track.kind = "captions";
-      track.src = demo.video.captions;
-      track.srclang = "en";
-      track.label = "English";
-      track.default = true;
-      video.append(track);
-    }
-
     player.append(video);
   };
 
@@ -184,7 +176,7 @@ const demos = [
     play.setAttribute("aria-hidden", "true");
     const playLabel = document.createElement("span");
     playLabel.className = "demo-play-label";
-    playLabel.textContent = "Play with sound";
+    playLabel.textContent = "Play video";
     play.append(playIcon(), playLabel);
     preview.append(play);
 
@@ -257,6 +249,5 @@ const demos = [
   });
   dialog.addEventListener("close", () => player.replaceChildren());
 
-  document.querySelectorAll("[data-demos-link]").forEach((link) => { link.hidden = false; });
   section.hidden = false;
 })();

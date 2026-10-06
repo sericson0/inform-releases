@@ -1,16 +1,18 @@
 /*
-  Email updates popup — the website twin of the app's "Keep up with InForm"
-  dialog (Playback: lib/src/shell/email_updates_dialog.dart). Same wording,
-  same three answers, same memory:
+  Email updates popup and desktop launch form. The popup is the website twin
+  of the app's "Keep up with InForm" dialog
+  (Playback: lib/src/shell/email_updates_dialog.dart). Same wording, same
+  three answers, same memory:
 
     Email me updates  → signs up, then never asks again in this browser.
     Maybe later       → (also Escape, or a tap outside) asks again in 14 days.
     No thanks         → never asks again in this browser.
 
-  It posts to the same Cloudflare Worker the app uses, which adds the address
-  to the "InForm updates" segment in Resend. No key lives here; the Worker
-  holds it. The Worker only accepts `source: "inform-app"`, so that is what
-  the site sends too.
+  Both forms post to the same Cloudflare Worker the app uses, which adds the
+  address to the "InForm updates" segment in Resend. No key lives here; the
+  Worker holds it. The Worker only accepts `source: "inform-app"`, so that is
+  what the site sends too. The desktop launch email will be a broadcast to
+  that updates segment.
 
   The ask appears after someone has been on the page for a little while, and
   waits if a demo video is open. A page can opt out of the automatic ask with
@@ -47,6 +49,86 @@
     const email = value.trim();
     return email.length <= 254 && /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(email);
   };
+
+  const subscribe = async (address, profile) => {
+    const payload = {
+      email: address,
+      consent: true,
+      consentVersion: "inform-updates-v1",
+      source: "inform-app"
+    };
+    if (profile) payload.profile = profile;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 15000);
+    let response;
+    try {
+      response = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+        redirect: "manual"
+      });
+    } catch (_) {
+      throw new Error("Could not sign up. Check your connection and try again.");
+    } finally {
+      clearTimeout(timer);
+    }
+    if (response.status === 409) {
+      throw new Error("Could not add this address. Contact " + CONTACT + " if you previously unsubscribed and want to rejoin.");
+    }
+    if (response.status === 429) throw new Error("Please wait a little and try again.");
+    if (response.status !== 200 && response.status !== 202) throw new Error("Could not sign up. Please try again.");
+    let data;
+    try { data = await response.json(); } catch (_) { throw new Error("Could not confirm signup. Please try again."); }
+    if (data && data.status === "subscribed") return "subscribed";
+    if (data && data.status === "confirmation_required") return "confirmation_required";
+    throw new Error("Could not confirm signup. Please try again.");
+  };
+
+  const desktopForm = document.querySelector("[data-desktop-signup]");
+  if (desktopForm) {
+    const desktopEmail = desktopForm.querySelector('input[name="email"]');
+    const desktopButton = desktopForm.querySelector('button[type="submit"]');
+    const desktopError = desktopForm.querySelector(".desktop-signup-error");
+    const desktopSuccess = desktopForm.querySelector("[data-desktop-success]");
+    let desktopBusy = false;
+
+    desktopForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (desktopBusy) return;
+      const address = desktopEmail.value.trim();
+      if (!validEmail(address)) {
+        desktopError.textContent = "Enter a valid email address.";
+        desktopError.hidden = false;
+        desktopEmail.setAttribute("aria-invalid", "true");
+        desktopEmail.focus();
+        return;
+      }
+      desktopError.hidden = true;
+      desktopEmail.removeAttribute("aria-invalid");
+      desktopBusy = true;
+      desktopButton.disabled = true;
+      try {
+        const result = await subscribe(address);
+        store.set(CHOICE_KEY, "accepted");
+        desktopSuccess.textContent = result === "confirmation_required"
+          ? "Check your inbox to confirm your email address."
+          : "You're on the list. We'll email you when InForm desktop launches.";
+        desktopSuccess.hidden = false;
+        desktopEmail.disabled = true;
+      } catch (err) {
+        desktopError.textContent = err && err.message ? err.message : "Could not finish signup. Please try again.";
+        desktopError.hidden = false;
+        desktopButton.disabled = false;
+        desktopBusy = false;
+      }
+    });
+    desktopEmail.addEventListener("input", () => {
+      desktopError.hidden = true;
+      desktopEmail.removeAttribute("aria-invalid");
+    });
+  }
 
   /* ---------- markup ---------- */
   const dialog = document.createElement("dialog");
@@ -138,43 +220,6 @@
   };
 
   /* ---------- signup ---------- */
-  const subscribe = async (address) => {
-    const uses = Array.from(form.querySelectorAll('input[name="uses"]:checked'), (el) => el.value);
-    const payload = {
-      email: address,
-      consent: true,
-      consentVersion: "inform-updates-v1",
-      source: "inform-app",
-      profile: { uses, sportActivity: sport.value.trim().slice(0, SPORT_MAX) }
-    };
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 15000);
-    let response;
-    try {
-      response = await fetch(ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(payload),
-        signal: controller.signal,
-        redirect: "manual"
-      });
-    } catch (_) {
-      throw new Error("Could not sign up. Check your connection and try again.");
-    } finally {
-      clearTimeout(timer);
-    }
-    if (response.status === 409) {
-      throw new Error("Could not add this address. Contact " + CONTACT + " if you previously unsubscribed and want to rejoin.");
-    }
-    if (response.status === 429) throw new Error("Please wait a little and try again.");
-    if (response.status !== 200 && response.status !== 202) throw new Error("Could not sign up. Please try again.");
-    let data;
-    try { data = await response.json(); } catch (_) { throw new Error("Could not confirm signup. Please try again."); }
-    if (data && data.status === "subscribed") return "subscribed";
-    if (data && data.status === "confirmation_required") return "confirmation_required";
-    throw new Error("Could not confirm signup. Please try again.");
-  };
-
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (busy) return;
@@ -188,7 +233,10 @@
     showError("");
     setBusy(true);
     try {
-      const result = await subscribe(address);
+      const uses = Array.from(form.querySelectorAll('input[name="uses"]:checked'), (el) => el.value);
+      const result = await subscribe(address, {
+        uses, sportActivity: sport.value.trim().slice(0, SPORT_MAX)
+      });
       store.set(CHOICE_KEY, "accepted");
       const confirm = result === "confirmation_required";
       doneTitle.textContent = confirm ? "Check your inbox" : "You’re on the list";
