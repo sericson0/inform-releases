@@ -237,7 +237,7 @@ h2 {
 .demo-preview.playing video { opacity: 1; }
 .demo-preview::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, .7));
+  background: none;
 }
 .demo-play {
   position: absolute; z-index: 1; inset: 50% auto auto 50%;
@@ -584,12 +584,12 @@ h2 {
 .business-note {
   position: relative; overflow: hidden; padding: 34px;
   border: 1px solid #56817b; border-radius: 16px;
-  background: linear-gradient(145deg, #1c4141, #153335 70%);
+  background: #153335;
   box-shadow: 0 20px 50px #05161755;
 }
 .business-note::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, var(--accent), transparent 80%);
+  background: var(--accent);
 }
 .business-note .eyebrow { color: #9ce0d6; margin-bottom: 17px; }
 .business-note h3 { font-size: clamp(1.6rem, 2.7vw, 2rem); line-height: 1.12; font-weight: 600; margin: 0 0 18px; }
@@ -746,3 +746,49 @@ h2 {
 .footer-brand b { font-size: 1.25rem; font-style: italic; letter-spacing: -.015em; }
 .footer-brand i { color: var(--accent); font-style: italic; }
 @media (max-width: 600px) { .foot nav { margin-left: 0; } }
+
+/* Show product media directly on each section's background. */
+.home .hero-stage,
+.home .hero-device,
+.home .feature-canvas,
+.home .canvas-compare,
+.home .phone,
+.home .playback-guide,
+.home .demo-card,
+.home .demo-preview,
+.home .coaching-screenshot,
+.home .desktop-banner {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.home .hero-stage,
+.home .hero-device,
+.home .feature-canvas,
+.home .playback-guide,
+.home .coaching-screenshot { padding: 0; }
+.home .hero-device video,
+.home .playback-guide img,
+.home .coaching-screenshot img,
+.home .demo-card.vertical .demo-preview {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.home .playback-guide,
+.home .demo-card {
+  --text: inherit;
+  --muted: inherit;
+  --accent: inherit;
+  --line: inherit;
+  color: inherit;
+  color-scheme: inherit;
+}
+.home .playback-guide { column-gap: 36px; row-gap: 48px; }
+.home .playback-guide figcaption { margin-top: 18px; color: inherit; }
+.demo-preview::after { display: none; }
+@media (max-width: 600px) {
+  .home .playback-guide { column-gap: 18px; row-gap: 32px; padding: 0; }
+  .home .playback-guide figcaption { margin-top: 14px; }
+}
