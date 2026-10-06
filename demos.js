@@ -41,7 +41,7 @@
 */
 const demos = [
   {
-    title: "Set your technique on the right track with InForm's advanced motion tracking",
+    title: "Be on the right track",
     description: "InForm lets you can track points, lines, angles, and joints.",
     details: [
       "Variable selection to track the point you want.",
@@ -251,3 +251,4 @@ const demos = [
 
   section.hidden = false;
 })();
+

@@ -727,35 +727,22 @@ h2 {
   .bar nav a.btn { display: inline-flex; align-self: flex-start; margin-top: 6px; padding: .5rem 1rem; }
 }
 
-/* Alternate homepage sections using the existing teal and mint palette. */
-.home > main > section:nth-of-type(odd) {
-  --text: #f0f3ed;
-  --muted: #afbfbc;
-  --accent: #8ee2dd;
-  --line: #2a4143;
-  --line-soft: #203335;
-  color: var(--text);
-  background: #071214;
-  color-scheme: dark;
-}
-.home > main > section:nth-of-type(even) {
-  --text: #173130;
-  --muted: #48605a;
-  --accent: #235f58;
-  --line: #a5bdb0;
-  --line-soft: #bfd4c7;
-  color: var(--text);
-  background: #e5eee7;
-  color-scheme: light;
-}
-/* Preserve readable text inside dark panels on light sections. */
-.home .playback-guide,
-.home .business-note,
-.home .demo-card {
-  --text: #f0f3ed;
-  --muted: #afbfbc;
-  --accent: #8ee2dd;
-  --line: #2a4143;
-  color: var(--text);
-  color-scheme: dark;
-}
+
+/* Draft: three-color rotation, counting only sections included in the page. */
+.home > main > section { --text: #f0f3ed; --muted: #afbfbc; --accent: #8ee2dd; --line: #2a4143; --line-soft: #203335; background: #071214; color: var(--text); color-scheme: dark; }
+.home > main > section:nth-of-type(3n+2) { --text: #173130; --muted: #48605a; --accent: #235f58; --line: #a5bdb0; --line-soft: #bfd4c7; background: #e5eee7; color-scheme: light; }
+.home > main > section:nth-of-type(3n) { --text: #173130; --muted: #355a54; --accent: #164d45; --line: #699f98; --line-soft: #7fbcb2; background: #9ce0d6; color-scheme: light; }
+.home .playback-guide, .home .business-note, .home .demo-card, .home .quote { --text: #f0f3ed; --muted: #afbfbc; --accent: #8ee2dd; --line: #2a4143; color: var(--text); color-scheme: dark; }
+.home .playback-guide { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 860px; margin-inline: auto; }
+.home .business-copy { max-width: 900px; }
+.home .business-copy p:not(.eyebrow) { color: var(--muted); }
+@media (max-width: 600px) { .home .playback-guide { gap: 8px; padding: 10px; } .home .playback-guide figcaption { font-size: .7rem; } }
+
+
+/* Shared footer brand, aligned at the left of the footer. */
+.footer-brand { display: inline-flex; align-items: center; gap: .65rem; flex-shrink: 0; color: var(--text); }
+.footer-brand:hover { text-decoration: none; }
+.footer-brand img { display: block; width: 34px; height: 34px; }
+.footer-brand b { font-size: 1.25rem; font-style: italic; letter-spacing: -.015em; }
+.footer-brand i { color: var(--accent); font-style: italic; }
+@media (max-width: 600px) { .foot nav { margin-left: 0; } }
