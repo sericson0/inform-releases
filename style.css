@@ -76,6 +76,7 @@ header {
 .brand b i { color: var(--accent); font-style: italic; }
 .bar nav { margin-left: auto; display: flex; align-items: center; gap: 1.4rem; }
 .bar nav a { color: var(--muted); font-size: .95rem; }
+.bar nav a[aria-current="page"] { color: var(--text); font-weight: 700; }
 .bar nav a:hover { color: var(--text); text-decoration: none; }
 .bar nav a.btn { color: #00222c; }
 @media (max-width: 560px) { .bar nav .hide-xs { display: none; } }
@@ -697,4 +698,10 @@ h2 {
 @media (max-width: 360px) {
   .home .home-support { display: none; }
   .home .wrap { padding-inline: 18px; }
+}
+
+/* Keep the added current-page link comfortable on narrow screens. */
+@media (max-width: 560px) {
+  .bar, .home .bar { height: auto; min-height: 62px; flex-wrap: wrap; padding-block: .65rem; }
+  .bar nav, .home .bar nav { flex-wrap: wrap; gap: .6rem 1rem; }
 }
