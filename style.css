@@ -793,3 +793,35 @@ h2 {
   .home .playback-guide { column-gap: 18px; row-gap: 32px; padding: 0; }
   .home .playback-guide figcaption { margin-top: 14px; }
 }
+
+/* Consistent, larger labels for each tool demonstration. */
+.home #features .playback-guide figcaption {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: normal;
+}
+@media (max-width: 600px) {
+  .home #features .playback-guide figcaption { font-size: .9375rem; }
+}
+/* Keep motion-tracking media and copy directly on the section background. */
+.home #demos .demo-card,
+.home #demos .demo-copy,
+.home #demos .demo-preview {
+  background: transparent;
+  background-image: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.home #demos .demo-copy { padding: 0; }
+.home #demos .demo-card { column-gap: 48px; row-gap: 28px; }
+.home #business .business-link {
+  color: #f0f3ed;
+  background: #235f58;
+  border-color: #235f58;
+  margin-top: 14px;
+}
+.home #business .business-link:hover { background: #174841; border-color: #174841; color: #f0f3ed; }
