@@ -726,3 +726,36 @@ h2 {
   .bar nav a, .home .bar nav a { display: block; padding: 10px 12px; font-size: 1rem; }
   .bar nav a.btn { display: inline-flex; align-self: flex-start; margin-top: 6px; padding: .5rem 1rem; }
 }
+
+/* Alternate homepage sections using the existing teal and mint palette. */
+.home > main > section:nth-of-type(odd) {
+  --text: #f0f3ed;
+  --muted: #afbfbc;
+  --accent: #8ee2dd;
+  --line: #2a4143;
+  --line-soft: #203335;
+  color: var(--text);
+  background: #071214;
+  color-scheme: dark;
+}
+.home > main > section:nth-of-type(even) {
+  --text: #173130;
+  --muted: #48605a;
+  --accent: #235f58;
+  --line: #a5bdb0;
+  --line-soft: #bfd4c7;
+  color: var(--text);
+  background: #e5eee7;
+  color-scheme: light;
+}
+/* Preserve readable text inside dark panels on light sections. */
+.home .playback-guide,
+.home .business-note,
+.home .demo-card {
+  --text: #f0f3ed;
+  --muted: #afbfbc;
+  --accent: #8ee2dd;
+  --line: #2a4143;
+  color: var(--text);
+  color-scheme: dark;
+}
