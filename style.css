@@ -848,3 +848,73 @@ h2 {
   .home .playback-guide { padding: 16px; }
   .home #demos .demo-card { padding: 20px; }
 }
+
+/* One shared treatment for text action buttons throughout the site. */
+:root { --button-bg: #235f58; --button-hover: #174841; --button-text: #f0f3ed; }
+.btn,
+.home .btn,
+.bar nav a.btn,
+.home #business .business-link,
+.desktop-signup button,
+.updates-dialog .updates-secondary,
+.updates-dialog .updates-decline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 1px solid var(--button-bg);
+  border-radius: 999px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease;
+}
+.btn:hover,
+.home .btn:hover,
+.bar nav a.btn:hover,
+.home #business .business-link:hover,
+.desktop-signup button:hover,
+.updates-dialog .updates-secondary:hover,
+.updates-dialog .updates-decline:hover {
+  background: var(--button-hover);
+  border-color: var(--button-hover);
+  color: var(--button-text);
+  text-decoration: none;
+  box-shadow: none;
+  transform: none;
+}
+.btn:disabled,
+.desktop-signup button:disabled,
+.updates-dialog button:disabled {
+  opacity: .6;
+  cursor: default;
+  background: var(--button-bg);
+  border-color: var(--button-bg);
+}
+.menu-toggle,
+.updates-close,
+.demo-close {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--button-bg);
+  border-radius: 50%;
+  background: var(--button-bg);
+  color: var(--button-text);
+  box-shadow: none;
+}
+.menu-toggle:hover,
+.updates-close:hover,
+.demo-close:hover { background: var(--button-hover); border-color: var(--button-hover); color: var(--button-text); }
+.demo-play { background: var(--button-bg); color: var(--button-text); box-shadow: none; }
+.demo-preview:hover .demo-play { box-shadow: none; transform: translate(-50%, -50%); }
+.demo-preview.playing:hover .demo-play { transform: none; }
