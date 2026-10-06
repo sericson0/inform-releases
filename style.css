@@ -79,7 +79,7 @@ header {
 .bar nav a[aria-current="page"] { color: var(--text); font-weight: 700; }
 .bar nav a:hover { color: var(--text); text-decoration: none; }
 .bar nav a.btn { color: #00222c; }
-@media (max-width: 560px) { .bar nav .hide-xs { display: none; } }
+
 
 footer {
   border-top: 1px solid var(--line-soft); padding: 2.5rem 0 3.5rem;
@@ -652,7 +652,6 @@ h2 {
   .playback-guide { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .home .wrap { padding-inline: 24px; }
   .home .bar { height: 68px; }
-  .home .bar nav .hide-xs { display: none; }
   .home-hero-grid { grid-template-columns: 1fr 0.8fr; gap: 24px; }
   .hero-copy h1 { font-size: clamp(2.5rem, 6vw, 3.4rem); }
   .hero-copy .lede { font-size: .95rem; }
@@ -696,12 +695,34 @@ h2 {
   .home .foot nav { margin-left: 0; }
 }
 @media (max-width: 360px) {
-  .home .home-support { display: none; }
   .home .wrap { padding-inline: 18px; }
 }
 
-/* Keep the added current-page link comfortable on narrow screens. */
-@media (max-width: 560px) {
-  .bar, .home .bar { height: auto; min-height: 62px; flex-wrap: wrap; padding-block: .65rem; }
-  .bar nav, .home .bar nav { flex-wrap: wrap; gap: .6rem 1rem; }
+
+
+/* Mobile header: every navigation link lives in the hamburger menu. */
+.bar nav .btn { white-space: nowrap; flex-shrink: 0; }
+.menu-toggle {
+  display: none; align-items: center; justify-content: center;
+  width: 44px; height: 44px; padding: 10px; margin-left: auto;
+  border: 1px solid var(--line); border-radius: 8px;
+  background: transparent; color: var(--text); cursor: pointer;
+}
+.menu-toggle:hover { background: var(--bg-card); }
+.menu-toggle svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.menu-close-icon { display: none; }
+.menu-toggle[aria-expanded="true"] .menu-open-icon { display: none; }
+.menu-toggle[aria-expanded="true"] .menu-close-icon { display: block; }
+@media (max-width: 800px) {
+  .bar, .home .bar { height: auto; min-height: 62px; flex-wrap: wrap; gap: 0; padding-block: 9px; }
+  .bar .brand { display: flex; flex-shrink: 0; }
+  .menu-toggle { display: inline-flex; }
+  .bar nav, .home .bar nav {
+    display: none; flex: 0 0 100%; flex-direction: column; align-items: stretch;
+    gap: 4px; margin: 9px 0 0; padding: 12px 0 4px; border-top: 1px solid var(--line-soft);
+    max-height: calc(100dvh - 90px); overflow-y: auto;
+  }
+  .bar nav.is-open { display: flex; }
+  .bar nav a, .home .bar nav a { display: block; padding: 10px 12px; font-size: 1rem; }
+  .bar nav a.btn { display: inline-flex; align-self: flex-start; margin-top: 6px; padding: .5rem 1rem; }
 }

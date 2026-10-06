@@ -29,7 +29,13 @@
       <img src="img/icon-180.png" alt="" width="28" height="28">
       <b>In<i>Form</i></b>
     </a>
-    <nav aria-label="Main navigation">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" aria-label="Open navigation">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path class="menu-open-icon" d="M4 6h16M4 12h16M4 18h16"/>
+        <path class="menu-close-icon" d="m6 6 12 12M18 6 6 18"/>
+      </svg>
+    </button>
+    <nav id="main-navigation" aria-label="Main navigation">
       <a href="/">Home</a>
       <a href="tutorials.html" aria-current="page">Tutorials</a>
       <a class="hide-xs" href="/#features">Features</a>
@@ -71,6 +77,8 @@
 </footer>
 
 <script src="updates.js" defer></script>
+
+<script src="navigation.js" defer></script>
 
 </body>
 </html>
