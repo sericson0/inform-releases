@@ -1122,3 +1122,100 @@ h1, h2, h3, h4,
 .home > main > section .desktop-signup-fine { font-size: var(--type-supporting); }
 .home #features .playback-guide figcaption { font-size: var(--type-intro); font-weight: 500; }
 .home .hero-play-toggle { display: none; }
+
+/* Approved INFORM branding: refined teal, pale blue and off-white. */
+:root {
+  --brand-dark: #102D32;
+  --brand-action: #246B70;
+  --brand-highlight: #A7DED8;
+  --brand-tint: #E7F2F4;
+  --brand-paper: #F7F9F7;
+  --brand-ink: #173237;
+  --bg: var(--brand-dark);
+  --bg-soft: color-mix(in srgb, var(--brand-dark) 94%, var(--brand-paper));
+  --bg-card: color-mix(in srgb, var(--brand-dark) 90%, var(--brand-paper));
+  --text: var(--brand-paper);
+  --muted: color-mix(in srgb, var(--brand-paper) 76%, var(--brand-dark));
+  --accent: var(--brand-highlight);
+  --accent-lo: color-mix(in srgb, var(--brand-highlight) 15%, var(--brand-dark));
+  --line: color-mix(in srgb, var(--brand-paper) 25%, var(--brand-dark));
+  --line-soft: color-mix(in srgb, var(--brand-paper) 15%, var(--brand-dark));
+  --button-bg: var(--brand-action);
+  --button-hover: var(--brand-dark);
+  --button-text: var(--brand-paper);
+}
+body:not(.home),
+.home > main > section {
+  --bg: var(--brand-paper);
+  --bg-soft: var(--brand-tint);
+  --bg-card: var(--brand-tint);
+  --text: var(--brand-ink);
+  --muted: color-mix(in srgb, var(--brand-ink) 80%, var(--brand-paper));
+  --accent: var(--brand-action);
+  --accent-lo: var(--brand-tint);
+  --line: color-mix(in srgb, var(--brand-ink) 25%, var(--brand-paper));
+  --line-soft: color-mix(in srgb, var(--brand-ink) 15%, var(--brand-paper));
+  --device-surface: var(--brand-paper);
+  background: var(--brand-paper);
+  color: var(--text);
+  color-scheme: light;
+}
+.home > main > section:nth-of-type(2n) {
+  background: var(--brand-tint);
+  --device-surface: var(--brand-tint);
+}
+body > header,
+.home > header,
+body > footer,
+.home > main > .home-hero,
+.home > main > .home-final,
+.updates-dialog {
+  --bg: var(--brand-dark);
+  --bg-soft: color-mix(in srgb, var(--brand-dark) 94%, var(--brand-paper));
+  --bg-card: color-mix(in srgb, var(--brand-dark) 90%, var(--brand-paper));
+  --text: var(--brand-paper);
+  --muted: color-mix(in srgb, var(--brand-paper) 76%, var(--brand-dark));
+  --accent: var(--brand-highlight);
+  --accent-lo: color-mix(in srgb, var(--brand-highlight) 15%, var(--brand-dark));
+  --line: color-mix(in srgb, var(--brand-paper) 25%, var(--brand-dark));
+  --line-soft: color-mix(in srgb, var(--brand-paper) 15%, var(--brand-dark));
+  --device-surface: var(--brand-dark);
+  background: var(--brand-dark);
+  color: var(--text);
+  color-scheme: dark;
+}
+.brand b,
+.brand b i,
+.hero-wordmark,
+.hero-wordmark > span,
+.footer-brand b,
+.footer-brand i {
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 700;
+}
+.home .quote {
+  --text: inherit;
+  --muted: inherit;
+  --accent: inherit;
+  --line: inherit;
+  background: var(--bg-card);
+  color: inherit;
+  color-scheme: inherit;
+}
+.home .desktop-section p:not(.eyebrow) { color: var(--muted); }
+.home .desktop-section .eyebrow,
+.desktop-signup-fine a { color: var(--accent); }
+.desktop-signup input {
+  color: var(--text);
+  background: var(--brand-paper);
+  border-color: var(--line);
+}
+.desktop-signup input:focus {
+  border-color: var(--brand-action);
+  outline-color: var(--brand-action);
+}
+.desktop-section .desktop-signup .desktop-signup-success { color: var(--brand-action); }
+.home .device-frame,
+.home .device-screen,
+.home .device-frame::before { border-color: color-mix(in srgb, var(--text) 65%, transparent); }
