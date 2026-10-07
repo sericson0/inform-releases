@@ -614,14 +614,14 @@ h2 {
 .business-link:hover { color: #092c2d; background: #b7f0eb; text-decoration: none; transform: translateY(-2px); }
 .business-link span { font-size: var(--type-intro); line-height: 1; }
 .desktop-section { color: #173130; background: #e5eee7; padding-block: 70px; scroll-margin-top: 72px; }
-.desktop-banner { display: flex; align-items: center; min-width: 0; margin: 0; overflow: hidden; border-radius: 12px; background: #061321; box-shadow: 0 18px 38px #1a44312b; }
+.desktop-banner { display: flex; align-items: center; min-width: 0; margin: 0; overflow: hidden; border-radius: 12px; background: #061321; }
 .desktop-banner img { display: block; width: 100%; height: auto; clip-path: inset(2px 0 0); }
 .desktop-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; gap: 56px; }
 .desktop-content { display: grid; align-content: center; gap: 24px; min-width: 0; }
 .desktop-section .eyebrow { color: #376b63; }
 .desktop-section h2 { max-width: 12em; margin: 12px 0 18px; }
 .desktop-section p:not(.eyebrow) { max-width: 38em; color: #48605a; }
-.desktop-signup { padding: 28px; border: 1px solid #bfd4c7; border-radius: 16px; background: #f8faf5; box-shadow: 0 16px 35px #1a443121; }
+.desktop-signup { padding: 0; border: 0; background: transparent; box-shadow: none; }
 .desktop-signup label { display: block; margin-bottom: 13px; font-size: var(--type-body); font-weight: 700; }
 .desktop-signup-row { display: flex; gap: 8px; }
 .desktop-signup input { min-width: 0; flex: 1; padding: 13px 14px; border: 1px solid #a5bdb0; border-radius: 9px; color: #173130; background: #fff; font: inherit; }
@@ -700,7 +700,6 @@ h2 {
   .home .demo-details { font-size: var(--type-supporting); }
   .business-note { padding: 25px; }
   .desktop-banner { align-self: auto; }
-  .desktop-signup { padding: 22px; }
   .desktop-signup-row { flex-direction: column; }
   .home .foot nav { margin-left: 0; }
 }
