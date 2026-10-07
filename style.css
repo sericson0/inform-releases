@@ -1087,5 +1087,6 @@ h1, h2, h3, h4,
 .home #features .playback-guide .device-frame,
 .home #features .playback-guide .device-screen,
 .home #features .playback-guide .device-frame::before {
-  background: #080a0b;
+  background: #000;
+  --device-surface: #000;
 }
