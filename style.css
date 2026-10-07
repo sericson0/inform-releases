@@ -1408,3 +1408,97 @@ body > footer,
 /* Keep the hidden testimonial private and centre the remaining quote. */
 .home #testimonials .testimonial[hidden] { display: none; }
 .home #testimonials .quotes-single { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin-inline: auto; }
+
+/* Coaching website draft: a complete session workflow and a clear business path. */
+.home .hero-copy > .eyebrow { color: var(--brand-highlight); margin: 0 0 18px; }
+.home .hero-secondary { margin-top: 20px; }
+.home .hero-secondary .btn-outline { background: transparent; border: 1px solid var(--brand-highlight); color: var(--brand-paper); }
+.home .hero-proof { margin: 18px 0 0; }
+.home > main > section .hero-proof { font-size: var(--type-supporting); color: #D0E1E5; }
+.home .hero-proof a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.coaching-workflow { margin-top: 36px; }
+.home #features .workflow-example { font-size: var(--type-supporting); color: var(--muted); margin-bottom: 16px; }
+.workflow-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.workflow-steps button { font-family: inherit; font-size: var(--type-body); font-weight: 700; line-height: 1.4; display: flex; align-items: center; gap: 12px; padding: 16px; border: 1px solid var(--brand-action); border-radius: 16px; background: transparent; color: var(--brand-ink); text-align: left; cursor: pointer; }
+.workflow-steps button > span { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid currentColor; border-radius: 50%; font-size: var(--type-supporting); }
+.workflow-steps button[aria-pressed="true"] { background: var(--brand-action); color: var(--brand-paper); }
+.workflow-steps button:focus-visible, .tools-disclosure summary:focus-visible { outline: 3px solid var(--brand-action); outline-offset: 4px; }
+.workflow-panel { display: grid; grid-template-columns: minmax(230px, .85fr) 1.15fr; align-items: center; gap: 64px; padding: 40px 0 20px; }
+.workflow-panel[hidden] { display: none; }
+.workflow-panel figure { margin: 0; }
+.home .workflow-panel .device-frame { width: min(100%, 225px); }
+.home .workflow-panel h3 { font-size: var(--type-feature); line-height: 1.2; color: var(--heading-blue); margin: 12px 0 20px; }
+.workflow-panel p:not(.eyebrow) { max-width: 36em; line-height: 1.65; }
+.home #features .workflow-panel .workflow-cue { border-left: 3px solid var(--brand-action); padding-left: 16px; margin-top: 24px; font-weight: 700; color: var(--brand-action); }
+.home .workflow-panel img[src$="Recording.jpg"] { filter: saturate(.62); }
+.tools-disclosure { margin-top: 36px; border-top: 1px solid var(--line); }
+.tools-disclosure > summary { padding: 20px 0; font-size: var(--type-body); font-weight: 700; cursor: pointer; color: var(--brand-action); }
+.tools-disclosure .playback-guide { margin-top: 20px; }
+.home > main > #why-inform { background: var(--brand-tint); }
+.benefit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 36px; }
+.benefit-grid article { border-top: 2px solid var(--brand-action); padding-top: 22px; }
+.home .benefit-grid h3 { font-size: var(--type-intro); line-height: 1.3; color: var(--heading-blue); margin: 0 0 14px; }
+.benefit-grid p { line-height: 1.65; margin: 0; }
+.business-usecases { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; margin-top: 44px; }
+.business-usecases article { border-top: 1px solid #A7DED866; padding-top: 24px; }
+.home #business .business-usecases h3 { font-size: var(--type-intro); color: var(--brand-highlight); line-height: 1.3; margin: 0 0 14px; }
+.home #business .business-usecases p { color: #D0E1E5; max-width: 34em; line-height: 1.65; }
+.home > main > #demo { background: var(--brand-tint); }
+.demo-request-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 64px; }
+.demo-request-grid > div > p:not(.eyebrow) { max-width: 34em; line-height: 1.65; }
+.demo-agenda { padding-left: 22px; margin-top: 24px; }
+.demo-agenda li { margin-bottom: 12px; padding-left: 4px; }
+.demo-agenda li::marker { color: var(--brand-action); }
+.demo-request-form { background: var(--brand-paper); border: 1px solid var(--line); border-radius: 24px; padding: 28px; }
+.home .demo-request-form h3 { font-size: var(--type-feature); margin: 0 0 24px; color: var(--heading-blue); }
+.demo-request-form label { display: block; font-size: var(--type-supporting); font-weight: 700; margin-bottom: 18px; }
+.demo-request-form label > span { font-weight: 400; color: var(--muted); }
+.demo-request-form input, .demo-request-form textarea { display: block; box-sizing: border-box; width: 100%; margin-top: 8px; padding: 12px 16px; font-family: inherit; font-size: var(--type-body); color: var(--brand-ink); background: #fff; border: 1px solid var(--line); }
+.demo-request-form input { min-height: 48px; border-radius: 999px; }
+.demo-request-form textarea { border-radius: 18px; resize: vertical; }
+.demo-request-form input:focus, .demo-request-form textarea:focus { outline: 2px solid var(--brand-action); outline-offset: 2px; }
+.demo-request-form button { width: 100%; }
+.home #demo .demo-request-note, .home #demo .demo-request-fallback { font-size: var(--type-small); line-height: 1.5; color: var(--muted); margin: 14px 0 0; }
+.demo-request-fallback a { color: var(--brand-action); overflow-wrap: anywhere; }
+.home #demo .demo-request-status { font-size: var(--type-supporting); color: var(--brand-action); }
+@media (max-width: 800px) {
+ .workflow-panel, .demo-request-grid { grid-template-columns: 1fr; gap: 28px; }
+ .workflow-panel > div { max-width: 40em; margin-inline: auto; width: 100%; }
+ .workflow-steps { gap: 8px; }
+ .workflow-steps button { padding: 12px; flex-direction: column; align-items: flex-start; }
+ .benefit-grid { grid-template-columns: 1fr; gap: 28px; }
+ .business-usecases { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 450px) {
+ .workflow-steps { grid-template-columns: 1fr; }
+ .workflow-steps button { flex-direction: row; align-items: center; }
+ .demo-request-form { padding: 22px 18px; }
+}
+
+/* Two business buyers: group coaches and platforms seeking custom integration. */
+.home .hero-business-paths { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+.home .hero-business-paths .btn-outline { background: transparent; color: var(--brand-paper); border: 1px solid var(--brand-highlight); }
+.home #business .business-intro { color: #D0E1E5; max-width: 42em; }
+.business-offers { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 36px; }
+.business-offer { display: flex; flex-direction: column; align-items: flex-start; border: 1px solid #A7DED866; border-radius: 24px; padding: 30px; scroll-margin-top: 110px; }
+.home #business .business-offer h3 { font-size: var(--type-feature); color: var(--brand-paper); line-height: 1.2; margin: 12px 0 20px; }
+.home #business .business-offer p:not(.eyebrow) { color: #D0E1E5; line-height: 1.65; }
+.business-offer ul { padding-left: 20px; margin: 6px 0 28px; color: #D0E1E5; }
+.business-offer li { margin-bottom: 12px; padding-left: 4px; }
+.business-offer li::marker { color: var(--brand-highlight); }
+.business-offer .btn { margin-top: auto; border: 1px solid var(--brand-highlight); }
+.home #desktop[hidden] { display: none; }
+.demo-request-form select { display: block; box-sizing: border-box; width: 100%; min-height: 48px; margin-top: 8px; padding: 12px 16px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--brand-ink); font-family: inherit; font-size: var(--type-body); }
+.demo-request-form select:focus { outline: 2px solid var(--brand-action); outline-offset: 2px; }
+.final-platform-cta { margin-top: 24px; }
+.home .final-platform-cta .btn { border: 1px solid var(--brand-highlight); }
+@media (max-width: 800px) { .business-offers { grid-template-columns: 1fr; gap: 24px; } .business-offer { padding: 26px 22px; } }
+
+/* A welcoming audience cue for movement teaching and everyday practice. */
+.home > main > section .hero-audience { font-size: var(--type-supporting); line-height: 1.5; color: #D0E1E5; max-width: 36em; margin: 20px 0 0; }
+
+/* Business enquiries are the primary website actions. */
+.bar nav a.header-demo { white-space: nowrap; }
+.final-business-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 28px; }
+.home .final-business-actions .btn { border: 1px solid var(--brand-highlight); }
+.home .final-business-actions .btn:last-child { background: transparent; }
