@@ -1082,3 +1082,10 @@ h1, h2, h3, h4,
 .home .text-link,
 .home #features .playback-guide figcaption { font-weight: 500; }
 @media (max-width: 800px) { .hero-copy h1 { font-size: var(--type-section); } }
+
+/* Blend the inner gaps of the tool phone frames into their screenshots. */
+.home #features .playback-guide .device-frame,
+.home #features .playback-guide .device-screen,
+.home #features .playback-guide .device-frame::before {
+  background: #080a0b;
+}
