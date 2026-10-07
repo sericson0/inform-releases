@@ -1001,3 +1001,11 @@ h2 {
   .home .playback-guide .device-frame::before { top: 3px; height: 9px; border-radius: 0 0 6px 6px; }
   .home .playback-guide .device-frame::after { left: -3px; width: 2px; }
 }
+
+/* Softer wireframe lines, with no side-button marks. */
+.home .device-frame,
+.home .device-screen,
+.home .device-frame::before {
+  border-color: color-mix(in srgb, var(--text) 65%, transparent);
+}
+.home .device-frame::after { display: none; }
