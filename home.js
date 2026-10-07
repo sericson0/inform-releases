@@ -1,24 +1,27 @@
 /* Respect motion preferences and pause the hero preview when it leaves view.
-   An external play button stays outside the crop; native controls remain without JavaScript. */
+   Tap/click the video or use Enter/Space to toggle playback; native controls remain without JavaScript. */
 (() => {
   const video = document.querySelector('[data-motion-preview]');
   if (!video) return;
-  const toggle = document.querySelector("[data-hero-toggle]");
-  if (toggle) {
-    video.controls = false;
-    toggle.hidden = false;
-    const updateToggle = () => {
-      toggle.textContent = video.paused ? "Play preview" : "Pause preview";
-      toggle.setAttribute("aria-label", video.paused ? "Play InForm video preview" : "Pause InForm video preview");
-    };
-    toggle.addEventListener("click", () => {
-      if (video.paused) video.play().catch(() => {});
-      else video.pause();
-    });
-    video.addEventListener("play", updateToggle);
-    video.addEventListener("pause", updateToggle);
-    updateToggle();
-  }
+  video.controls = false;
+  video.setAttribute("role", "button");
+  video.setAttribute("tabindex", "0");
+  const updateLabel = () => video.setAttribute("aria-label", video.paused
+    ? "Play InForm video preview" : "Pause InForm video preview");
+  const togglePlayback = () => {
+    if (video.paused) video.play().catch(() => {});
+    else video.pause();
+  };
+  video.addEventListener("click", togglePlayback);
+  video.addEventListener("keydown", (event) => {
+    if (event.key === " " || event.key === "Enter") {
+      event.preventDefault();
+      togglePlayback();
+    }
+  });
+  video.addEventListener("play", updateLabel);
+  video.addEventListener("pause", updateLabel);
+  updateLabel();
   if (!("IntersectionObserver" in window)) return;
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let visible = false;

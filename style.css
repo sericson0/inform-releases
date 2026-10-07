@@ -1083,13 +1083,6 @@ h1, h2, h3, h4,
 .home #features .playback-guide figcaption { font-weight: 500; }
 @media (max-width: 800px) { .hero-copy h1 { font-size: var(--type-section); } }
 
-/* Blend the inner gaps of the tool phone frames into their screenshots. */
-.home #features .playback-guide .device-frame,
-.home #features .playback-guide .device-screen,
-.home #features .playback-guide .device-frame::before {
-  background: #000;
-  --device-surface: #000;
-}
 
 /* Feature headings sit above their screenshots in the shared 20px size. */
 .home #features .playback-guide figure {
@@ -1110,3 +1103,23 @@ h1, h2, h3, h4,
   .home #features .playback-guide { row-gap: 18px; }
   .home #features .playback-guide figure:nth-child(n+4) { margin-top: 30px; }
 }
+
+/* Consistent typography across homepage sections. */
+.home > main > section h2,
+.home #demos .demo-copy h3 {
+  font-size: var(--type-section);
+  font-weight: 700;
+  line-height: 1.15;
+}
+.home > main > section p:not(.eyebrow),
+.home > main > section .demo-details,
+.home .faq-items summary,
+.home .desktop-signup label {
+  font-size: var(--type-body);
+}
+.home > main > section .eyebrow { font-size: var(--type-small); font-weight: 700; }
+.home > main > section .hero-subtitle { font-size: var(--type-feature); }
+.home > main > section .hero-free,
+.home > main > section .desktop-signup-fine { font-size: var(--type-supporting); }
+.home #features .playback-guide figcaption { font-size: var(--type-intro); font-weight: 500; }
+.home .hero-play-toggle { display: none; }
