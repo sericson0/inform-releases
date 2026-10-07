@@ -130,6 +130,42 @@
     });
   }
 
+  const footerForm = document.querySelector("[data-footer-signup]");
+  if (footerForm) {
+    const input = footerForm.querySelector('input[name="email"]');
+    const button = footerForm.querySelector('button[type="submit"]');
+    const status = footerForm.querySelector('[role="status"]');
+    let pending = false;
+    footerForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (pending) return;
+      status.hidden = false;
+      if (!validEmail(input.value)) {
+        status.textContent = "Enter a valid email address.";
+        input.setAttribute("aria-invalid", "true");
+        input.focus();
+        return;
+      }
+      input.removeAttribute("aria-invalid");
+      pending = true;
+      button.disabled = true;
+      status.textContent = "Signing you up…";
+      try {
+        const result = await subscribe(input.value.trim());
+        store.set(CHOICE_KEY, "accepted");
+        status.textContent = result === "confirmation_required"
+          ? "Check your inbox to confirm your email address."
+          : "You’re on the list. We’ll email you when there’s something new to share.";
+        input.disabled = true;
+        button.textContent = "Signed up";
+      } catch (error) {
+        status.textContent = error.message || "Could not sign up. Please try again.";
+        pending = false;
+        button.disabled = false;
+      }
+    });
+  }
+
   /* ---------- markup ---------- */
   const dialog = document.createElement("dialog");
   dialog.className = "updates-dialog";

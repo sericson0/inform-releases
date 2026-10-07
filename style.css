@@ -1502,3 +1502,16 @@ body > footer,
 .final-business-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 28px; }
 .home .final-business-actions .btn { border: 1px solid var(--brand-highlight); }
 .home .final-business-actions .btn:last-child { background: transparent; }
+
+/* Visible footer signup, shared across public pages. */
+a[hidden] { display: none !important; }
+.footer-updates { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding-top: 44px; padding-bottom: 44px; }
+.footer-updates h2 { font-family: inherit; font-size: var(--type-feature); line-height: 1.2; margin: 0 0 12px; color: inherit; }
+.footer-updates p { font-size: var(--type-supporting); line-height: 1.5; }
+.footer-updates label { display: block; font-size: var(--type-supporting); margin-bottom: 8px; }
+.footer-signup-row { display: flex; gap: 12px; }
+.footer-signup-row input { min-width: 0; width: 100%; border: 1px solid #759094; border-radius: 999px; background: #fff; color: #173237; padding: 12px 18px; font: inherit; }
+.footer-signup-row .btn { flex-shrink: 0; }
+.footer-updates .footer-signup-fine, .footer-updates .footer-signup-fine a { font-size: var(--type-small); line-height: 1.5; }
+@media(max-width: 700px) { .footer-updates { grid-template-columns: 1fr; gap: 20px; } }
+@media(max-width: 380px) { .footer-signup-row { flex-direction: column; } .footer-signup-row input { box-sizing: border-box; } }
