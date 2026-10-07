@@ -1222,3 +1222,189 @@ body > footer,
 
 /* Tool captions share the text scale used in the approved copy draft. */
 .home #features .feature-description { display: block; font-size: var(--type-body); font-weight: 400; line-height: 1.65; margin-top: 12px; }
+
+/* Draft refinements: captions beneath media and numbered motion steps. */
+.home #features .playback-guide figure {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-row: auto;
+  align-content: start;
+  gap: 18px;
+  margin-top: 0;
+}
+.home #features .playback-guide figure:nth-child(n+4) { margin-top: 0; }
+.home #features .playback-guide { row-gap: 44px; }
+.home #features .playback-guide figcaption { align-self: start; margin: 0; }
+.home #features .playback-guide figcaption > span:first-child { text-transform: uppercase; }
+.home #features .playback-guide .device-frame { align-self: start; }
+.home #demos ol.demo-details { list-style: decimal; padding-left: 1.5em; }
+.home #demos ol.demo-details li { padding-left: .3em; }
+.home #demos ol.demo-details li::before { display: none; }
+.home #demos ol.demo-details li::marker { color: var(--accent); font-weight: 700; }
+.home .desktop-grid { grid-template-columns: 1fr; }
+.home .desktop-content { max-width: 760px; }
+.desktop-signup input,
+.updates-input { border-radius: 999px; }
+.bar nav a.header-get-app { white-space: nowrap; }
+
+/* Draft: blue headings, outline artwork and numbered motion steps. */
+:root { --heading-blue: #24465C; }
+.home > main > section:not(.home-hero):not(.home-final) h2,
+.home #demos .demo-copy h3,
+.doc h1, .doc h2 { color: var(--heading-blue); }
+.home #demos .demo-copy > .eyebrow { margin: 0 0 10px; }
+.home #demos ol.demo-details { counter-reset: motion-step; list-style: none; padding: 0; }
+.home #demos ol.demo-details li { counter-increment: motion-step; min-height: 34px; padding: 3px 0 3px 46px; }
+.home #demos ol.demo-details li::before {
+  content: counter(motion-step);
+  display: grid;
+  place-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--brand-action);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--brand-action);
+  font-size: var(--type-body);
+  font-weight: 700;
+  line-height: 1;
+}
+.business-outline-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: center; }
+.home .business-outline-grid .business-copy { max-width: none; }
+.business-outline, .desktop-outline { margin: 0; }
+.business-outline img { width: 100%; max-width: 360px; margin: auto; }
+.home .desktop-outline-grid { grid-template-columns: .7fr 1.3fr; align-items: center; gap: 56px; }
+.desktop-outline img { width: 100%; max-width: 300px; margin: auto; }
+.home #testimonials .quote footer b { text-transform: uppercase; }
+.doc .moved-faqs h2 { border: 0; padding-top: 0; }
+.doc .moved-faqs details p { margin: 0 0 14px; padding: 0; }
+.doc .moved-faqs details p:first-of-type { margin-top: 14px; }
+
+/* Draft: more expressive quotes and balanced media details. */
+.home #testimonials .testimonial { margin: 0; display: grid; grid-template-rows: 1fr auto; gap: 20px; }
+.home #testimonials .quote p { font-size: var(--type-intro); line-height: 1.6; }
+.testimonial-author { display: flex; align-items: center; gap: 16px; padding: 0 10px; }
+.testimonial-author b { display: block; font-size: var(--type-body); font-weight: 700; }
+.testimonial-role { display: block; font-size: var(--type-supporting); margin-top: 4px; color: var(--muted); }
+.testimonial-avatar { display: block; width: 80px; height: 80px; border-radius: 50%; overflow: hidden; flex: none; background: #102D32; }
+.testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; transform: scale(2.35); transform-origin: 50% 0%; }
+.home #demos ol.demo-details li::before { top: 50%; transform: translateY(-50%); }
+.home .business-outline-grid { display: block; }
+.home .business-outline-grid .business-copy { max-width: 900px; }
+.home .desktop-outline img { max-width: 280px; }
+.home .coaching-screenshot .device-screen img { filter: saturate(.62); }
+.home .faq-items details:first-of-type { border-top: 0; }
+.home .faq-items .faq-more { margin: 8px 0; }
+.home .home-final .sec-lede { max-width: 28em; margin-inline: auto; }
+@media (max-width: 700px) {
+  .business-outline-grid, .home .desktop-outline-grid { grid-template-columns: 1fr; gap: 28px; }
+  .business-outline img, .desktop-outline img { max-width: 230px; }
+  .business-outline { order: -1; }
+}
+
+/* Business emphasis, distinct section surfaces and quieter supporting copy. */
+.home > main > #business { --bg: var(--heading-blue); --text: var(--brand-paper); --muted: #D0E1E5; background: var(--heading-blue); color: var(--text); }
+.home > main > #business h2 { color: var(--brand-paper); }
+.home #business .eyebrow { color: var(--brand-highlight); }
+.home #business .business-copy p:not(.eyebrow) { color: #D0E1E5; }
+.home #business .business-link { border: 1px solid var(--brand-highlight); }
+.home .business-outline-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: center; }
+.home > main > #desktop, .home > main > #faq { background: var(--brand-paper); --bg: var(--brand-paper); --device-surface: var(--brand-paper); }
+.home > main > #testimonials { background: var(--brand-tint); --bg: var(--brand-tint); }
+.home .desktop-outline img { max-width: 360px; }
+.home > main > section .hero-free { font-size: var(--type-small); line-height: 1.5; color: color-mix(in srgb, var(--brand-paper) 70%, var(--brand-dark)); }
+.home > main > section .desktop-signup-fine, .home > main > section .desktop-signup-fine a { font-size: var(--type-small); line-height: 1.5; color: color-mix(in srgb, var(--brand-ink) 70%, var(--brand-paper)); }
+.home #testimonials .testimonial { grid-template-rows: 1fr 80px; }
+.home #testimonials .testimonial-author { min-height: 80px; }
+.home #demos .demo-preview { cursor: default; }
+.demo-media { display: grid; justify-items: center; gap: 18px; align-self: start; }
+.demo-media .device-frame { width: 100%; }
+.demo-watch { display: inline-flex; align-items: center; justify-content: center; gap: 10px; white-space: nowrap; }
+@media (max-width: 700px) {
+ .home .business-outline-grid { grid-template-columns: 1fr; gap: 28px; }
+ .home .business-outline { order: 0; }
+ .home .business-outline img { max-width: 250px; }
+ .home #testimonials .testimonial { grid-template-rows: 1fr auto; }
+ .home #testimonials .testimonial-author { min-height: 80px; }
+}
+
+/* Clearer labels, expressive quotation marks and uniform email fine print. */
+.home #features .playback-guide figcaption > span:first-child { display: block; font-size: var(--type-body); font-weight: 800; letter-spacing: .035em; line-height: 1.35; }
+.home #testimonials .quote p { font-size: var(--type-intro); line-height: 1.6; }
+.home #testimonials .quote p::before, .home #testimonials .quote p::after { font-size: var(--type-section); font-weight: 800; line-height: 0; vertical-align: -.16em; margin: 0; }
+.home #desktop .desktop-signup p.desktop-signup-fine, .home #desktop .desktop-signup p.desktop-signup-fine a { font-size: var(--type-small); line-height: 1.5; font-weight: 400; color: color-mix(in srgb, var(--brand-ink) 70%, var(--brand-paper)); }
+.home #faq .faq-more { display: inline-block; margin-top: 20px; }
+
+/* One coaching and business section, with a practical closing invitation. */
+.home #features p.feature-storage-note { font-size: var(--type-small); line-height: 1.5; color: color-mix(in srgb, var(--brand-ink) 70%, var(--brand-paper)); margin-top: 18px; }
+.home > main > #business { --device-surface: var(--heading-blue); }
+.home #business .coaching-copy p:not(.eyebrow) { color: #D0E1E5; }
+.home #business .business-outline-grid { margin-top: 80px; }
+.home #business .business-copy h3 { font-size: var(--type-feature); line-height: 1.2; font-weight: 700; color: var(--brand-paper); margin: 12px 0 22px; }
+.home #coaches { scroll-margin-top: 100px; }
+@media (max-width: 700px) { .home #business .business-outline-grid { margin-top: 48px; } }
+
+/* Coach-led hero and quotation artwork inspired by the supplied reference. */
+.home #business .business-outline-grid { margin-top: 0; }
+.home #features .playback-guide figure:last-child .device-screen img { filter: saturate(.62); }
+.home #testimonials .quote p::before, .home #testimonials .quote p::after {
+ content: ""; display: inline-block; width: 32px; height: 29px; margin: 0; vertical-align: -.2em;
+ background: var(--accent); mask: url("quote-mark.svg") center / contain no-repeat; -webkit-mask: url("quote-mark.svg") center / contain no-repeat;
+}
+.home #testimonials .quote p::after { transform: rotate(180deg); }
+
+/* Smaller quote artwork and the approved italic INFORM wordmark in headings. */
+.home #testimonials .quote p::before, .home #testimonials .quote p::after { width: 19px; height: 17px; vertical-align: -.08em; }
+.inline-wordmark { display: inline; white-space: nowrap; text-transform: uppercase; font-style: italic; font-weight: 700; letter-spacing: -.015em; }
+.inline-wordmark i { color: var(--brand-action); font-style: inherit; }
+
+/* A native video poster replaces the separate image beneath the tracking clip. */
+.home #demos .device-screen .demo-preview video { opacity: 1; transition: none; }
+
+/* Give the tracking preview more width, and refine testimonial accents. */
+.home #demos .demo-card { width: 100%; max-width: none; }
+.home #demos .demo-media .device-frame { width: min(100%, 330px); }
+.home #testimonials h2, .home #testimonials h2 .inline-wordmark i { color: #3D8270; }
+.home #testimonials .quote p::before { transform: translateY(-3px); }
+.home #testimonials .quote p::after { transform: translateY(3px) rotate(180deg); }
+@media (max-width: 700px) { .home #demos .demo-media .device-frame { width: min(100%, 300px); } }
+
+/* White numbered circles for the motion-tracking steps. */
+.home #demos ol.demo-details li::before { background: #fff; border-color: #fff; color: var(--brand-action); }
+
+/* Mint green testimonial section with readable dark brand lettering. */
+.home > main > #testimonials { background: var(--brand-highlight); --bg: var(--brand-highlight); --bg-card: var(--brand-paper); --text: var(--brand-ink); --muted: var(--brand-action); color: var(--brand-ink); }
+.home #testimonials h2, .home #testimonials h2 .inline-wordmark i { color: var(--brand-dark); }
+
+/* Quotation artwork sits in opposite corners of each testimonial box. */
+.home #testimonials .quote { position: relative; padding: 40px 30px; }
+.home #testimonials .quote p::before, .home #testimonials .quote p::after { position: absolute; margin: 0; vertical-align: initial; }
+.home #testimonials .quote p::before { top: 14px; left: 14px; transform: none; }
+.home #testimonials .quote p::after { bottom: 14px; right: 14px; transform: rotate(180deg); }
+
+/* Dark blue final call-to-action section. */
+.home > main > section.home-final { --bg: var(--heading-blue); background: var(--heading-blue); }
+
+/* Light text with clear contrast on the dark blue closing section. */
+.home > main > section.home-final { --text: var(--brand-paper); --muted: #D0E1E5; color: var(--brand-paper); }
+.home > main > section.home-final h2, .home > main > section.home-final .sec-lede { color: var(--brand-paper); }
+.home > main > section.home-final .eyebrow { color: var(--brand-highlight); }
+
+/* Fill the tracking phone screen instead of fitting the clip inside it. */
+.home #demos .device-screen .demo-preview { width: 100%; flex: 0 0 100%; aspect-ratio: 1206 / 2622; }
+.home #demos .device-screen .demo-preview video { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.home #demos .device-screen .demo-preview img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+/* Show the complete tracking clip without cropping or zooming. */
+.home #demos .device-screen .demo-preview video,
+.home #demos .device-screen .demo-preview img { object-fit: contain; object-position: center; }
+
+/* White step badges with a clearly visible circular border. */
+.home #demos ol.demo-details li::before { background: #fff; border: 1px solid var(--brand-action); color: var(--brand-action); }
+
+/* Keep the hidden testimonial private and centre the remaining quote. */
+.home #testimonials .testimonial[hidden] { display: none; }
+.home #testimonials .quotes-single { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin-inline: auto; }

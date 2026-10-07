@@ -41,7 +41,7 @@
 */
 const demos = [
   {
-    title: "Follow the movement, frame by frame.",
+    title: "Follow the movement, Frame by frame.",
     description: "Track points, lines, angles and joints through a clip to study how a movement changes over time.",
     details: [
       "Choose the point or movement you want to follow.",
@@ -142,16 +142,13 @@ const demos = [
     card.className = "demo-card";
     card.classList.toggle("vertical", demo.video.vertical === true);
 
-    const preview = document.createElement("button");
+    const preview = document.createElement("div");
     preview.className = "demo-preview";
-    preview.type = "button";
-    preview.setAttribute("aria-label", `Play demo: ${demo.title}`);
 
     const image = document.createElement("img");
     image.src = demo.poster;
     image.alt = "";
     image.loading = "lazy";
-    preview.append(image);
 
     if (canPreview && typeof demo.preview === "string" && demo.preview) {
       const clip = document.createElement("video");
@@ -161,41 +158,41 @@ const demos = [
       clip.playsInline = true;
       clip.setAttribute("muted", "");
       clip.setAttribute("playsinline", "");
+      // Use the video’s own poster so only one media surface is rendered.
+      clip.poster = demo.poster;
       clip.preload = "none";
       clip.tabIndex = -1;
       clip.setAttribute("aria-hidden", "true");
       clip.dataset.src = demo.preview;
       preview.append(clip);
       previews.push(clip);
+    } else {
+      preview.append(image);
     }
 
-    // A centred play button over the poster; once the silent preview is
-    // running it shrinks to a small pill so the clip is what you look at.
-    const play = document.createElement("span");
-    play.className = "demo-play";
-    play.setAttribute("aria-hidden", "true");
-    const playLabel = document.createElement("span");
-    playLabel.className = "demo-play-label";
-    playLabel.textContent = "Play video";
-    play.append(playIcon(), playLabel);
-    preview.append(play);
-
-    if (demo.duration) {
-      const duration = document.createElement("span");
-      duration.className = "demo-duration";
-      duration.textContent = demo.duration;
-      preview.append(duration);
-    }
+    const watch = document.createElement("button");
+    watch.type = "button";
+    watch.className = "btn demo-watch";
+    watch.setAttribute("aria-label", `Watch full video: ${demo.title}`);
+    watch.innerHTML = '<span>Watch full video</span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg>';
+    const media = document.createElement("div");
+    media.className = "demo-media";
 
     const copy = document.createElement("div");
     copy.className = "demo-copy";
     const heading = document.createElement("h3");
     heading.textContent = demo.title;
+    if (demo.title === "Follow the movement, Frame by frame.") {
+      heading.replaceChildren(document.createTextNode("Follow the movement,"), document.createElement("br"), document.createTextNode("Frame by frame."));
+    }
     const summary = document.createElement("p");
     summary.textContent = demo.description;
-    copy.append(heading, summary);
+    const eyebrow = document.createElement("p");
+    eyebrow.className = "eyebrow";
+    eyebrow.textContent = "Advanced motion tracking";
+    copy.append(eyebrow, heading, summary);
     if (Array.isArray(demo.details) && demo.details.length) {
-      const list = document.createElement("ul");
+      const list = document.createElement("ol");
       list.className = "demo-details";
       demo.details.forEach((line) => {
         if (typeof line !== "string" || !line) return;
@@ -212,13 +209,15 @@ const demos = [
       screen.className = "device-screen";
       screen.append(preview);
       frame.append(screen);
-      card.append(frame, copy);
+      media.append(frame, watch);
+      card.append(media, copy);
     } else {
-      card.append(preview, copy);
+      media.append(preview, watch);
+      card.append(media, copy);
     }
     grid.append(card);
 
-    preview.addEventListener("click", () => {
+    watch.addEventListener("click", () => {
       pausePreviews();
       player.replaceChildren();
       title.textContent = demo.title;
@@ -261,4 +260,3 @@ const demos = [
 
   section.hidden = false;
 })();
-
