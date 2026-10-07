@@ -1,6 +1,6 @@
 /*
   Email updates popup and desktop launch form. The popup is the website twin
-  of the app's "Keep up with InForm" dialog
+  of the app's "Keep up with INFORM" dialog
   (Playback: lib/src/shell/email_updates_dialog.dart). Same wording, same
   three answers, same memory:
 
@@ -9,7 +9,7 @@
     No thanks         → never asks again in this browser.
 
   Both forms post to the same Cloudflare Worker the app uses, which adds the
-  address to the "InForm updates" segment in Resend. No key lives here; the
+  address to the "INFORM updates" segment in Resend. No key lives here; the
   Worker holds it. The Worker only accepts `source: "inform-app"`, so that is
   what the site sends too. The desktop launch email will be a broadcast to
   that updates segment.
@@ -114,7 +114,7 @@
         store.set(CHOICE_KEY, "accepted");
         desktopSuccess.textContent = result === "confirmation_required"
           ? "Check your inbox to confirm your email address."
-          : "You're on the list. We'll email you when InForm desktop launches.";
+          : "You're on the list. We'll email you when INFORM desktop launches.";
         desktopSuccess.hidden = false;
         desktopEmail.disabled = true;
       } catch (err) {
@@ -139,17 +139,17 @@
     '<button class="updates-close" type="button" aria-label="Maybe later" data-updates-later>&times;</button>',
     '<svg class="updates-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>',
     '<form class="updates-form" novalidate data-updates-form>',
-    '  <h2 id="updates-title" tabindex="-1">Keep up with InForm</h2>',
-    '  <p id="updates-copy" class="updates-copy">Occasional emails about new developments.</p>',
+    '  <h2 id="updates-title" tabindex="-1">Keep up with INFORM</h2>',
+    '  <p id="updates-copy" class="updates-copy">Occasional emails about product updates and new tools for training and coaching.</p>',
     '  <label class="updates-label" for="updates-email">Email address</label>',
     '  <input class="updates-input" id="updates-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" spellcheck="false" autocapitalize="none" aria-describedby="updates-error" required>',
     '  <p class="updates-error" id="updates-error" role="alert" hidden></p>',
     '  <fieldset class="updates-fieldset">',
-    '    <legend class="updates-label">How do you plan to use InForm?</legend>',
+    '    <legend class="updates-label">How will you use INFORM?</legend>',
     '    <p class="updates-hint">Optional &middot; Select all that apply.</p>',
     '    <div class="updates-choices">',
-    '      <label><input type="checkbox" name="uses" value="own_training"> My training</label>',
-    '      <label><input type="checkbox" name="uses" value="coaching"> Coaching others</label>',
+    '      <label><input type="checkbox" name="uses" value="own_training"> My own training</label>',
+    '      <label><input type="checkbox" name="uses" value="coaching"> Coaching, teaching or a studio</label>',
     '    </div>',
     '  </fieldset>',
     '  <label class="updates-label" for="updates-sport">What&rsquo;s your main sport or activity?</label>',
@@ -241,7 +241,7 @@
       const confirm = result === "confirmation_required";
       doneTitle.textContent = confirm ? "Check your inbox" : "You’re on the list";
       doneCopy.textContent = confirm
-        ? "Confirm your email address to receive InForm updates."
+        ? "Confirm your email address to receive INFORM updates."
         : "We’ll email you when there’s something new to share.";
       setBusy(false);
       form.reset();

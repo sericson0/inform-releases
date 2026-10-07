@@ -7,7 +7,7 @@
   video.setAttribute("role", "button");
   video.setAttribute("tabindex", "0");
   const updateLabel = () => video.setAttribute("aria-label", video.paused
-    ? "Play InForm video preview" : "Pause InForm video preview");
+    ? "Play INFORM video preview" : "Pause INFORM video preview");
   const togglePlayback = () => {
     if (video.paused) video.play().catch(() => {});
     else video.pause();

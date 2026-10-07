@@ -41,12 +41,12 @@
 */
 const demos = [
   {
-    title: "Be on the right track",
-    description: "InForm lets you can track points, lines, angles, and joints.",
+    title: "Follow the movement, frame by frame.",
+    description: "Track points, lines, angles and joints through a clip to study how a movement changes over time.",
     details: [
-      "Variable selection to track the point you want.",
-      "See your technique across the full motion.",
-      "Get the right measurments at the right times.",
+      "Choose the point or movement you want to follow.",
+      "View its path through the clip.",
+      "Review measurements at the moments that matter.",
     ],
     duration: "0:19",
     poster: "img/shot-tracking.webp",
