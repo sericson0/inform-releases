@@ -1564,3 +1564,6 @@ p .inform-wordmark, p .inline-wordmark { font-weight: 800; }
 :root body :is(a.btn, button, .demo-play, .demo-close):not(:disabled):is(:hover, :focus-visible) { background: var(--brand-highlight); color: var(--brand-dark); border-color: var(--brand-action); }
 :root body :is(a.btn, button, .demo-play, .demo-close):not(:disabled):focus-visible { outline: 2px solid var(--brand-action); outline-offset: 3px; box-shadow: 0 0 0 2px var(--brand-paper); }
 @media(prefers-reduced-motion: reduce) { :root body :is(a.btn, button, .demo-play, .demo-close) { transition: none; } }
+
+/* Secondary integration actions use an unfilled outline. */
+.home a.btn.integration-outline { background: transparent; color: var(--brand-paper); border-color: var(--brand-highlight); }
