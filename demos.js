@@ -182,7 +182,7 @@ const demos = [
     copy.className = "demo-copy";
     const heading = document.createElement("h2");
     heading.className = "tracking-heading";
-    heading.textContent = "Put our advanced motion tracking technology to work.";
+    heading.textContent = "Analyse movement with advanced motion tracking.";
     const summary = document.createElement("p");
     summary.textContent = demo.description;
     copy.append(heading, summary);

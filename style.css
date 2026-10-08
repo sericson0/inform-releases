@@ -1429,7 +1429,6 @@ body > footer,
 .home .workflow-panel .device-frame { width: min(100%, 225px); }
 .home .workflow-panel h3 { font-size: var(--type-feature); line-height: 1.2; color: var(--heading-blue); margin: 12px 0 20px; }
 .workflow-panel p:not(.eyebrow) { max-width: 36em; line-height: 1.65; }
-.home #features .workflow-panel .workflow-cue { border-left: 3px solid var(--brand-action); padding-left: 16px; margin-top: 24px; font-weight: 700; color: var(--brand-action); }
 .home .workflow-panel img[src$="Recording.jpg"] { filter: saturate(.62); }
 .tools-disclosure { margin-top: 36px; border-top: 1px solid var(--line); }
 .tools-disclosure > summary { padding: 20px 0; font-size: var(--type-body); font-weight: 700; cursor: pointer; color: var(--brand-action); }
