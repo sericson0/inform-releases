@@ -1,16 +1,4 @@
 (() => {
-  document.querySelectorAll('[data-coaching-workflow]').forEach(workflow => {
-    const buttons = [...workflow.querySelectorAll('[data-workflow-step]')];
-    const panels = [...workflow.querySelectorAll('[data-workflow-panel]')];
-    buttons.forEach(button => button.addEventListener('click', () => {
-      const selected = button.dataset.workflowStep;
-      buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-      panels.forEach(panel => { panel.hidden = panel.dataset.workflowPanel !== selected; });
-    }));
-    const requested = new URLSearchParams(window.location.search).get('step');
-    const initialStep = buttons.find(button => button.dataset.workflowStep === requested);
-    if (initialStep) initialStep.click();
-  });
   const form = document.querySelector('[data-demo-request]');
   if (!form) return;
   const interest = form.querySelector('[data-inquiry-interest]');
@@ -24,7 +12,7 @@
     const lines = platform
       ? ['Discuss your existing dashboard and user workflow.', 'Explore the analysis tools and customisation you need.', 'Talk through integration scope and commercial terms.']
       : ['Record and review a movement clip.', 'Create an explanation a client can revisit.', 'Discuss how video reviews fit your coaching offer.'];
-    agenda.replaceChildren(...lines.map(text => { const item = document.createElement('li'); item.textContent = text; return item; }));
+    agenda?.replaceChildren(...lines.map(text => { const item = document.createElement('li'); item.textContent = text; return item; }));
   };
   interest.addEventListener('change', syncInterest);
   document.querySelectorAll('[data-inquiry-path]').forEach(link => link.addEventListener('click', () => {

@@ -1567,3 +1567,9 @@ p .inform-wordmark, p .inline-wordmark { font-weight: 800; }
 
 /* Secondary integration actions use an unfilled outline. */
 .home a.btn.integration-outline { background: transparent; color: var(--brand-paper); border-color: var(--brand-highlight); }
+
+/* All coaching steps remain visible, with a number beside each description. */
+.coaching-workflow .workflow-panel { padding-block: 40px; }
+.coaching-workflow .workflow-panel + .workflow-panel { margin-top: 24px; }
+.coaching-workflow .workflow-panel .eyebrow { display: flex; align-items: center; gap: 12px; }
+.workflow-number { display: inline-grid; place-items: center; flex: 0 0 36px; width: 36px; height: 36px; border: 1px solid var(--brand-action); border-radius: 50%; background: #fff; color: var(--brand-ink); }
