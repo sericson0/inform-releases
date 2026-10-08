@@ -1515,3 +1515,19 @@ a[hidden] { display: none !important; }
 .footer-updates .footer-signup-fine, .footer-updates .footer-signup-fine a { font-size: var(--type-small); line-height: 1.5; }
 @media(max-width: 700px) { .footer-updates { grid-template-columns: 1fr; gap: 20px; } }
 @media(max-width: 380px) { .footer-signup-row { flex-direction: column; } .footer-signup-row input { box-sizing: border-box; } }
+
+/* Multi-discipline introduction above the existing coaching contexts. */
+.home #why-inform .sports-intro { max-width: 48em; margin-top: 24px; font-size: var(--type-body); line-height: 1.6; }
+
+/* Outline icons for disciplines and coaching contexts. */
+.discipline-list { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 30px 24px; padding: 0; margin: 36px 0 0; }
+.discipline-list li { display: flex; align-items: center; gap: 12px; border: 0; border-radius: 0; background: none; padding: 0; color: var(--heading-blue); font-size: var(--type-supporting); font-weight: 600; line-height: 1.4; }
+.discipline-icon { fill: none; width: 32px; height: 32px; flex: 0 0 32px; color: var(--brand-action); }
+.coaching-settings { position: relative; margin-top: 64px; padding-top: 64px; border-top: 1px solid var(--brand-action); }
+.benefit-grid.coaching-contexts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px; }
+.coaching-contexts article { border-top: 0; padding-top: 0; }
+.context-heading { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+.context-icon { fill: none; width: 44px; height: 44px; flex: 0 0 44px; color: var(--brand-action); }
+.home .context-heading h3 { margin: 0; }
+@media(max-width: 1000px) { .discipline-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media(max-width: 760px) { .discipline-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; } .coaching-settings { margin-top: 48px; padding-top: 48px; } .benefit-grid.coaching-contexts { grid-template-columns: 1fr; gap: 32px; } }

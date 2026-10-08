@@ -41,7 +41,7 @@
     const subject = platform ? 'INFORM platform integration enquiry' : 'INFORM coaching demo request';
     const purpose = platform ? "I'd like to discuss integrating INFORM technology into our platform." : "I'd like to arrange an INFORM coaching demo.";
     const body = `Hi Sean,\n\n${purpose}\n\nName: ${value('name')}\nEmail: ${value('email')}\nBusiness or platform: ${value('business')}\n\nWhat I'd like to explore:\n${value('focus')}\n\nPlease let me know a suitable time to talk.\n`;
-    window.location.href = 'mailto:InFormMotionAnalysis@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    window.location.href = 'mailto:INFORMMotionAnalysis@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     const status = form.querySelector('[data-demo-request-status]');
     status.textContent = 'Your email draft is ready. Send it from your email app to request a conversation.';
     status.hidden = false;

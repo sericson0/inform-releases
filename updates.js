@@ -27,7 +27,7 @@
   const COOLDOWN_MS = 14 * 24 * 60 * 60 * 1000;
   const CHOICE_KEY = "emailUpdates.choice";
   const SHOWN_KEY = "emailUpdates.lastShown";
-  const CONTACT = "InFormMotionAnalysis@gmail.com";
+  const CONTACT = "INFORMMotionAnalysis@gmail.com";
   const SPORT_MAX = 100;
 
   const script = document.currentScript;
