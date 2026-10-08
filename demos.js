@@ -42,7 +42,7 @@
 const demos = [
   {
     title: "Follow the movement, Frame by frame.",
-    description: "Track points, lines, angles and joints through a clip to study how a movement changes over time.",
+    description: "Go beyond video playback. Track points, joints and angles to analyse movement in detail—with the technology already built into INFORM.",
     details: [
       "Choose the point or movement you want to follow.",
       "View its path through the clip.",
@@ -180,17 +180,12 @@ const demos = [
 
     const copy = document.createElement("div");
     copy.className = "demo-copy";
-    const heading = document.createElement("h3");
-    heading.textContent = demo.title;
-    if (demo.title === "Follow the movement, Frame by frame.") {
-      heading.replaceChildren(document.createTextNode("Follow the movement,"), document.createElement("br"), document.createTextNode("Frame by frame."));
-    }
+    const heading = document.createElement("h2");
+    heading.className = "tracking-heading";
+    heading.textContent = "Put our advanced motion tracking technology to work.";
     const summary = document.createElement("p");
     summary.textContent = demo.description;
-    const eyebrow = document.createElement("p");
-    eyebrow.className = "eyebrow";
-    eyebrow.textContent = "Advanced motion tracking";
-    copy.append(eyebrow, heading, summary);
+    copy.append(heading, summary);
     if (Array.isArray(demo.details) && demo.details.length) {
       const list = document.createElement("ol");
       list.className = "demo-details";

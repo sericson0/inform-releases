@@ -20,10 +20,10 @@
     const platform = interest.value === 'platform';
     form.querySelector('[data-inquiry-form-title]').textContent = platform ? 'Build with INFORM' : 'Request a coaching demo';
     form.querySelector('[data-inquiry-submit]').textContent = platform ? 'Request integration call by email' : 'Request demo by email';
-    focus.placeholder = platform ? 'Your dashboard, users, analysis tools and customisation requirements…' : 'Your activity, group size and the feedback you want to offer…';
+    focus.placeholder = platform ? 'Tell us about your platform and the tools you need.' : 'Tell us about your coaching and what you’d like to see.';
     const lines = platform
       ? ['Discuss your existing dashboard and user workflow.', 'Explore the analysis tools and customisation you need.', 'Talk through integration scope and commercial terms.']
-      : ['Record and review a movement clip.', 'Create an explanation a student can revisit.', 'Explore video feedback for your coaching sessions.'];
+      : ['Record and review a movement clip.', 'Create an explanation a client can revisit.', 'Explore video feedback for your coaching sessions.'];
     agenda.replaceChildren(...lines.map(text => { const item = document.createElement('li'); item.textContent = text; return item; }));
   };
   interest.addEventListener('change', syncInterest);
