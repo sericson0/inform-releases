@@ -41,12 +41,12 @@
 */
 const demos = [
   {
-    title: "Follow the movement, Frame by frame.",
-    description: "Go beyond video playback. Track points, joints and angles to analyse movement in detail—with the technology already built into INFORM.",
+    title: "Advanced motion tracking",
+    description: "Bring motion tracking into your coaching without specialist software. Follow movement paths and changing angles directly in INFORM.",
     details: [
-      "Choose the point or movement you want to follow.",
-      "View its path through the clip.",
-      "Review measurements at the moments that matter.",
+      "Select a point, object or body to track.",
+      "Follow its movement through the clip.",
+      "Review paths and angles to support your analysis.",
     ],
     duration: "0:19",
     poster: "img/shot-tracking.webp",
@@ -182,7 +182,7 @@ const demos = [
     copy.className = "demo-copy";
     const heading = document.createElement("h2");
     heading.className = "tracking-heading";
-    heading.textContent = "Analyse movement with advanced motion tracking.";
+    heading.textContent = "Analyse movement with advanced motion tracking";
     const summary = document.createElement("p");
     summary.textContent = demo.description;
     copy.append(heading, summary);

@@ -18,12 +18,12 @@
   const agenda = document.querySelector('[data-inquiry-agenda]');
   const syncInterest = () => {
     const platform = interest.value === 'platform';
-    form.querySelector('[data-inquiry-form-title]').textContent = platform ? 'Build with INFORM' : 'Request a coaching demo';
-    form.querySelector('[data-inquiry-submit]').textContent = platform ? 'Request integration call by email' : 'Request demo by email';
+    form.querySelector('[data-inquiry-form-title]').textContent = platform ? 'Discuss a platform integration' : 'Request a coaching demo';
+    form.querySelector('[data-inquiry-submit]').textContent = platform ? 'Prepare integration email' : 'Prepare demo email';
     focus.placeholder = platform ? 'Tell us about your platform and the tools you need.' : 'Tell us about your coaching and what you’d like to see.';
     const lines = platform
       ? ['Discuss your existing dashboard and user workflow.', 'Explore the analysis tools and customisation you need.', 'Talk through integration scope and commercial terms.']
-      : ['Record and review a movement clip.', 'Create an explanation a client can revisit.', 'Explore video feedback for your coaching sessions.'];
+      : ['Record and review a movement clip.', 'Create an explanation a client can revisit.', 'Discuss how video reviews fit your coaching offer.'];
     agenda.replaceChildren(...lines.map(text => { const item = document.createElement('li'); item.textContent = text; return item; }));
   };
   interest.addEventListener('change', syncInterest);
@@ -43,7 +43,7 @@
     const body = `Hi Sean,\n\n${purpose}\n\nName: ${value('name')}\nEmail: ${value('email')}\nBusiness or platform: ${value('business')}\n\nWhat I'd like to explore:\n${value('focus')}\n\nPlease let me know a suitable time to talk.\n`;
     window.location.href = 'mailto:INFORMMotionAnalysis@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     const status = form.querySelector('[data-demo-request-status]');
-    status.textContent = 'Your email draft is ready. Send it from your email app to request a conversation.';
+    status.textContent = 'Send the draft from your email app. We’ll reply to arrange a meeting.';
     status.hidden = false;
   });
 })();
