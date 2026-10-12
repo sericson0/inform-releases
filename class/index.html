@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#071214">
+  <title>You’re invited | InForm</title>
+  <meta name="description" content="Join your class or shared space in InForm. Open the app or find installation links here.">
+  <meta property="og:title" content="You’re invited to InForm">
+  <meta property="og:description" content="Open your invitation or install InForm to get started.">
+  <meta property="og:image" content="https://informmotion.com/img/og.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/img/icon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/img/icon-180.png">
+  <link rel="stylesheet" href="/invitation.css">
+  <script src="/invitation.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to invitation</a>
+  <header class="brand-bar">
+    <a class="brand" href="/" aria-label="InForm home">
+      <img src="/img/icon-180.png" alt="" width="40" height="40">
+      <span>In<span class="accent">Form</span></span>
+    </a>
+    <a class="help-link" href="/support.html">Need help?</a>
+  </header>
+  <main id="main">
+    <div class="intro">
+      <p class="eyebrow" id="invitation-label">An invitation to InForm</p>
+      <h1 id="heading">Your class is waiting.</h1>
+      <p class="intro-copy" id="description">Join your teacher’s class to find lessons and shared material in one place.</p>
+    </div>
+    <p class="notice" id="invalid" role="alert" hidden>This invitation is incomplete. Ask the person who invited you for a new link.</p>
+    <div class="steps">
+      <section class="card open-card" aria-labelledby="open-heading">
+        <div class="step-label"><span aria-hidden="true">01</span> Already have InForm?</div>
+        <h2 id="open-heading">Open your invitation.</h2>
+        <p>Sign in to InForm, then confirm you’d like to join.</p>
+        <a class="button" id="open" hidden>Open InForm <span aria-hidden="true">↗</span></a>
+        <p class="open-help" id="open-help" role="status" hidden>If InForm didn’t open, install it below, then return to this page and try again.</p>
+        <details id="fallback" hidden>
+          <summary>Use an invitation code instead</summary>
+          <p id="manual-instructions">In InForm, open Spaces → Join space → Join a class and paste this code.</p>
+          <label for="code">Invitation code</label>
+          <input id="code" readonly spellcheck="false" autocomplete="off">
+          <button class="copy-button" id="copy" type="button">Copy code</button>
+          <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+        </details>
+        <noscript><p>Enable JavaScript to open this invitation here, or paste the full invitation link into InForm’s Join space screen.</p></noscript>
+      </section>
+      <section class="card install-card" aria-labelledby="install-heading">
+        <div class="step-label"><span aria-hidden="true">02</span> New to InForm?</div>
+        <h2 id="install-heading">Start with the app.</h2>
+        <p>Install InForm on your phone. Your invitation will still be here when you return.</p>
+        <div class="store-links" id="store-links">
+          <a id="google-play" href="https://play.google.com/store/apps/details?id=dev.sericson.inform" target="_blank" rel="noopener noreferrer" aria-label="Install InForm from Google Play (opens in a new tab)">
+            <img src="/img/badge-google-play.png" alt="Get it on Google Play" width="646" height="250">
+          </a>
+          <a id="app-store" href="https://apps.apple.com/app/id6797707923" target="_blank" rel="noopener noreferrer" aria-label="Install InForm from the App Store (opens in a new tab)">
+            <img src="/img/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+          </a>
+        </div>
+        <p class="platform-hint" id="platform-hint">Choose the store for your phone.</p>
+        <div class="return-note"><span aria-hidden="true">↩</span><p>After installing, return to this page and tap <strong>Open InForm</strong>.</p></div>
+      </section>
+    </div>
+    <p class="reassurance">Your invitation is confirmed inside InForm. Class and shared-space material stays in the app.</p>
+  </main>
+  <footer><span>InForm Motion Analysis</span><nav aria-label="Footer"><a href="/support.html">Support</a><a href="/privacy.html">Privacy</a></nav></footer>
+</body>
+</html>
