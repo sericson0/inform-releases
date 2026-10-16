@@ -45,7 +45,7 @@
 <p class="crumb"><a href="/">&larr; Back to home</a></p>
 
 <h1>InForm — Privacy Policy</h1>
-<p class="sub">Last updated: 12 October 2026</p>
+<p class="sub">Last updated: 16 October 2026</p>
 
 <p>InForm is a motion-analysis app for dance and sports. It films, slows down,
 tracks, annotates, measures and compares video.</p>
@@ -56,11 +56,15 @@ those features to our service providers.</strong> Videos, photos, drawings and
 notes are not uploaded just because you open or analyze them. They leave the
 device when you choose a cloud backup, upload or sharing action, or use a service
 described below. Optional mobile usage analytics helps us improve InForm and can
-be switched off. InForm does not show advertising or sell your personal data.</p>
+be switched off. InForm does not place its own advertising or sell your personal
+data. Embedded YouTube content may display advertising under Google's policies.</p>
 
 <p>This policy covers the current app's data flows. Features and service
 availability can differ by platform and app version. This website's separate
 behavior is described under <a href="#website">This website</a>.</p>
+
+<p><a href="#delete-account">Request account and data deletion</a> — you can
+make a request by email even if you no longer have the app installed.</p>
 
 <h2>What InForm stores on your device</h2>
 
@@ -68,7 +72,9 @@ behavior is described under <a href="#website">This website</a>.</p>
 back up, upload or share the corresponding space or media:</p>
 
 <ul>
-  <li>Videos you record in the app, and copies of videos or photos you open in it.</li>
+  <li>Videos you record in the app, imported videos or photos, and local references
+  to phone videos you browse in place. Browsing the Android video catalogue does
+  not itself copy or upload those videos.</li>
   <li>Frame captures and side-by-side comparison images you save.</li>
   <li>Drawings, measurements, tracked paths and visibility timings, stored in a file beside each video.</li>
   <li>Typed notes, and voice notes recorded through the microphone.</li>
@@ -143,7 +149,7 @@ needed to share it with those participants.</p>
 <p>InForm uses <strong>Google Analytics for Firebase on Android and iOS</strong>
 to understand app usage and improve the app. <strong>Sharing is enabled by default
 when no choice has been saved.</strong> You can turn it off or on using
-<strong>Account → Preferences → Help Improve InForm</strong>. The choice is
+<strong>Account → Manage account → Help improve InForm</strong>. The choice is
 saved on this device, applies independently of the signed-in account and is
 separate from email updates. Collection starts only after the app reads your
 saved choice or the default. This integration does not collect Analytics on
@@ -169,7 +175,7 @@ For a question or request about data already collected, contact us below.</p>
 
 <h2 id="notifications-billing">Notifications and payments</h2>
 
-<p>Where available, class notifications use Firebase Cloud Messaging and, on iOS,
+<p>Where available, class and shared-space notifications use Firebase Cloud Messaging and, on iOS,
 Apple's push service. Device installation identifiers and push tokens are used
 to deliver notifications; InForm associates a registered token with your account.
 You can control notification permission in your device settings. Analytics
@@ -177,15 +183,35 @@ preferences do not disable account, class or notification services. See
 <a href="https://firebase.google.com/support/privacy">Firebase's privacy information</a>
 and the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</p>
 
+<p>Account verification and service messages, including scheduled space-deletion
+notices where configured, can be sent to your verified email address through
+Resend under its <a href="https://resend.com/legal/privacy-policy">privacy policy</a>.
+These messages operate your account and shared spaces and are separate from the
+optional marketing updates list.</p>
+
 <p>Where subscriptions are offered, InForm stores plan, subscription status,
 billing period, provider customer/subscription identifiers and entitlement
 information needed to manage access and storage. Stripe handles available
 website/desktop subscription checkout and billing management under its
-<a href="https://stripe.com/privacy">privacy policy</a>. Mobile support contributions
-are processed by Google Play or the App Store; InForm receives transaction
-results needed to confirm the purchase. External support links may open other
-payment providers. InForm does not store card numbers or bank account details.
-Canceling a subscription and deleting an account are separate actions.</p>
+<a href="https://stripe.com/privacy">privacy policy</a>.</p>
+
+<p>On Android, subscriptions purchased in the app are processed by Google Play.
+InForm sends the purchase token to its server to verify and acknowledge the
+purchase with Google, associate it with your InForm account and keep access up
+to date after renewals, cancellations, refunds or other billing changes. Records
+can include product and base-plan identifiers, purchase tokens and their hashes,
+order identifiers, billing dates, status and an obscured account identifier used
+to match the purchase to your account. Google processes the purchase under the
+<a href="https://policies.google.com/privacy">Google Privacy Policy</a>.
+Monthly and annual subscriptions renew automatically until canceled; manage or
+cancel a Google Play subscription in Google Play. Subscriptions billed by another
+provider remain managed with that provider.</p>
+
+<p>Mobile support contributions are processed by Google Play or the App Store;
+InForm receives transaction results needed to confirm the purchase. External
+support links may open other payment providers. InForm does not store card
+numbers or bank account details. Canceling a subscription and deleting an account
+are separate actions; <a href="#delete-account">see the deletion steps below</a>.</p>
 
 <h2>When information leaves your device</h2>
 
@@ -203,12 +229,13 @@ and class information can refresh automatically while those features are in use.
       <td>InForm hands the microphone to your device's built-in speech
       recognition service — on most Android phones this is provided by Google,
       and on an iPhone by Apple.
-      <strong>Your spoken audio is sent to that service to be turned into
-      text</strong>, and is handled under that provider's privacy policy, not
-      InForm's. The resulting text is written into your note on the device.
-      InForm does not receive or keep a copy of the audio. Dictation runs only
-      while you hold the microphone button; if you never use it, no audio is
-      ever sent.</td>
+      <strong>Your spoken audio may be sent to that provider to be turned into
+      text</strong>, depending on the device, recognition service, language and
+      settings, and is handled under that provider's privacy policy. The resulting
+      text is written into your note on the device. InForm does not upload dictation
+      audio to its own servers. Desktop dictation, where available, runs locally
+      through whisper.cpp. Recording a voice note is a separate action; its audio
+      is stored with your work and can be included in an upload or shared file.</td>
     </tr>
     <tr>
       <td><strong>You open a YouTube video</strong></td>
@@ -311,6 +338,7 @@ optional answers are sent when you choose to subscribe.</p>
   <tbody>
     <tr><td>Camera</td><td>Filming a session in the app. Video is first written to your device; you can later choose to share or upload it.</td></tr>
     <tr><td>Microphone</td><td>Sound on videos you film, voice notes, feedback recordings and dictation. Dictation can send audio to the recognition provider; recorded audio can also be included in content you choose to upload or share.</td></tr>
+    <tr><td>Videos / media access<br><em>(Android)</em></td><td>Browsing and repeatedly opening phone videos for analysis and comparison. Depending on your Android version and choice, access can cover all videos, selected videos or be denied. Older Android versions use storage permission for this video access. Browsing takes place on your device and does not upload the catalogue or its videos.</td></tr>
     <tr><td>Internet</td><td>Accounts, class/shared content, cloud backups, notifications, enabled Analytics, billing, YouTube playback, support links, email signup, model downloads and update checks described above.</td></tr>
     <tr><td>Notifications<br><em>(where available)</em></td><td>Optional class and shared-space updates delivered to your device. You can change permission in device settings.</td></tr>
     <tr><td>Record the screen</td><td>"Record feedback", which captures the screen and your voice into a video on your device. Your phone asks its own separate question every time a recording starts, and nothing is captured until you accept it. You can then choose to save, share or upload the result.</td></tr>
@@ -320,10 +348,12 @@ optional answers are sent when you choose to subscribe.</p>
   </tbody>
 </table>
 
-<p>You can open videos and photos from your device's library whenever you like.
-InForm does this through the system picker, which hands the app only the single
-files you chose — so InForm does not request access to your photo
-library as a whole.</p>
+<p>You can also select individual videos and photos through the system file or
+photo picker. On Android, the Videos view can separately request access to the
+phone's video library. You can manage or revoke that permission in Android
+settings; on supported versions you can limit access to selected videos. Denying
+broader video access leaves the system picker available. Opening or searching
+local media does not itself send the files or search text to InForm's servers.</p>
 
 <h2 id="website">This website</h2>
 
@@ -335,6 +365,12 @@ YouTube only then and is governed by the
 email updates prompt is described above. Links to Instagram and the app stores
 take you to those companies' sites, under their own policies.</p>
 
+<p>If you contact us or request a demonstration, we receive the contact details
+and message you choose to send, such as your name, email address, business name
+and inquiry. We use that information to reply and handle your request. Preparing
+an email draft does not send it; your email service processes a message when
+you choose to send it.</p>
+
 <h2>Children</h2>
 
 <p>InForm is not directed to children under 13. Accounts, cloud sharing and email
@@ -343,13 +379,43 @@ must have the permissions needed before uploading footage or information about
 another person. If you believe a child under 13 has provided personal information
 to InForm, contact us so we can investigate and remove it as appropriate.</p>
 
-<h2>Cloud retention and deletion</h2>
+<h2 id="community-safety">Shared-content safety</h2>
+
+<p>Shared spaces and classes are intended for appropriate sports, dance and
+movement feedback. Community rules prohibit sexual content, child exploitation,
+harassment, threats, privacy violations and spam. Users must accept the current
+community rules before contributing shared content. InForm records the accepted
+rules version and acceptance time with the account.</p>
+
+<p>The community terms require users under 18 to have parent or guardian
+permission. InForm is not directed to children under 13.</p>
+
+<p>If you report content or a participant, InForm receives the report category,
+your explanation, the relevant content or account identifiers and the report
+time. Authorized moderators use these records to investigate reports, restrict
+content or accounts where appropriate, and record the outcome. Reports are not
+published to other participants. Blocking a participant stores the relationship
+needed to restrict interaction and shared-content access. Reports and moderation
+records may be retained where needed for safety, disputes or legal obligations,
+as described below.</p>
+
+<h2 id="retention">Cloud retention and deletion</h2>
 
 <p>Cloud content and membership records are retained while needed for the account,
 class or shared space and its available access. Archiving a class keeps its content;
-it is not deletion. Deleting a cloud item or a class/shared space revokes access
-and queues physical file cleanup. Failed cleanup is retried, so removal from
-storage may take longer than removal from the app's list.</p>
+it is not deletion. Deleting an individual cloud item revokes its access and
+queues physical file cleanup. Failed cleanup is retried, so removal from storage
+may take longer than removal from the app's list.</p>
+
+<p>With the current shared-space deletion service, ordinary owner deletion of a
+class or shared space schedules a <strong>14-day read-only download window</strong>.
+Existing participants retain access to content they were already allowed to see
+so they can save independent copies. Existing private feedback stays private;
+the deletion window does not make it visible to other members. The owner can
+cancel scheduled deletion before the displayed deadline. After the deadline,
+access ends and files are queued for cleanup. Billing expiry does not shorten
+this scheduled window. <strong>Verified account deletion is an immediate exception:
+owned classes and shared spaces do not receive the 14-day window.</strong></p>
 
 <p>When trial, paid or payment-grace access ends, the current service allows a
 30-day read/export window before cloud access is denied and content is eligible
@@ -369,7 +435,7 @@ files and copies in other apps or galleries are unaffected by cloud deletion.</p
 <ul>
   <li><strong>Delete individual items</strong> — the app's library screen deletes a
   video together with its drawings and notes.</li>
-  <li><strong>Free up space in bulk</strong> — the "Free Space" tool clears videos by
+  <li><strong>Free up space in bulk</strong> — the "Free up storage" tool clears videos by
   age or by kind, and an optional auto-delete rule can do it on a schedule. It is
   off unless you turn it on.</li>
   <li><strong>Remove local app data</strong> — clearing app data or uninstalling
@@ -381,16 +447,11 @@ files and copies in other apps or galleries are unaffected by cloud deletion.</p
   class, shared-space or cloud controls to remove content you have permission
   to delete or leave a space. Deleting an owned class or shared space affects
   its other participants too.</li>
-  <li><strong>Delete your account</strong> — choose <strong>Manage account</strong>
-  on the Account tab, then <strong>Delete account</strong>. End an active
-  subscription and let pending checkout expire first if the app requires it.
-  The deletion process removes account-associated cloud content and membership
-  records, removes the email-update registration, revokes retained Apple
-  authorizations where available, and removes the sign-in account. It does not
-  delete local source files or copies already exported by other people.
+  <li><strong>Delete your account</strong> — follow the
+  <a href="#delete-account">in-app or email deletion steps below</a>.
   Uninstalling or signing out alone does not delete your server account.</li>
-  <li><strong>Stop usage analytics</strong> — turn off <strong>Help Improve InForm</strong>
-  in Account preferences on each device. This controls future optional Analytics,
+  <li><strong>Stop usage analytics</strong> — turn off <strong>Help improve InForm</strong>
+  under Account → Manage account on each device. This controls future optional Analytics,
   independently of cloud services and email updates.</li>
   <li><strong>Leave the email list</strong> — use the unsubscribe link in any
   update, or email the address below.</li>
@@ -400,6 +461,42 @@ files and copies in other apps or galleries are unaffected by cloud deletion.</p
 deletion of personal information held for your account. We may need to verify
 your identity before acting on a request. Available rights and any permitted
 retention depend on applicable law and the information involved.</p>
+
+<h2 id="delete-account">Delete your InForm account and data</h2>
+
+<p><strong>You can request deletion without installing or opening InForm.</strong>
+Email <a href="mailto:InFormMotionAnalysis@gmail.com?subject=Delete%20my%20InForm%20account">InFormMotionAnalysis@gmail.com</a>
+with the subject <strong>Delete my InForm account</strong>. Send the request from
+the email address used for your InForm account where possible, and identify that
+account if it uses a different address. Do not send passwords, sign-in codes or
+payment-card details. We verify ownership before deleting account data and reply
+with any remaining steps and the expected completion time.</p>
+
+<p>In the app, open <strong>Account → Manage account → Delete account</strong>
+and confirm. If there is an active subscription, cancel it through its billing
+provider first. The current in-app deletion process can require the subscription
+to finish and any pending checkout to expire. If you cannot complete these steps,
+or no longer have access to the app, use the email support route above. Deletion
+does not itself cancel a Google Play or other provider subscription.</p>
+
+<p>Account deletion removes the sign-in account and profile, account-associated
+cloud backups, owned classes and shared spaces, your class submissions and shared
+feedback, membership and notification records, and the email-update registration
+for that account address. Retained Apple authorizations are revoked where available.
+Other participants lose access to classes and spaces you own. The 14-day
+space-deletion window does not apply to verified account deletion. Local videos
+and personal spaces remain on your device.</p>
+
+<p>Deletion cannot recall copies another person has exported or files saved to
+your gallery, device backups or other apps. Analytics already sent is handled
+separately from account deletion because InForm does not set an account Analytics
+user ID; contact us about requests concerning that data. Payment providers retain
+their own transaction records under their policies. Records needed for security,
+fraud prevention, legal obligations or disputes, and provider logs or backups,
+may remain for the applicable retention period described under
+<a href="#retention">Cloud retention and deletion</a>. You can also email us to
+request access, correction, export or deletion of particular personal data without
+deleting your whole account; tell us which data your request concerns.</p>
 
 <h2>Changes to this policy</h2>
 
