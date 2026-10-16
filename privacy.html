@@ -178,6 +178,10 @@ For a question or request about data already collected, contact us below.</p>
 <p>Where available, class and shared-space notifications use Firebase Cloud Messaging and, on iOS,
 Apple's push service. Device installation identifiers and push tokens are used
 to deliver notifications; InForm associates a registered token with your account.
+On Android, Firebase Cloud Messaging can create and send an installation identifier
+and registration token when the app starts, before you enable notification display.
+Notification permission controls displaying notifications; turning off optional
+usage analytics does not disable this registration.
 You can control notification permission in your device settings. Analytics
 preferences do not disable account, class or notification services. See
 <a href="https://firebase.google.com/support/privacy">Firebase's privacy information</a>
