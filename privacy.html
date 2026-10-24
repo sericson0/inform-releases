@@ -45,7 +45,7 @@
 <p class="crumb"><a href="/">&larr; Back to home</a></p>
 
 <h1>InForm — Privacy Policy</h1>
-<p class="sub">Last updated: 16 October 2026</p>
+<p class="sub">Last updated: 24 October 2026</p>
 
 <p>InForm is a motion-analysis app for dance and sports. It films, slows down,
 tracks, annotates, measures and compares video.</p>
@@ -147,8 +147,9 @@ needed to share it with those participants.</p>
 <h2 id="analytics">Usage analytics (optional)</h2>
 
 <p>InForm uses <strong>Google Analytics for Firebase on Android and iOS</strong>
-to understand app usage and improve the app. <strong>Sharing is enabled by default
-when no choice has been saved.</strong> You can turn it off or on using
+to understand app usage and improve the app. <strong>Starting with iOS version 2.0.0 (build 151), sharing stays off until you enable it.
+Android and earlier iOS versions enable sharing by default when no choice has been saved.
+An explicitly saved choice is preserved.</strong> You can turn it off or on using
 <strong>Account → Manage account → Help improve InForm</strong>. The choice is
 saved on this device, applies independently of the signed-in account and is
 separate from email updates. Collection starts only after the app reads your
@@ -210,6 +211,16 @@ to match the purchase to your account. Google processes the purchase under the
 Monthly and annual subscriptions renew automatically until canceled; manage or
 cancel a Google Play subscription in Google Play. Subscriptions billed by another
 provider remain managed with that provider.</p>
+
+<p>On iOS, memberships purchased in the app are processed by the App Store.
+InForm verifies transactions with Apple and associates them with your InForm account.
+Records include product and transaction identifiers, an account token, purchase and
+expiration dates, subscription status, and renewal, refund and revocation information.
+Apple sends signed subscription-status notifications to keep access up to date.
+InForm does not receive your payment card information. Apple processes purchases under
+<a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>.
+Manage or cancel an Apple subscription in App Store subscriptions; deleting your
+InForm account does not cancel Apple billing.</p>
 
 <p>Mobile support contributions are processed by Google Play or the App Store;
 InForm receives transaction results needed to confirm the purchase. External
@@ -477,8 +488,10 @@ payment-card details. We verify ownership before deleting account data and reply
 with any remaining steps and the expected completion time.</p>
 
 <p>In the app, open <strong>Account → Manage account → Delete account</strong>
-and confirm. If there is an active subscription, cancel it through its billing
-provider first. The current in-app deletion process can require the subscription
+and confirm. Apple-billed subscriptions do not prevent account deletion, and you do not
+need to wait for the paid period to end. Cancel Apple billing separately in App Store
+subscriptions to avoid future charges. For other active subscriptions, cancel through
+the billing provider first. The current in-app deletion process can require the subscription
 to finish and any pending checkout to expire. If you cannot complete these steps,
 or no longer have access to the app, use the email support route above. Deletion
 does not itself cancel a Google Play or other provider subscription.</p>
