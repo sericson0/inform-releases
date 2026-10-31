@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "dev.sericson.inform",
+      "sha256_cert_fingerprints": [
+        "66:50:7C:1B:5A:AF:9F:42:12:D2:00:28:8C:EB:D5:B0:16:E3:16:66:1F:62:E6:25:0F:7B:4A:58:49:6B:5F:9A"
+      ]
+    }
+  }
+]
