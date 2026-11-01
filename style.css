@@ -1673,3 +1673,8 @@ body > header, body > footer, .updates-dialog { --accent-lo: #242424; }
 @media (max-width: 600px) {
  :root .foot nav, :root .foot > .footer-copyright { margin-left: 0; text-align: left; }
 }
+
+/* Compact body-type preview, retaining Urbanist display typography. */
+@font-face { font-family: Roboto; src: url('img/brand/Roboto-variable.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
+:root body, :root body :is(input,textarea,select,label) { font-family: Roboto, sans-serif; }
+
