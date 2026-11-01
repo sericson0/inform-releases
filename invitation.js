@@ -11,10 +11,10 @@
   get('invitation-label').textContent = isClass ? 'You’re invited to a class' : 'You’re invited to a shared space';
   get('heading').textContent = name || (isClass ? 'Your class is waiting.' : 'Your shared space is waiting.');
   if (!isClass) {
-    get('description').textContent = 'Join your shared space to find videos and work together in InForm.';
+    get('description').textContent = 'Join your shared space to find videos and work together in INFORM.';
     get('manual-instructions').textContent = type === 'project'
-      ? 'In InForm, open the shared-space section, choose Join with code and paste this code.'
-      : 'In InForm, open Spaces → Join space → Join a shared space and paste this code.';
+      ? 'In INFORM, open the shared-space section, choose Join with code and paste this code.'
+      : 'In INFORM, open Spaces → Join space → Join a shared space and paste this code.';
   }
   const uniqueParams = [...new Set(params.keys())].every(key => params.getAll(key).length === 1);
   if (/^[a-fA-F0-9]{32}$/.test(token) && validKind && uniqueParams) {
@@ -38,7 +38,7 @@
     });
   } else {
     get('heading').textContent = 'Let’s find your invitation.';
-    get('description').textContent = 'You can install InForm below, but you’ll need a complete invitation to join.';
+    get('description').textContent = 'You can install INFORM below, but you’ll need a complete invitation to join.';
     get('invalid').hidden = false;
   }
   const agent = navigator.userAgent;
@@ -48,6 +48,6 @@
     get('store-links').prepend(get('app-store'));
     get('platform-hint').textContent = 'On iPhone or iPad, choose the App Store.';
   } else {
-    get('platform-hint').textContent = 'Open this invitation on your phone to install InForm.';
+    get('platform-hint').textContent = 'Open this invitation on your phone to install INFORM.';
   }
 })();
