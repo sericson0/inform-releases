@@ -1665,3 +1665,11 @@ body > header, body > footer, .updates-dialog { --accent-lo: #242424; }
  :root .foot nav { justify-content: flex-start; }
  :root .foot > .footer-copyright { grid-column: 1; text-align: left; }
 }
+
+/* Keep copyright beside the links whenever the footer has room. */
+:root .foot { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+:root .foot nav { margin-left: auto; }
+:root .foot > .footer-copyright { flex: 0 0 auto; white-space: nowrap; margin-left: auto; text-align: right; }
+@media (max-width: 600px) {
+ :root .foot nav, :root .foot > .footer-copyright { margin-left: 0; text-align: left; }
+}
