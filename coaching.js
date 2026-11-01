@@ -7,7 +7,7 @@
   const syncInterest = () => {
     const platform = interest.value === 'platform';
     form.querySelector('[data-inquiry-form-title]').textContent = platform ? 'Discuss a platform integration' : 'Request a coaching demo';
-    form.querySelector('[data-inquiry-submit]').textContent = platform ? 'Prepare integration email' : 'Prepare demo email';
+    form.querySelector('[data-inquiry-submit]').textContent = platform ? 'Request integration email' : 'Request demo email';
     focus.placeholder = platform ? 'Tell us about your platform and the tools you need.' : 'Tell us about your coaching and what you’d like to see.';
     const lines = platform
       ? ['Discuss your existing dashboard and user workflow.', 'Explore the analysis tools and customisation you need.', 'Talk through integration scope and commercial terms.']
