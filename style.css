@@ -1629,3 +1629,27 @@ input, textarea, select, button { font-family: 'Manrope', sans-serif; }
 :root { --accent-lo: #242424; }
 body > header, body > footer, .updates-dialog { --accent-lo: #242424; }
 @media (max-width: 480px) { :root .brand .brand-logo { width: 160px; } }
+
+/* Consistent dark brand surfaces across every section and document. */
+:root body, :root body.home > main > section {
+ --bg: #0B0B0B; --bg-soft: #171717; --bg-card: #242424;
+ --text: #F5F3EE; --muted: #B8B8B2; --accent: #C9F879;
+ --accent-lo: #242424; --line: #555650; --line-soft: #383A34;
+ --heading-blue: #F5F3EE; --device-surface: #171717;
+ background: var(--bg); color: var(--text); color-scheme: dark;
+}
+:root body.home > main > section:nth-of-type(even) { --bg: #171717; background: var(--bg); }
+:root body.home > main > :is(#testimonials,#demo,#why-inform,#faq,#business,#desktop) { --text: #F5F3EE; --muted: #B8B8B2; --bg: #171717; background: #171717; color: #F5F3EE; }
+:root body.home > main > section :is(h2,h3), :root .doc :is(h1,h2,h3),
+:root .home #testimonials h2 .inline-wordmark i { color: #F5F3EE; }
+:root .home > main > section :is(.eyebrow,.discipline-icon,.context-icon),
+:root .tools-disclosure > summary, :root .demo-request-fallback a { color: #C9F879; }
+:root .home #testimonials .quote, :root .demo-request-form { background: #242424; color: #F5F3EE; --muted: #B8B8B2; --accent: #C9F879; }
+:root .home #testimonials .quote :is(p,footer,b) { color: #F5F3EE; }
+:root .home #testimonials .quote :is(small,cite) { color: #B8B8B2; }
+:root .demo-request-form :is(input,textarea,select), :root .footer-signup-row input { background: #171717; color: #F5F3EE; border-color: #777970; }
+:root .demo-request-form :is(input,textarea)::placeholder { color: #B8B8B2; }
+:root .demo-request-form :is(input,textarea,select):focus { outline-color: #C9F879; }
+:root .workflow-number, :root .home #demos ol.demo-details li::before { background: #242424; color: #C9F879; border-color: #777970; }
+:root .workflow-steps button { color: #F5F3EE; border-color: #777970; }
+:root .workflow-steps button[aria-pressed="true"] { background: #C9F879; color: #0B0B0B; }
