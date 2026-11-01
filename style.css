@@ -1654,3 +1654,14 @@ body > header, body > footer, .updates-dialog { --accent-lo: #242424; }
 /* Urbanist display and actions paired with Manrope reading text. */
 :root body, :root body :is(input,textarea,select,label) { font-family: Manrope, sans-serif; }
 :root .home #demos .tracking-heading { font-weight: 700; }
+
+/* Logo and navigation share one centered row; copyright sits below. */
+:root .foot { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 12px 24px; }
+:root .foot nav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; margin-left: 0; max-width: none; gap: 12px 20px; }
+:root .foot nav > a { white-space: nowrap; }
+:root .foot > .footer-copyright { grid-column: 2; margin: 0; text-align: right; font-size: var(--type-small); color: var(--muted); }
+@media (max-width: 600px) {
+ :root .foot { grid-template-columns: 1fr; gap: 20px; }
+ :root .foot nav { justify-content: flex-start; }
+ :root .foot > .footer-copyright { grid-column: 1; text-align: left; }
+}
