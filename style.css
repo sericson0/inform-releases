@@ -738,9 +738,6 @@ h2 {
 
 
 /* Draft: three-color rotation, counting only sections included in the page. */
-.home > main > section { --text: #f0f3ed; --muted: #afbfbc; --accent: #8ee2dd; --line: #2a4143; --line-soft: #203335; background: #071214; color: var(--text); color-scheme: dark; }
-.home > main > section:nth-of-type(3n+2) { --text: #173130; --muted: #48605a; --accent: #235f58; --line: #a5bdb0; --line-soft: #bfd4c7; background: #e5eee7; color-scheme: light; }
-.home > main > section:nth-of-type(3n) { --text: #173130; --muted: #355a54; --accent: #164d45; --line: #699f98; --line-soft: #7fbcb2; background: #9ce0d6; color-scheme: light; }
 .home .playback-guide, .home .business-note, .home .demo-card, .home .quote { --text: #f0f3ed; --muted: #afbfbc; --accent: #8ee2dd; --line: #2a4143; color: var(--text); color-scheme: dark; }
 .home .playback-guide { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 860px; margin-inline: auto; }
 .home .business-copy { max-width: 900px; }
@@ -969,9 +966,6 @@ h2 {
 }
 
 /* Minimal phone outlines, contrasting with each section background. */
-.home > main > section { --device-surface: #071214; }
-.home > main > section:nth-of-type(3n+2) { --device-surface: #e5eee7; }
-.home > main > section:nth-of-type(3n) { --device-surface: #9ce0d6; }
 .home .device-frame {
   padding: 6px;
   border: 2px solid var(--text);
@@ -1631,8 +1625,11 @@ body > header, body > footer, .updates-dialog { --accent-lo: #242424; }
 @media (max-width: 480px) { :root .brand .brand-logo { width: 160px; } }
 
 /* Balanced brand surfaces: dark framing, paper content, graphite business. */
-:root body.home > main > #testimonials { --bg: #E8E8E5; --text: #242424; --muted: #3D3D3D; --accent: #3D3D3D; background: #E8E8E5; color: #242424; }
+:root body.home > main > #testimonials { --bg: #C9F879; --text: #242424; --muted: #3D3D3D; --accent: #3D3D3D; background: #C9F879; color: #242424; }
 :root body.home > main > #features, :root body.home > main > #why-inform, :root body.home > main > #faq { background: #F5F3EE; --bg: #F5F3EE; --device-surface: #F5F3EE; }
 :root body.home > main > #demo { background: #E8E8E5; --bg: #E8E8E5; }
 :root body.home > main > #business { background: #242424; --bg: #242424; }
 :root .home #business .business-offer { background: #171717; }
+
+/* Motion tracking uses neutral stone; lime belongs to the testimonial band. */
+:root body.home > main > #demos { --bg: #E8E8E5; --text: #242424; --muted: #3D3D3D; --accent: #3D3D3D; background: #E8E8E5; color: #242424; }
