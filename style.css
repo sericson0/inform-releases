@@ -1643,3 +1643,6 @@ body > header, body > footer, .updates-dialog { --accent-lo: #242424; }
 
 /* Give the main brand promise more presence at every screen size. */
 .home .hero-copy h1 { font-size: clamp(2.75rem, 5.6vw, 5rem); line-height: 1.04; }
+
+/* Numbered steps: lime circles with dark numerals. */
+:root .workflow-number, :root .home #demos ol.demo-details li::before { background: #C9F879; color: #0B0B0B; border: 1px solid #242424; }
