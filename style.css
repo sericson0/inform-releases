@@ -1637,3 +1637,6 @@ body > header, body > footer, .updates-dialog { --accent-lo: #242424; }
 /* Lime outline icons sit on graphite for legibility on paper sections. */
 :root .discipline-icon, :root .context-icon { color: #C9F879; background: #242424; border-radius: 10px; padding: 5px; box-sizing: content-box; }
 :root .workflow-number, :root .home #demos ol.demo-details li::before { background: #242424; color: #C9F879; border-color: #242424; }
+
+/* Primary demo action follows the lime CTA treatment. */
+:root .demo-request-form button { background: #C9F879; color: #0B0B0B; border-color: #C9F879; }
