@@ -1616,3 +1616,16 @@ body > footer, .home > main > #business { background: var(--brand-surface); }
 }
 /* Use the existing mark in monochrome alongside the upright wordmark. */
 .brand img, .footer-brand img { filter: grayscale(1); }
+
+/* INFORM brand system 1.9: local fonts and optically balanced logo. */
+@font-face { font-family: 'Manrope'; src: url('img/brand/Manrope-variable.ttf') format('truetype'); font-weight: 200 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Plus Jakarta Sans'; src: url('img/brand/PlusJakartaSans-variable.ttf') format('truetype'); font-weight: 200 800; font-style: normal; font-display: swap; }
+body { font-family: 'Manrope', sans-serif; }
+body :is(h1,h2,h3,h4,h5,h6), .home #demos .tracking-heading { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; }
+input, textarea, select, button { font-family: 'Manrope', sans-serif; }
+:root .brand .brand-logo, :root .footer-brand .brand-logo { width: 190px; height: auto; max-width: 100%; filter: none; }
+.brand, .footer-brand { flex-shrink: 0; }
+.inform-wordmark, .inline-wordmark, p .inform-wordmark, p .inline-wordmark { font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-weight: 500; letter-spacing: .02em; }
+:root { --accent-lo: #242424; }
+body > header, body > footer, .updates-dialog { --accent-lo: #242424; }
+@media (max-width: 480px) { :root .brand .brand-logo { width: 160px; } }
