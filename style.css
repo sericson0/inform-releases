@@ -1650,3 +1650,7 @@ body > header, body > footer, .updates-dialog { --accent-lo: #242424; }
 /* Selected type direction: Urbanist across the website. */
 @font-face { font-family: Urbanist; src: url('img/brand/Urbanist-variable.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
 :root body, :root body :is(h1,h2,h3,h4,h5,h6,input,textarea,select,button,.inform-wordmark,.inline-wordmark), :root .home #demos .tracking-heading { font-family: Urbanist, sans-serif; }
+
+/* Urbanist display and actions paired with Manrope reading text. */
+:root body, :root body :is(input,textarea,select,label) { font-family: Manrope, sans-serif; }
+:root .home #demos .tracking-heading { font-weight: 700; }
