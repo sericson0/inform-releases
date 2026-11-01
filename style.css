@@ -1126,7 +1126,7 @@ h1, h2, h3, h4,
 /* INFORM branding: obsidian, graphite, warm paper and lime. */
 :root {
   --brand-dark: #0B0B0B;
-  --brand-action: #435526;
+  --brand-action: #3D3D3D;
   --brand-highlight: #C9F879;
   --brand-tint: #E8E8E5;
   --brand-paper: #F5F3EE;
@@ -1612,7 +1612,7 @@ body > footer, .home > main > #business { background: var(--brand-surface); }
 .home .home-faq details { border-color: #B8B8B2; }
 .home .device-frame, .home .device-screen, .home .device-frame::before { border-color: #383A34; }
 :root body :is(a.btn, button, .demo-play, .demo-close):not(:disabled):is(:hover, :focus-visible) {
-  background: var(--brand-lime); color: var(--brand-dark); border-color: #435526;
+  background: var(--brand-lime); color: var(--brand-dark); border-color: #3D3D3D;
 }
 /* Use the existing mark in monochrome alongside the upright wordmark. */
 .brand img, .footer-brand img { filter: grayscale(1); }
