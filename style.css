@@ -1631,5 +1631,9 @@ body > header, body > footer, .updates-dialog { --accent-lo: #242424; }
 :root body.home > main > #business { background: #242424; --bg: #242424; }
 :root .home #business .business-offer { background: #171717; }
 
-/* Motion tracking uses neutral stone; lime belongs to the testimonial band. */
-:root body.home > main > #demos { --bg: #E8E8E5; --text: #242424; --muted: #3D3D3D; --accent: #3D3D3D; background: #E8E8E5; color: #242424; }
+/* Motion tracking and testimonials use the approved neon-lime bands. */
+:root body.home > main > #demos { --bg: #C9F879; --text: #242424; --muted: #3D3D3D; --accent: #3D3D3D; background: #C9F879; color: #242424; }
+
+/* Lime outline icons sit on graphite for legibility on paper sections. */
+:root .discipline-icon, :root .context-icon { color: #C9F879; background: #242424; border-radius: 10px; padding: 5px; box-sizing: content-box; }
+:root .workflow-number, :root .home #demos ol.demo-details li::before { background: #242424; color: #C9F879; border-color: #242424; }
