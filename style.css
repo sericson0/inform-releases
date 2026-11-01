@@ -1123,14 +1123,14 @@ h1, h2, h3, h4,
 .home #features .playback-guide figcaption { font-size: var(--type-intro); font-weight: 500; }
 .home .hero-play-toggle { display: none; }
 
-/* Approved INFORM branding: refined teal, pale blue and off-white. */
+/* INFORM branding: obsidian, graphite, warm paper and lime. */
 :root {
-  --brand-dark: #102D32;
-  --brand-action: #246B70;
-  --brand-highlight: #A7DED8;
-  --brand-tint: #E7F2F4;
-  --brand-paper: #F7F9F7;
-  --brand-ink: #173237;
+  --brand-dark: #0B0B0B;
+  --brand-action: #435526;
+  --brand-highlight: #C9F879;
+  --brand-tint: #E8E8E5;
+  --brand-paper: #F5F3EE;
+  --brand-ink: #242424;
   --bg: var(--brand-dark);
   --bg-soft: color-mix(in srgb, var(--brand-dark) 94%, var(--brand-paper));
   --bg-card: color-mix(in srgb, var(--brand-dark) 90%, var(--brand-paper));
@@ -1248,7 +1248,7 @@ body > footer,
 .bar nav a.header-get-app { white-space: nowrap; }
 
 /* Draft: blue headings, outline artwork and numbered motion steps. */
-:root { --heading-blue: #24465C; }
+:root { --heading-blue: #242424; }
 .home > main > section:not(.home-hero):not(.home-final) h2,
 .home #demos .demo-copy h3,
 .doc h1, .doc h2 { color: var(--heading-blue); }
@@ -1289,7 +1289,7 @@ body > footer,
 .testimonial-author { display: flex; align-items: center; gap: 16px; padding: 0 10px; }
 .testimonial-author b { display: block; font-size: var(--type-body); font-weight: 700; }
 .testimonial-role { display: block; font-size: var(--type-supporting); margin-top: 4px; color: var(--muted); }
-.testimonial-avatar { display: block; width: 80px; height: 80px; border-radius: 50%; overflow: hidden; flex: none; background: #102D32; }
+.testimonial-avatar { display: block; width: 80px; height: 80px; border-radius: 50%; overflow: hidden; flex: none; background: #0B0B0B; }
 .testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; transform: scale(2.35); transform-origin: 50% 0%; }
 .home #demos ol.demo-details li::before { top: 50%; transform: translateY(-50%); }
 .home .business-outline-grid { display: block; }
@@ -1306,10 +1306,10 @@ body > footer,
 }
 
 /* Business emphasis, distinct section surfaces and quieter supporting copy. */
-.home > main > #business { --bg: var(--heading-blue); --text: var(--brand-paper); --muted: #D0E1E5; background: var(--heading-blue); color: var(--text); }
+.home > main > #business { --bg: var(--heading-blue); --text: var(--brand-paper); --muted: #B8B8B2; background: var(--heading-blue); color: var(--text); }
 .home > main > #business h2 { color: var(--brand-paper); }
 .home #business .eyebrow { color: var(--brand-highlight); }
-.home #business .business-copy p:not(.eyebrow) { color: #D0E1E5; }
+.home #business .business-copy p:not(.eyebrow) { color: #B8B8B2; }
 .home #business .business-link { border: 1px solid var(--brand-highlight); }
 .home .business-outline-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: center; }
 .home > main > #desktop, .home > main > #faq { background: var(--brand-paper); --bg: var(--brand-paper); --device-surface: var(--brand-paper); }
@@ -1341,7 +1341,7 @@ body > footer,
 /* One coaching and business section, with a practical closing invitation. */
 .home #features p.feature-storage-note { font-size: var(--type-small); line-height: 1.5; color: color-mix(in srgb, var(--brand-ink) 70%, var(--brand-paper)); margin-top: 18px; }
 .home > main > #business { --device-surface: var(--heading-blue); }
-.home #business .coaching-copy p:not(.eyebrow) { color: #D0E1E5; }
+.home #business .coaching-copy p:not(.eyebrow) { color: #B8B8B2; }
 .home #business .business-outline-grid { margin-top: 80px; }
 .home #business .business-copy h3 { font-size: var(--type-feature); line-height: 1.2; font-weight: 700; color: var(--brand-paper); margin: 12px 0 22px; }
 .home #coaches { scroll-margin-top: 100px; }
@@ -1389,7 +1389,7 @@ body > footer,
 .home > main > section.home-final { --bg: var(--heading-blue); background: var(--heading-blue); }
 
 /* Light text with clear contrast on the dark blue closing section. */
-.home > main > section.home-final { --text: var(--brand-paper); --muted: #D0E1E5; color: var(--brand-paper); }
+.home > main > section.home-final { --text: var(--brand-paper); --muted: #B8B8B2; color: var(--brand-paper); }
 .home > main > section.home-final h2, .home > main > section.home-final .sec-lede { color: var(--brand-paper); }
 .home > main > section.home-final .eyebrow { color: var(--brand-highlight); }
 
@@ -1414,7 +1414,7 @@ body > footer,
 .home .hero-secondary { margin-top: 20px; }
 .home .hero-secondary .btn-outline { background: transparent; border: 1px solid var(--brand-highlight); color: var(--brand-paper); }
 .home .hero-proof { margin: 18px 0 0; }
-.home > main > section .hero-proof { font-size: var(--type-supporting); color: #D0E1E5; }
+.home > main > section .hero-proof { font-size: var(--type-supporting); color: #B8B8B2; }
 .home .hero-proof a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .coaching-workflow { margin-top: 36px; }
 .home #features .workflow-example { font-size: var(--type-supporting); color: var(--muted); margin-bottom: 16px; }
@@ -1439,9 +1439,9 @@ body > footer,
 .home .benefit-grid h3 { font-size: var(--type-intro); line-height: 1.3; color: var(--heading-blue); margin: 0 0 14px; }
 .benefit-grid p { line-height: 1.65; margin: 0; }
 .business-usecases { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; margin-top: 44px; }
-.business-usecases article { border-top: 1px solid #A7DED866; padding-top: 24px; }
+.business-usecases article { border-top: 1px solid #C9F87966; padding-top: 24px; }
 .home #business .business-usecases h3 { font-size: var(--type-intro); color: var(--brand-highlight); line-height: 1.3; margin: 0 0 14px; }
-.home #business .business-usecases p { color: #D0E1E5; max-width: 34em; line-height: 1.65; }
+.home #business .business-usecases p { color: #B8B8B2; max-width: 34em; line-height: 1.65; }
 .home > main > #demo { background: var(--brand-tint); }
 .demo-request-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 64px; }
 .demo-request-grid > div > p:not(.eyebrow) { max-width: 34em; line-height: 1.65; }
@@ -1477,12 +1477,12 @@ body > footer,
 /* Two business buyers: group coaches and platforms seeking custom integration. */
 .home .hero-business-paths { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
 .home .hero-business-paths .btn-outline { background: transparent; color: var(--brand-paper); border: 1px solid var(--brand-highlight); }
-.home #business .business-intro { color: #D0E1E5; max-width: 42em; }
+.home #business .business-intro { color: #B8B8B2; max-width: 42em; }
 .business-offers { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 36px; }
-.business-offer { display: flex; flex-direction: column; align-items: flex-start; border: 1px solid #A7DED866; border-radius: 24px; padding: 30px; scroll-margin-top: 110px; }
+.business-offer { display: flex; flex-direction: column; align-items: flex-start; border: 1px solid #C9F87966; border-radius: 24px; padding: 30px; scroll-margin-top: 110px; }
 .home #business .business-offer h3 { font-size: var(--type-feature); color: var(--brand-paper); line-height: 1.2; margin: 12px 0 20px; }
-.home #business .business-offer p:not(.eyebrow) { color: #D0E1E5; line-height: 1.65; }
-.business-offer ul { padding-left: 20px; margin: 6px 0 28px; color: #D0E1E5; }
+.home #business .business-offer p:not(.eyebrow) { color: #B8B8B2; line-height: 1.65; }
+.business-offer ul { padding-left: 20px; margin: 6px 0 28px; color: #B8B8B2; }
 .business-offer li { margin-bottom: 12px; padding-left: 4px; }
 .business-offer li::marker { color: var(--brand-highlight); }
 .business-offer .btn { margin-top: auto; border: 1px solid var(--brand-highlight); }
@@ -1494,7 +1494,7 @@ body > footer,
 @media (max-width: 800px) { .business-offers { grid-template-columns: 1fr; gap: 24px; } .business-offer { padding: 26px 22px; } }
 
 /* A welcoming audience cue for movement teaching and everyday practice. */
-.home > main > section .hero-audience { font-size: var(--type-supporting); line-height: 1.5; color: #D0E1E5; max-width: 36em; margin: 20px 0 0; }
+.home > main > section .hero-audience { font-size: var(--type-supporting); line-height: 1.5; color: #B8B8B2; max-width: 36em; margin: 20px 0 0; }
 
 /* Business enquiries are the primary website actions. */
 .bar nav a.header-demo { white-space: nowrap; }
@@ -1509,7 +1509,7 @@ a[hidden] { display: none !important; }
 .footer-updates p { font-size: var(--type-supporting); line-height: 1.5; }
 .footer-updates label { display: block; font-size: var(--type-supporting); margin-bottom: 8px; }
 .footer-signup-row { display: flex; gap: 12px; }
-.footer-signup-row input { min-width: 0; width: 100%; border: 1px solid #759094; border-radius: 999px; background: #fff; color: #173237; padding: 12px 18px; font: inherit; }
+.footer-signup-row input { min-width: 0; width: 100%; border: 1px solid #777970; border-radius: 999px; background: #fff; color: #242424; padding: 12px 18px; font: inherit; }
 .footer-signup-row .btn { flex-shrink: 0; }
 .footer-updates .footer-signup-fine, .footer-updates .footer-signup-fine a { font-size: var(--type-small); line-height: 1.5; }
 @media(max-width: 700px) { .footer-updates { grid-template-columns: 1fr; gap: 20px; } }
@@ -1553,7 +1553,7 @@ p .inform-wordmark, p .inline-wordmark { font-weight: 800; }
 
 /* Keep enquiry prompts aligned and lighter than field labels. */
 .demo-request-form textarea { padding: 16px; font-weight: 400; line-height: 1.5; text-align: left; }
-.demo-request-form textarea::placeholder { color: #64777A; opacity: 1; font-weight: 400; }
+.demo-request-form textarea::placeholder { color: #65655F; opacity: 1; font-weight: 400; }
 
 /* Copyright sits alongside Privacy in the footer navigation. */
 .foot nav { align-items: center; }
@@ -1579,3 +1579,40 @@ p .inform-wordmark, p .inline-wordmark { font-weight: 800; }
   .home #demos .demo-card.vertical .demo-copy { grid-column: 1; grid-row: 1; }
   .home #demos .demo-card.vertical .demo-media { grid-column: 2; grid-row: 1; }
 }
+
+/* Shared with the dark analysis design; keep lime for meaningful actions. */
+:root {
+  --brand-surface: #171717;
+  --brand-raised: #242424;
+  --brand-lime: #C9F879;
+}
+body > header { background: rgb(11 11 11 / 96%); border-bottom-color: #383A34; }
+body > footer, .home > main > #business { background: var(--brand-surface); }
+.home > main > .home-hero, .home > main > .home-final { background: var(--brand-dark); }
+.home .hero-copy h1 { font-weight: 500; letter-spacing: -.045em; max-width: 11em; }
+.brand b, .brand b i, .footer-brand b, .footer-brand i,
+.hero-wordmark, .hero-wordmark > span {
+  font-style: normal; font-weight: 500; letter-spacing: .16em;
+  color: var(--brand-paper);
+}
+.inform-wordmark, .inline-wordmark { font-style: normal; font-weight: 600; letter-spacing: .04em; }
+.home .hero-business-paths .btn:first-child,
+.bar nav a.btn.header-demo,
+.home .final-business-actions .btn:first-child {
+  background: var(--brand-lime); color: var(--brand-dark); border-color: var(--brand-lime);
+}
+.home .hero-business-paths .btn-outline,
+.home .final-business-actions .btn:last-child { color: var(--brand-paper); border-color: #777970; }
+.home .hero-copy .eyebrow { color: var(--brand-lime); letter-spacing: .15em; }
+.home .hero-copy .lede { color: #B8B8B2; }
+.home .hero-proof a { color: var(--brand-paper); }
+.business-offer { background: var(--brand-raised); border-color: #383A34; }
+.home #business .business-offer .btn { background: var(--brand-lime); color: var(--brand-dark); }
+.home #business .business-offer .btn.integration-outline { background: transparent; color: var(--brand-lime); }
+.home .home-faq details { border-color: #B8B8B2; }
+.home .device-frame, .home .device-screen, .home .device-frame::before { border-color: #383A34; }
+:root body :is(a.btn, button, .demo-play, .demo-close):not(:disabled):is(:hover, :focus-visible) {
+  background: var(--brand-lime); color: var(--brand-dark); border-color: #435526;
+}
+/* Use the existing mark in monochrome alongside the upright wordmark. */
+.brand img, .footer-brand img { filter: grayscale(1); }
