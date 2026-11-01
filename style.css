@@ -1646,3 +1646,7 @@ body > header, body > footer, .updates-dialog { --accent-lo: #242424; }
 
 /* Numbered steps: lime circles with dark numerals. */
 :root .workflow-number, :root .home #demos ol.demo-details li::before { background: #C9F879; color: #0B0B0B; border: 1px solid #242424; }
+
+/* Selected type direction: Urbanist across the website. */
+@font-face { font-family: Urbanist; src: url('img/brand/Urbanist-variable.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
+:root body, :root body :is(h1,h2,h3,h4,h5,h6,input,textarea,select,button,.inform-wordmark,.inline-wordmark), :root .home #demos .tracking-heading { font-family: Urbanist, sans-serif; }
