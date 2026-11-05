@@ -22,6 +22,8 @@
   }));
   syncInterest();
   let sending = false;
+  let receipt;
+  let lastPayload;
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (sending || !form.reportValidity()) return;
@@ -36,11 +38,24 @@
     status.textContent = '';
     status.hidden = false;
     try {
+      const payload = Object.fromEntries(['name', 'email', 'business', 'focus', 'interest', 'website'].map(name => [name, value(name)]));
+      const fingerprint = JSON.stringify(payload);
+      if (fingerprint !== lastPayload) { receipt = undefined; lastPayload = fingerprint; }
+      if (!receipt) {
+        const prepared = await fetch('https://inform-email-updates.email-updates.workers.dev/business-inquiry', {
+          method: 'POST', headers: {'Content-Type': 'application/json'}, signal: AbortSignal.timeout(20000),
+          body: JSON.stringify({...payload, prepare: true}),
+        });
+        if (!prepared.ok) throw new Error('Could not prepare sending. Please try again.');
+        receipt = (await prepared.json()).receipt;
+        if (!receipt) throw new Error('Could not prepare sending. Please try again.');
+      }
       const response = await fetch('https://inform-email-updates.email-updates.workers.dev/business-inquiry', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         signal: AbortSignal.timeout(20000),
-        body: JSON.stringify(Object.fromEntries(['name', 'email', 'business', 'focus', 'interest', 'website'].map(name => [name, value(name)]))),
+        body: JSON.stringify({...payload, receipt}),
       });
+      if (response.status === 400) receipt = undefined;
       if (!response.ok) throw new Error(response.status === 429 ? 'Please wait a minute before trying again. Your message is still here.' : 'Could not confirm sending. Your message is still here; please try again.');
       const result = await response.json();
       if (result.status !== 'sent') throw new Error('Could not confirm sending. Please try again.');
